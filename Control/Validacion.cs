@@ -33,6 +33,7 @@ namespace Control {
         /*-----------------------KeyPress for Frm-------------------------------*/
 
         #region KeyPress for Frm
+
         internal void validarSoloNumerosKeyPress (object sender, KeyPressEventArgs e) {
             char c = e.KeyChar;
             if (!char.IsControl (c) && !char.IsDigit (c)) {
@@ -56,65 +57,58 @@ namespace Control {
                 return;
             }
         }
+        
         #endregion
 
         /*-----------------------Frm_Conductor_Registrar-------------------------------*/
 
         #region Validation: Frm_Conductor_Registrar - errorprovider emtpy fields & incorrect email
-        internal bool esCorrectoDatosConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNac, DateTimePicker dtp_FechaContrato, ErrorProvider errorProvider1) {
+
+        internal bool esCorrecto_GuardarDatosConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider err_Alerta) {
             bool salida = true;
             string mensaje = "Campo obligatorio.";
-            string correo = txt_Correo.Text.Trim ();
             if (txt_Cedula.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Cedula, mensaje);
+                err_Alerta.SetError (txt_Cedula, mensaje);
                 salida = false;
             }
             if (txt_Nombre1.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Nombre1, mensaje);
+                err_Alerta.SetError (txt_Nombre1, mensaje);
                 salida = false;
             }
             if (txt_Apellido1.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Apellido1, mensaje);
+                err_Alerta.SetError (txt_Apellido1, mensaje);
                 salida = false;
             }
             if (txt_Apellido2.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Apellido2, mensaje);
+                err_Alerta.SetError (txt_Apellido2, mensaje);
                 salida = false;
             }
-            if (correo == "") {
-                errorProvider1.SetError (txt_Correo, mensaje);
+            if (cmb_Disponibilidad.SelectedIndex == 0) {
+                err_Alerta.SetError (cmb_Disponibilidad, mensaje);
                 salida = false;
-            } else {
-                try {
-                    var addr = new System.Net.Mail.MailAddress (correo);
-                    //return addr.Address == correo;
-                } catch {
-                    errorProvider1.SetError (txt_Correo, "Correo no valido.");
-                    salida = false;
-                }
             }
             if (txt_Telefono.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Telefono, mensaje);
+                err_Alerta.SetError (txt_Telefono, mensaje);
                 salida = false;
             }
             if (rdb_Femenino.Checked == rdb_Masculino.Checked) {
-                errorProvider1.SetError (rdb_Femenino, mensaje);
+                err_Alerta.SetError (rdb_Femenino, mensaje);
                 salida = false;
             }
-            if (dtp_FechaNac.Text == null) {
-                errorProvider1.SetError (dtp_FechaNac, mensaje);
+            if (dtp_FechaNacimiento.Text == null) {
+                err_Alerta.SetError (dtp_FechaNacimiento, mensaje);
                 salida = false;
             }
-
             if (dtp_FechaContrato.Text == null) {
-                errorProvider1.SetError (dtp_FechaContrato, mensaje);
+                err_Alerta.SetError (dtp_FechaContrato, mensaje);
                 salida = false;
             }
             return salida;
         }
+
         #endregion
 
-        /*------------------------------------------------------*/
+        /*-----------------------Frm_Secretaria_Registrar-------------------------------*/
 
         #region Validation: Frm_Secretaria_Registrar - errorprovider emtpy fields & incorrect email
         internal bool esCorrectoDatosSecretaria (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNac, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider errorProvider1) {
@@ -284,6 +278,8 @@ namespace Control {
             }
             return salida;
         }
+
+        
 
         internal bool esCorrectoDatosConductorEditar (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider errorProvider1) {
             bool salida = true;

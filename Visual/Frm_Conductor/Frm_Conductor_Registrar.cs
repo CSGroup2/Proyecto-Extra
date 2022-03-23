@@ -22,7 +22,7 @@ namespace Visual {
         }
 
         private void FrmConductorReg_Load (object sender, EventArgs e) {
-            this.pncontenido.BackColor = Color.FromArgb (200, 255, 255, 255);
+            this.pnl_Contenido.BackColor = Color.FromArgb (200, 255, 255, 255);
         }
 
         private void textBox7_TextChanged (object sender, EventArgs e) {
@@ -77,9 +77,11 @@ namespace Visual {
             admConductor.validarSoloCorreoKeypress (sender, e);
         }
 
+
+
         private void btn_Guardar_Click (object sender, EventArgs e) {
-            errorProvider1.Clear ();
-            if (admConductor.esCorrectoDatosConductorValidacion (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, errorProvider1)) {
+            err_Alerta.Clear ();
+            if (admConductor.esCorrecto_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta)) {
                 string
                    cedula = txt_Cedula.Text.Trim (),
                    nombre1 = txt_Nombre1.Text.Trim (),
@@ -89,11 +91,11 @@ namespace Visual {
                    telefono = txt_Telefono.Text.Trim (),
                    sexo = admConductor.esSexoValidacion (rdb_Masculino, rdb_Femenino);
                 DateTime
-                    fecha_nac = dtp_FechaNac.Value.Date,
+                    fecha_nac = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
                 string mensaje = admConductor.guardarDatosConductor (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
                 if (mensaje[0] != '¡') {
-                    admConductor.limpiarCamposGuardarConductor (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, errorProvider1);
+                    admConductor.limpiarCampos_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
                 }
             }
         }
@@ -103,7 +105,7 @@ namespace Visual {
         }
 
         private void btn_Limpiar_Click (object sender, EventArgs e) {
-            admConductor.limpiarCamposGuardarConductor (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, errorProvider1);
+            admConductor.limpiarCampos_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
         }
 
     }

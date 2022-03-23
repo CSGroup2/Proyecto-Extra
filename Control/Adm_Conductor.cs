@@ -70,6 +70,8 @@ namespace Control {
            return Datos_Conductor.buscarDatosConductor (cedula_nombre, disponibilidad);
         }
 
+        
+
         #endregion
 
         /*---------------------Frm_Conductor_Editar---------------------------------*/
@@ -97,7 +99,7 @@ namespace Control {
             dtp_FechaContrato.Text = Conductor.Fecha_contrato.ToString ();
         }
 
-        
+       
 
         public string actualizarDatosConductor (int id, string cedula, string estado, string nombre1, string nombre2, string apellido1, string apellido2, string telefono, string sexo, DateTime fecha_nac, DateTime fecha_contrato) {
             string mensaje = "¡"; // '¡' in case of incorrec data on fields   
@@ -152,30 +154,28 @@ namespace Control {
             return mensaje;
         }
 
-        public void limpiarCamposGuardarConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNac, DateTimePicker dtp_FechaContrato, ErrorProvider errorProvider1) {
-            errorProvider1.Clear ();
+        public void limpiarCampos_GuardarDatosConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider err_Alerta) {
             txt_Cedula.Clear ();
             txt_Nombre1.Clear ();
             txt_Nombre2.Clear ();
             txt_Apellido1.Clear ();
             txt_Apellido2.Clear ();
-            txt_Correo.Clear ();
+            cmb_Disponibilidad.SelectedIndex = 0;
             txt_Telefono.Clear ();
             rdb_Masculino.Checked = false;
             rdb_Femenino.Checked = false;
-            dtp_FechaNac.Value = DateTime.Today;
+            dtp_FechaNacimiento.Value = DateTime.Today;
             dtp_FechaContrato.Value = DateTime.Today;
+            err_Alerta.Clear ();
         }
-
-        
 
         // Validations
         public string esSexoValidacion (RadioButton rdb_Masculino, RadioButton rdb_Femenino) {
             return Validacion.esSexo (rdb_Masculino, rdb_Femenino);
         }
-
-        public bool esCorrectoDatosConductorValidacion (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNac, DateTimePicker dtp_FechaContrato, ErrorProvider errorProvider1) {
-            return Validacion.esCorrectoDatosConductor (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, errorProvider1);
+        
+        public bool esCorrecto_GuardarDatosConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider err_Alerta) {
+            return Validacion.esCorrecto_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
         }
 
         public bool esCorrectoDatosConductorValidacionEditar (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider errorProvider) {
