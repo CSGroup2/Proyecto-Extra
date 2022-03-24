@@ -32,9 +32,9 @@ namespace Visual {
 
         private void FrmClienteConsul_Load (object sender, EventArgs e) {
             this.pncontenido.BackColor = Color.FromArgb (140, 255, 255, 255);
-            if (dgvClientes.Rows.Count==0) { btnmodificar.Enabled = false; }
             this.cargarhospitales();
             this.cargarclientes();
+            if (dgvClientes.Rows.Count == 0) { btnmodificar.Enabled = false; }
             this.cargarestados();
             this.tamaniocriterio(); 
         }

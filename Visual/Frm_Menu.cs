@@ -138,6 +138,7 @@ namespace Visual {
         private void permisos () {
 
             //switch (Usuario_Cache.Tipo) {
+            //btnclientemodi.Visible = false;
             switch (admLogin.TipoUsuario ()) {
                 case "Gerente":
                     btnpeticion.Visible = false;
@@ -218,7 +219,7 @@ namespace Visual {
             abrirhijoform (new Frm_Cliente_Registrar ());
         }
         private void btnclienteconsul_Click (object sender, EventArgs e) {
-            abrirhijoform (new Frm_Cliente_Consultar ());
+            abrirhijoform (new Frm_Cliente_Consultar (this));
         }
         private void btnclientemodi_Click (object sender, EventArgs e) {
             abrirhijoform (new Frm_Cliente_Editar ());

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,9 @@ using System.Windows.Forms;
 namespace Visual {
     public partial class Frm_Cliente_Editar : Form {
         Btn_Comportamiento cbtn = new Btn_Comportamiento ();
+        Adm_General admgeneral = Adm_General.GetAdm();
+        Adm_Cliente admcliente = Adm_Cliente.GetAdm();
+        Object clientetemp;
         int idclientemodi;
 
         public Frm_Cliente_Editar () {
@@ -25,11 +29,34 @@ namespace Visual {
 
         private void FrmClienteModifi_Load (object sender, EventArgs e) {
             this.pncontenido.BackColor = Color.FromArgb (200, 255, 255, 255);
+            this.cargarestados();
+            this.cargarhospitales();
+            this.cargardatoscliente(); 
         }
 
         private void cargardatoscliente()
         {
+            clientetemp = admcliente.BuscarClienteID(idclientemodi);
+            
+            //txtmcedula.Text = clientetemp;
+            //MessageBox.Show("Mensjase: " + clientetemp.GetType() + "HOLAAAA" + clientetemp);
+            MessageBox.Show("Mensjase: " + clientetemp.GetType().Attributes );
+        }
 
+        private void cargarhospitales()
+        {
+            cbxhospital.Items.Clear();
+            cbxhospital.DataSource = admgeneral.LlenarComboHospitales();
+            cbxhospital.ValueMember = "ID_HOSPITAL";
+            cbxhospital.DisplayMember = "NOMBRE_HOSPITAL";
+        }
+
+        private void cargarestados()
+        {
+            cbxestado.Items.Clear();
+            cbxestado.DataSource = admgeneral.listerEstados();
+            cbxestado.ValueMember = "ID_ESTADO";
+            cbxestado.DisplayMember = "NOMBRE_ESTADO";
         }
 
         #region Efecto boton Guardar
@@ -50,5 +77,10 @@ namespace Visual {
             cbtn.desactivaboton (sender);
         }
         #endregion
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
