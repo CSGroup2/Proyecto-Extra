@@ -25,12 +25,12 @@ namespace Visual {
         /// </summary>
         private void InitializeComponent () {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnl_Titulo = new System.Windows.Forms.Panel();
+            this.lbl_Titulo = new System.Windows.Forms.Label();
+            this.pnl_Cuerpo = new System.Windows.Forms.Panel();
             this.btn_Imprimir = new FontAwesome.Sharp.IconButton();
             this.btn_Modificar = new FontAwesome.Sharp.IconButton();
-            this.pncontenido = new System.Windows.Forms.Panel();
+            this.pnl_Contenido = new System.Windows.Forms.Panel();
             this.btn_MostrarTodos = new FontAwesome.Sharp.IconButton();
             this.btn_Consultar = new FontAwesome.Sharp.IconButton();
             this.cmb_Disponibilidad = new System.Windows.Forms.ComboBox();
@@ -38,54 +38,53 @@ namespace Visual {
             this.rdb_Nombre = new System.Windows.Forms.RadioButton();
             this.rdb_Cedula = new System.Windows.Forms.RadioButton();
             this.txt_CedulaNombre = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbl_Datos = new System.Windows.Forms.Label();
             this.dgv_Conductor = new System.Windows.Forms.DataGridView();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pncontenido.SuspendLayout();
+            this.sfd_VentanaGuardado = new System.Windows.Forms.SaveFileDialog();
+            this.err_Alerta = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pnl_Titulo.SuspendLayout();
+            this.pnl_Cuerpo.SuspendLayout();
+            this.pnl_Contenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Conductor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err_Alerta)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnl_Titulo
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 63);
-            this.panel1.TabIndex = 1;
+            this.pnl_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pnl_Titulo.Controls.Add(this.lbl_Titulo);
+            this.pnl_Titulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_Titulo.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Titulo.Name = "pnl_Titulo";
+            this.pnl_Titulo.Size = new System.Drawing.Size(690, 63);
+            this.pnl_Titulo.TabIndex = 1;
             // 
-            // label2
+            // lbl_Titulo
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbl_Titulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            this.label2.Location = new System.Drawing.Point(102, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(480, 44);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Consulta de Conductores";
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.lbl_Titulo.Location = new System.Drawing.Point(102, 9);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(480, 44);
+            this.lbl_Titulo.TabIndex = 1;
+            this.lbl_Titulo.Text = "Consulta de Conductores";
             // 
-            // panel2
+            // pnl_Cuerpo
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.BackgroundImage = global::Visual.Properties.Resources._9;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.btn_Imprimir);
-            this.panel2.Controls.Add(this.btn_Modificar);
-            this.panel2.Controls.Add(this.pncontenido);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(690, 513);
-            this.panel2.TabIndex = 2;
+            this.pnl_Cuerpo.BackColor = System.Drawing.Color.LightGray;
+            this.pnl_Cuerpo.BackgroundImage = global::Visual.Properties.Resources._9;
+            this.pnl_Cuerpo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnl_Cuerpo.Controls.Add(this.pnl_Contenido);
+            this.pnl_Cuerpo.Controls.Add(this.btn_Imprimir);
+            this.pnl_Cuerpo.Controls.Add(this.btn_Modificar);
+            this.pnl_Cuerpo.Location = new System.Drawing.Point(0, 63);
+            this.pnl_Cuerpo.Name = "pnl_Cuerpo";
+            this.pnl_Cuerpo.Size = new System.Drawing.Size(690, 513);
+            this.pnl_Cuerpo.TabIndex = 2;
             // 
             // btn_Imprimir
             // 
@@ -96,7 +95,7 @@ namespace Visual {
             this.btn_Imprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.btn_Imprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btn_Imprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Imprimir.Location = new System.Drawing.Point(357, 421);
+            this.btn_Imprimir.Location = new System.Drawing.Point(358, 421);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Imprimir.Size = new System.Drawing.Size(183, 52);
@@ -117,7 +116,7 @@ namespace Visual {
             this.btn_Modificar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
             this.btn_Modificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btn_Modificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Modificar.Location = new System.Drawing.Point(149, 421);
+            this.btn_Modificar.Location = new System.Drawing.Point(150, 421);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Modificar.Size = new System.Drawing.Size(183, 52);
@@ -129,24 +128,24 @@ namespace Visual {
             this.btn_Modificar.MouseLeave += new System.EventHandler(this.btnguardar_MouseLeave);
             this.btn_Modificar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnguardar_MouseMove);
             // 
-            // pncontenido
+            // pnl_Contenido
             // 
-            this.pncontenido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnl_Contenido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pncontenido.BackColor = System.Drawing.Color.White;
-            this.pncontenido.Controls.Add(this.btn_MostrarTodos);
-            this.pncontenido.Controls.Add(this.btn_Consultar);
-            this.pncontenido.Controls.Add(this.cmb_Disponibilidad);
-            this.pncontenido.Controls.Add(this.chb_Disponibilidad);
-            this.pncontenido.Controls.Add(this.rdb_Nombre);
-            this.pncontenido.Controls.Add(this.rdb_Cedula);
-            this.pncontenido.Controls.Add(this.txt_CedulaNombre);
-            this.pncontenido.Controls.Add(this.label14);
-            this.pncontenido.Controls.Add(this.dgv_Conductor);
-            this.pncontenido.Location = new System.Drawing.Point(20, 23);
-            this.pncontenido.Name = "pncontenido";
-            this.pncontenido.Size = new System.Drawing.Size(638, 370);
-            this.pncontenido.TabIndex = 14;
+            this.pnl_Contenido.BackColor = System.Drawing.Color.White;
+            this.pnl_Contenido.Controls.Add(this.lbl_Datos);
+            this.pnl_Contenido.Controls.Add(this.txt_CedulaNombre);
+            this.pnl_Contenido.Controls.Add(this.rdb_Cedula);
+            this.pnl_Contenido.Controls.Add(this.rdb_Nombre);
+            this.pnl_Contenido.Controls.Add(this.cmb_Disponibilidad);
+            this.pnl_Contenido.Controls.Add(this.chb_Disponibilidad);
+            this.pnl_Contenido.Controls.Add(this.btn_Consultar);
+            this.pnl_Contenido.Controls.Add(this.btn_MostrarTodos);
+            this.pnl_Contenido.Controls.Add(this.dgv_Conductor);
+            this.pnl_Contenido.Location = new System.Drawing.Point(26, 23);
+            this.pnl_Contenido.Name = "pnl_Contenido";
+            this.pnl_Contenido.Size = new System.Drawing.Size(638, 378);
+            this.pnl_Contenido.TabIndex = 14;
             // 
             // btn_MostrarTodos
             // 
@@ -157,7 +156,7 @@ namespace Visual {
             this.btn_MostrarTodos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btn_MostrarTodos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_MostrarTodos.IconSize = 35;
-            this.btn_MostrarTodos.Location = new System.Drawing.Point(420, 24);
+            this.btn_MostrarTodos.Location = new System.Drawing.Point(332, 82);
             this.btn_MostrarTodos.Name = "btn_MostrarTodos";
             this.btn_MostrarTodos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_MostrarTodos.Size = new System.Drawing.Size(171, 37);
@@ -178,7 +177,7 @@ namespace Visual {
             this.btn_Consultar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btn_Consultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Consultar.IconSize = 35;
-            this.btn_Consultar.Location = new System.Drawing.Point(420, 97);
+            this.btn_Consultar.Location = new System.Drawing.Point(136, 82);
             this.btn_Consultar.Name = "btn_Consultar";
             this.btn_Consultar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Consultar.Size = new System.Drawing.Size(171, 37);
@@ -194,7 +193,7 @@ namespace Visual {
             // 
             this.cmb_Disponibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Disponibilidad.FormattingEnabled = true;
-            this.cmb_Disponibilidad.Location = new System.Drawing.Point(88, 56);
+            this.cmb_Disponibilidad.Location = new System.Drawing.Point(88, 48);
             this.cmb_Disponibilidad.Name = "cmb_Disponibilidad";
             this.cmb_Disponibilidad.Size = new System.Drawing.Size(152, 21);
             this.cmb_Disponibilidad.TabIndex = 56;
@@ -204,7 +203,7 @@ namespace Visual {
             this.chb_Disponibilidad.AutoSize = true;
             this.chb_Disponibilidad.BackColor = System.Drawing.Color.Transparent;
             this.chb_Disponibilidad.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chb_Disponibilidad.Location = new System.Drawing.Point(258, 59);
+            this.chb_Disponibilidad.Location = new System.Drawing.Point(258, 51);
             this.chb_Disponibilidad.Name = "chb_Disponibilidad";
             this.chb_Disponibilidad.Size = new System.Drawing.Size(124, 19);
             this.chb_Disponibilidad.TabIndex = 55;
@@ -247,74 +246,74 @@ namespace Visual {
             this.txt_CedulaNombre.TabIndex = 50;
             this.txt_CedulaNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CedulaNombre_KeyPress);
             // 
-            // label14
+            // lbl_Datos
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(36, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 15);
-            this.label14.TabIndex = 49;
-            this.label14.Text = "Dato: ";
+            this.lbl_Datos.AutoSize = true;
+            this.lbl_Datos.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Datos.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Datos.Location = new System.Drawing.Point(36, 19);
+            this.lbl_Datos.Name = "lbl_Datos";
+            this.lbl_Datos.Size = new System.Drawing.Size(49, 15);
+            this.lbl_Datos.TabIndex = 49;
+            this.lbl_Datos.Text = "Dato: ";
             // 
             // dgv_Conductor
             // 
             this.dgv_Conductor.AllowUserToAddRows = false;
             this.dgv_Conductor.AllowUserToDeleteRows = false;
             this.dgv_Conductor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Conductor.Location = new System.Drawing.Point(32, 153);
+            this.dgv_Conductor.Location = new System.Drawing.Point(27, 129);
             this.dgv_Conductor.Name = "dgv_Conductor";
             this.dgv_Conductor.ReadOnly = true;
             this.dgv_Conductor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Conductor.Size = new System.Drawing.Size(559, 182);
+            this.dgv_Conductor.Size = new System.Drawing.Size(585, 224);
             this.dgv_Conductor.TabIndex = 48;
             // 
-            // errorProvider
+            // err_Alerta
             // 
-            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider.ContainerControl = this;
+            this.err_Alerta.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.err_Alerta.ContainerControl = this;
             // 
             // Frm_Conductor_Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 576);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_Titulo);
+            this.Controls.Add(this.pnl_Cuerpo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Conductor_Consultar";
             this.Text = "FrmConductorConsul";
             this.Load += new System.EventHandler(this.Frm_Conductor_Consultar_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.pncontenido.ResumeLayout(false);
-            this.pncontenido.PerformLayout();
+            this.pnl_Titulo.ResumeLayout(false);
+            this.pnl_Titulo.PerformLayout();
+            this.pnl_Cuerpo.ResumeLayout(false);
+            this.pnl_Contenido.ResumeLayout(false);
+            this.pnl_Contenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Conductor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err_Alerta)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnl_Titulo;
+        private System.Windows.Forms.Label lbl_Titulo;
+        private System.Windows.Forms.Panel pnl_Cuerpo;
         private FontAwesome.Sharp.IconButton btn_Modificar;
-        private System.Windows.Forms.Panel pncontenido;
+        private System.Windows.Forms.Panel pnl_Contenido;
         private System.Windows.Forms.ComboBox cmb_Disponibilidad;
         private System.Windows.Forms.CheckBox chb_Disponibilidad;
         private System.Windows.Forms.RadioButton rdb_Nombre;
         private System.Windows.Forms.RadioButton rdb_Cedula;
         private System.Windows.Forms.TextBox txt_CedulaNombre;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbl_Datos;
         private System.Windows.Forms.DataGridView dgv_Conductor;
         private FontAwesome.Sharp.IconButton btn_Consultar;
         private FontAwesome.Sharp.IconButton btn_MostrarTodos;
         private FontAwesome.Sharp.IconButton btn_Imprimir;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.SaveFileDialog sfd_VentanaGuardado;
+        private System.Windows.Forms.ErrorProvider err_Alerta;
     }
 }

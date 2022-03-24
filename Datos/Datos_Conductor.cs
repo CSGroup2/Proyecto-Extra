@@ -50,7 +50,7 @@ namespace Datos {
 
         /*----------------------Frm_Conductor_Consultar-------------------------------------*/
 
-        public object listarDatosConductor () {
+        public DataTable listarDatosConductor () {
             // Extract all "conductor" data from database
             DataTable dataTable_resultado = null;
             Conexion conexion = null;

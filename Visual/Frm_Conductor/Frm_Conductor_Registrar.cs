@@ -13,75 +13,64 @@ using Control;
 namespace Visual {
     public partial class Frm_Conductor_Registrar : Form {
 
-        Btn_Comportamiento cbtn = new Btn_Comportamiento ();
-        Adm_Conductor admConductor = Adm_Conductor.GetAdm ();
+        Btn_Comportamiento Btn_Comportamiento = new Btn_Comportamiento ();
+        Adm_Conductor Adm_Conductor = Adm_Conductor.GetAdm ();
+        Validacion Validacion = new Validacion ();
 
         public Frm_Conductor_Registrar () {
             InitializeComponent ();
-            rdb_Masculino.Checked = false;
+            
         }
 
         private void FrmConductorReg_Load (object sender, EventArgs e) {
             this.pnl_Contenido.BackColor = Color.FromArgb (200, 255, 255, 255);
-        }
-
-        private void textBox7_TextChanged (object sender, EventArgs e) {
-
+            rdb_Masculino.Checked = false;
         }
 
         #region Efecto boton limpiar
         private void btnlimpiar_MouseMove (object sender, MouseEventArgs e) {
-            cbtn.activaboton (sender);
+            Btn_Comportamiento.activaboton (sender);
         }
 
         private void btnlimpiar_MouseLeave (object sender, EventArgs e) {
-            cbtn.desactivaboton (sender);
+            Btn_Comportamiento.desactivaboton (sender);
         }
         #endregion
 
         #region Efecto boton cancelar
         private void btncancelar_MouseMove (object sender, MouseEventArgs e) {
-            cbtn.activaboton (sender);
+            Btn_Comportamiento.activaboton (sender);
         }
 
         private void btncancelar_MouseLeave (object sender, EventArgs e) {
-            cbtn.desactivaboton (sender);
+            Btn_Comportamiento.desactivaboton (sender);
         }
 
         #endregion
 
         #region Efecto boton guardar
         private void btnguardar_MouseLeave (object sender, EventArgs e) {
-            cbtn.desactivaboton (sender);
+            Btn_Comportamiento.desactivaboton (sender);
         }
 
         private void btnguardar_MouseMove_1 (object sender, MouseEventArgs e) {
-            cbtn.activaboton (sender);
+            Btn_Comportamiento.activaboton (sender);
         }
         #endregion
 
-
-
         private void txt_Cedula_KeyPress (object sender, KeyPressEventArgs e) {
             // Only allows numbers on press
-            admConductor.validarSoloNumerosKeyPress (sender, e);
+            Validacion.validarSoloNumerosKeyPress (sender, e);
         }
 
         private void txt_Nombre1_KeyPress (object sender, KeyPressEventArgs e) {
             // Only allows alphabetic characters
-            admConductor.validarSoloLettrasKeyPress (sender, e);
+            Validacion.validarSoloLettrasKeyPress (sender, e);
         }
-
-        private void txt_Correo_KeyPress (object sender, KeyPressEventArgs e) {
-            // Only allows eamil characters
-            admConductor.validarSoloCorreoKeypress (sender, e);
-        }
-
-
-
+                
         private void btn_Guardar_Click (object sender, EventArgs e) {
             err_Alerta.Clear ();
-            if (admConductor.esCorrecto_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta)) {
+            if (Validacion.esCorrecto_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta)) {
                 string
                    cedula = txt_Cedula.Text.Trim (),
                    nombre1 = txt_Nombre1.Text.Trim (),
@@ -89,13 +78,13 @@ namespace Visual {
                    apellido1 = txt_Apellido1.Text.Trim (),
                    apellido2 = txt_Apellido2.Text.Trim (),
                    telefono = txt_Telefono.Text.Trim (),
-                   sexo = admConductor.esSexoValidacion (rdb_Masculino, rdb_Femenino);
+                   sexo = Validacion.esSexo (rdb_Masculino, rdb_Femenino);
                 DateTime
                     fecha_nac = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
-                string mensaje = admConductor.guardarDatosConductor (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
+                string mensaje = Adm_Conductor.guardarDatosConductor (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
                 if (mensaje[0] != '¡') {
-                    admConductor.limpiarCampos_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
+                    limpiarCampos ();
                 }
             }
         }
@@ -105,7 +94,21 @@ namespace Visual {
         }
 
         private void btn_Limpiar_Click (object sender, EventArgs e) {
-            admConductor.limpiarCampos_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
+            limpiarCampos ();
+        }
+
+        private void limpiarCampos () {
+            txt_Cedula.Clear ();
+            txt_Nombre1.Clear ();
+            txt_Nombre2.Clear ();
+            txt_Apellido1.Clear ();
+            txt_Apellido2.Clear ();
+            txt_Telefono.Clear ();
+            rdb_Masculino.Checked = false;
+            rdb_Femenino.Checked = false;
+            dtp_FechaNacimiento.Value = DateTime.Today;
+            dtp_FechaContrato.Value = DateTime.Today;
+            err_Alerta.Clear ();
         }
 
     }

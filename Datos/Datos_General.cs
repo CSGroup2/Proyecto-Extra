@@ -14,6 +14,7 @@ namespace Datos {
             SqlConnection sql_conexion = null;
             SqlCommand sql_comando = null;
             SqlDataAdapter sql_adaptador = null;
+            DataRow nuevaFila = null;
             DataTable dataTable_resultado = null;
             string query = null;
             try {
@@ -24,6 +25,10 @@ namespace Datos {
                 dataTable_resultado = new DataTable ("DISPONIBILIDAD");
                 sql_adaptador = new SqlDataAdapter (sql_comando);
                 sql_adaptador.Fill (dataTable_resultado);
+                nuevaFila = dataTable_resultado.NewRow ();
+                nuevaFila["ID_DISPONIBILIDAD"] = 0;
+                nuevaFila["NOMBRE_DISPONIBILIDAD"] = "--Seleccione--";
+                dataTable_resultado.Rows.InsertAt (nuevaFila, 0);
             } catch (Exception ex) {
                 dataTable_resultado = null;
                 Console.WriteLine ("Error al consultar en el tipo de ambulancia " + ex.Message);
@@ -33,58 +38,56 @@ namespace Datos {
             return dataTable_resultado;
         }
 
-        public DataTable listarestados()
-        {
+        public DataTable listarDatosEstados () {
             // Se definen las variables necesarias para la conexion y ejecucion de comandos. 
-            DataTable DtResultado = new DataTable("ESTADO");
-            Conexion con = new Conexion();
-            SqlConnection sqlconn = con.abrir_conexion();
+            DataTable dataTable_resultado = null;
+            Conexion conexion = null;
+            SqlConnection sql_conexion = null;
             SqlCommand sql_comando = null;
-            try
-            {
-                string procedimeinto = "sp_consultar_estados"; //Se define que procedimiento ejecutar
-                sql_comando = new SqlCommand(procedimeinto, sqlconn);     // Creatin SqlCommand object
-                sql_comando.CommandType = CommandType.StoredProcedure; //Se especifico que el comando es de tipo procedimiento
-                SqlDataAdapter SqlDat = new SqlDataAdapter(sql_comando);
-                SqlDat.Fill(DtResultado);  //empiezo a recoger los datos
+            SqlDataAdapter sql_adaptador = null;
+            DataRow nuevaFila = null;
+            string query = null;
+            try {
+                conexion = new Conexion ();
+                sql_conexion = conexion.abrir_conexion ();
+                query = "sp_consultar_estados";                         // Se define que procedimiento ejecutar
+                sql_comando = new SqlCommand (query, sql_conexion);     // Creatin SqlCommand object
+                sql_comando.CommandType = CommandType.StoredProcedure;  // Se especifico que el comando es de tipo procedimiento
+                dataTable_resultado = new DataTable ("ESTADO");
+                sql_adaptador = new SqlDataAdapter (sql_comando);
+                sql_adaptador.Fill (dataTable_resultado);               // empiezo a recoger los datos
+                nuevaFila = dataTable_resultado.NewRow ();
+                nuevaFila["ID_ESTADO"] = 0;
+                nuevaFila["NOMBRE_ESTADO"] = "--Seleccione--";
+                dataTable_resultado.Rows.InsertAt (nuevaFila, 0);
+            } catch (Exception ex) {
+                dataTable_resultado = null;
+                Console.WriteLine ("Error al consultar los estados " + ex.Message);
+            } finally {
+                conexion.cerrar_conexion (sql_conexion);
             }
-            catch (Exception ex)
-            {
-                DtResultado = null;
-                Console.WriteLine("Error al consultar los estados " + ex.Message);
-            }
-            finally
-            {
-                con.cerrar_conexion(sqlconn);
-            }
-            return DtResultado;
+            return dataTable_resultado;
         }
 
         // Metodo para poder cargar todos los hospitales disponibles de la base de datos
 
-        public DataTable ConsultarHospitales()
-        {
+        public DataTable ConsultarHospitales () {
             // Se definen las variables necesarias para la conexion y ejecucion de comandos. 
-            DataTable DtResultado = new DataTable("HOSPITAL");
+            DataTable DtResultado = new DataTable ("HOSPITAL");
             Conexion con = new Conexion ();
-            SqlConnection sqlconn = con.abrir_conexion();
+            SqlConnection sqlconn = con.abrir_conexion ();
             SqlCommand sql_comando = null;
-            try
-            {
+            try {
                 string procedimeinto = "sp_consultar_hospitales"; //Se define que procedimiento ejecutar
-                sql_comando = new SqlCommand(procedimeinto, sqlconn);     // Creatin SqlCommand object
+                sql_comando = new SqlCommand (procedimeinto, sqlconn);     // Creatin SqlCommand object
                 sql_comando.CommandType = CommandType.StoredProcedure; //Se especifico que el comando es de tipo procedimiento
-                SqlDataAdapter SqlDat = new SqlDataAdapter(sql_comando);
-                SqlDat.Fill(DtResultado);  //empiezo a recoger los datos
-            }
-            catch (Exception ex)
-            {
+                SqlDataAdapter SqlDat = new SqlDataAdapter (sql_comando);
+                SqlDat.Fill (DtResultado);  //empiezo a recoger los datos
+            } catch (Exception ex) {
                 DtResultado = null;
-                Console.WriteLine("Error al consultar los hospitales " + ex.Message);
-            }
-            finally
-            {
-                con.cerrar_conexion(sqlconn);
+                Console.WriteLine ("Error al consultar los hospitales " + ex.Message);
+            } finally {
+                con.cerrar_conexion (sqlconn);
             }
             return DtResultado;
         }

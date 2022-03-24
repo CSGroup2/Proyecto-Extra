@@ -16,7 +16,7 @@ namespace Control {
            3.2.Verificar si atributo es null, si es así, crearlo.
        */
 
-        private static Adm_General adm_general = null;    // 1.
+        private static Adm_General adm_General = null;    // 1.
         Datos_General Datos_General = null;
         //Persona Persona = null;
 
@@ -29,25 +29,24 @@ namespace Control {
 
         // Getter: GetAdm
         public static Adm_General GetAdm () {     // 3.1.
-            if (adm_general == null) {                  //3.2
-                adm_general = new Adm_General ();
+            if (adm_General == null) {                  //3.2
+                adm_General = new Adm_General ();
             }
-            return adm_general;
+            return adm_General;
         }
 
         /*---------------------------------------------------------------------------------------*/
         public DataTable listarDisponibilidad () {
-            return Datos_General.listarDatosDisponibilidad();
+            return Datos_General.listarDatosDisponibilidad ();
         }
 
-        public DataTable listerEstados()
-        {
+        public DataTable listerEstados () {
             //return Datos_General.listarEstados();
-            return Datos_General.listarestados();
+            return Datos_General.listarDatosEstados ();
         }
-        public DataTable LlenarComboHospitales()
-        {
-            return Datos_General.ConsultarHospitales();
+
+        public DataTable LlenarComboHospitales () {
+            return Datos_General.ConsultarHospitales ();
         }
 
 

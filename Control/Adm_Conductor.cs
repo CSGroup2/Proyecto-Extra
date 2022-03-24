@@ -25,7 +25,7 @@ namespace Control {
            3.2.Verificar si atributo es null, si es así, crearlo.
        */
 
-        private static Adm_Conductor adm_conductor = null;    // 1.
+        private static Adm_Conductor adm_Conductor = null;    // 1.
         List<Conductor> Lista_Conductor = null;
         Conductor Conductor = null;
         Datos_Conductor Datos_Conductor = null;
@@ -45,21 +45,26 @@ namespace Control {
 
         // Getter: GetAdm
         public static Adm_Conductor GetAdm () {     // 3.1.
-            if (adm_conductor == null) {                  //3.2
-                adm_conductor = new Adm_Conductor ();
+            if (adm_Conductor == null) {                  //3.2
+                adm_Conductor = new Adm_Conductor ();
             }
-            return adm_conductor;
+            return adm_Conductor;
         }
 
         /*---------------------Frm_Conductor_Consultar---------------------------------*/
 
         #region Frm_Conductor_Consultar
-
+        /*
         public void listarDatosConductor (DataGridView dgv_Conductor) {
             dgv_Conductor.Refresh ();
             dgv_Conductor.DataSource = Datos_Conductor.listarDatosConductor ();
         }
-        
+        */
+        public DataTable listarDatosConductor () {
+            return Datos_Conductor.listarDatosConductor ();
+        }
+
+
         public void listarDisponibilidad (ComboBox cbx_Disponibilidad) {
             cbx_Disponibilidad.DataSource = Datos_Conductor.listarDatosDisponibilidad ();
             cbx_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
@@ -129,22 +134,6 @@ namespace Control {
 
         #region Frm_Conductor_Registrar
 
-        // Methods for KeyPress
-        public void validarSoloNumerosKeyPress (object sender, KeyPressEventArgs e) {
-            // Only allows numbers on press
-            Validacion.validarSoloNumerosKeyPress (sender, e);
-        }
-
-        public void validarSoloLettrasKeyPress (object sender, KeyPressEventArgs e) {
-            // Only allows alphabetic characters
-            Validacion.validarSoloLettrasKeyPress (sender, e);
-        }
-
-        public void validarSoloCorreoKeypress (object sender, KeyPressEventArgs e) {
-            // Only allows eamil characters
-            Validacion.validarSoloCorreoKeypress (sender, e);
-        }
-
         // Methods for Buttons
         public string guardarDatosConductor (string cedula, string nombre1, string nombre2, string apellido1, string apellido2, string telefono, string sexo, DateTime fecha_nac, DateTime fecha_contrato) {
             string mensaje = "¡"; // '¡' in case of incorrec data on fields   
@@ -152,34 +141,6 @@ namespace Control {
             mensaje = Datos_Conductor.insertarDatosConductor (Conductor);
             MessageBox.Show (mensaje, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return mensaje;
-        }
-
-        public void limpiarCampos_GuardarDatosConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider err_Alerta) {
-            txt_Cedula.Clear ();
-            txt_Nombre1.Clear ();
-            txt_Nombre2.Clear ();
-            txt_Apellido1.Clear ();
-            txt_Apellido2.Clear ();
-            cmb_Disponibilidad.SelectedIndex = 0;
-            txt_Telefono.Clear ();
-            rdb_Masculino.Checked = false;
-            rdb_Femenino.Checked = false;
-            dtp_FechaNacimiento.Value = DateTime.Today;
-            dtp_FechaContrato.Value = DateTime.Today;
-            err_Alerta.Clear ();
-        }
-
-        // Validations
-        public string esSexoValidacion (RadioButton rdb_Masculino, RadioButton rdb_Femenino) {
-            return Validacion.esSexo (rdb_Masculino, rdb_Femenino);
-        }
-        
-        public bool esCorrecto_GuardarDatosConductor (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider err_Alerta) {
-            return Validacion.esCorrecto_GuardarDatosConductor (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
-        }
-
-        public bool esCorrectoDatosConductorValidacionEditar (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider errorProvider) {
-          return Validacion.esCorrectoDatosConductorEditar (txt_Cedula, txt_Nombre1, txt_Apellido1 ,txt_Apellido2, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, errorProvider);
         }
 
         #endregion
