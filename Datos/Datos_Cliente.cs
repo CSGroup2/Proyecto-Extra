@@ -170,9 +170,11 @@ namespace Datos
         }
 
         // metodo de busca de cliente por ID 
-        public DataTable buscarClienteID(int idcliente)
+        public Object buscarClienteID(int idcliente)
         {
-            DataTable dt = new DataTable();
+            Object cliente = new Object();
+            Usuario user = new Usuario();
+            Cliente client = new Cliente(); 
             SqlConnection c1 = con.abrir_conexion();
             try
             {
@@ -180,20 +182,38 @@ namespace Datos
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.Add(new SqlParameter("@idcliente", idcliente));
-                    SqlDataAdapter da = new SqlDataAdapter(comando);
-                    da.Fill(dt);
+                    SqlDataReader datosconductor = comando.ExecuteReader();
+                    while (datosconductor.Read())
+                    {
+                        client.Id_cliente = Convert.ToInt32(datosconductor["ID_CLIENTE"]);
+                        client.Id_estado = Convert.ToInt32(datosconductor["ID_ESTADO"]); 
+                        client.Cedula = datosconductor["CEDULA"].ToString();
+                        client.Id_hospital = Convert.ToInt32(datosconductor["ID_HOSPITAL"]);
+                        client.Nombre_1 = datosconductor["NOMBRE_1"].ToString();
+                        client.Nombre_2 = datosconductor["NOMBRE_2"].ToString();
+                        client.Apellido_1= datosconductor["APELLIDO_1"].ToString(); 
+                        client.Apellido_2 = datosconductor["APELLIDO_2"].ToString();
+                        client.Fecha_nac = DateTime.Parse(datosconductor["FECHA_NAC"].ToString());
+                        client.Sexo = datosconductor["SEXO"].ToString();
+                        client.Telefono = datosconductor["TELEFONO"].ToString();
+                        user.Correo = datosconductor["CORREO"].ToString();
+                        user.Contrasenia = datosconductor["CONTRASENIA"].ToString();
+                        client.Usuario = user;  
+
+                        cliente = client; 
+                    }
                 }
             }
             catch (Exception ex)
             {
-                dt = null;
+                cliente = null;
                 Console.WriteLine("Error al consultar el Clientes " + ex.Message);
             }
             finally
             {
                 con.cerrar_conexion(c1);
             }
-            return dt;
+            return cliente;
         }
 
     }

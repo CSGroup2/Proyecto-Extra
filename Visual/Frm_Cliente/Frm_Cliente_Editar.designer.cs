@@ -30,16 +30,15 @@ namespace Visual {
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.lblcodigo = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxestado = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.chxcontra = new System.Windows.Forms.CheckBox();
-            this.chxusuario = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtrcontra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxhospital = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,7 +54,7 @@ namespace Visual {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtmcedula = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.gboxnombres = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -100,9 +99,10 @@ namespace Visual {
             this.btnguardar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnguardar.Size = new System.Drawing.Size(183, 52);
             this.btnguardar.TabIndex = 30;
-            this.btnguardar.Text = "Guardar";
+            this.btnguardar.Text = "Actualizar";
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             this.btnguardar.MouseLeave += new System.EventHandler(this.btnguardar_MouseLeave);
             this.btnguardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnguardar_MouseMove);
             // 
@@ -112,10 +112,10 @@ namespace Visual {
             this.pncontenido.Controls.Add(this.btnBuscar);
             this.pncontenido.Controls.Add(this.lblcodigo);
             this.pncontenido.Controls.Add(this.label15);
-            this.pncontenido.Controls.Add(this.comboBox2);
+            this.pncontenido.Controls.Add(this.cbxestado);
             this.pncontenido.Controls.Add(this.label14);
             this.pncontenido.Controls.Add(this.groupBox2);
-            this.pncontenido.Controls.Add(this.comboBox1);
+            this.pncontenido.Controls.Add(this.cbxhospital);
             this.pncontenido.Controls.Add(this.label13);
             this.pncontenido.Controls.Add(this.textBox7);
             this.pncontenido.Controls.Add(this.label10);
@@ -127,7 +127,7 @@ namespace Visual {
             this.pncontenido.Controls.Add(this.oprmasculino);
             this.pncontenido.Controls.Add(this.label7);
             this.pncontenido.Controls.Add(this.groupBox1);
-            this.pncontenido.Controls.Add(this.textBox3);
+            this.pncontenido.Controls.Add(this.txtmcedula);
             this.pncontenido.Controls.Add(this.label5);
             this.pncontenido.Controls.Add(this.gboxnombres);
             this.pncontenido.Location = new System.Drawing.Point(18, 13);
@@ -175,14 +175,14 @@ namespace Visual {
             this.label15.TabIndex = 31;
             this.label15.Text = "Código:";
             // 
-            // comboBox2
+            // cbxestado
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(420, 10);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(185, 28);
-            this.comboBox2.TabIndex = 30;
+            this.cbxestado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxestado.FormattingEnabled = true;
+            this.cbxestado.Location = new System.Drawing.Point(420, 10);
+            this.cbxestado.Name = "cbxestado";
+            this.cbxestado.Size = new System.Drawing.Size(185, 28);
+            this.cbxestado.TabIndex = 30;
             // 
             // label14
             // 
@@ -200,7 +200,6 @@ namespace Visual {
             // 
             this.groupBox2.Controls.Add(this.textBox8);
             this.groupBox2.Controls.Add(this.chxcontra);
-            this.groupBox2.Controls.Add(this.chxusuario);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtrcontra);
             this.groupBox2.Controls.Add(this.label11);
@@ -229,15 +228,6 @@ namespace Visual {
             this.chxcontra.Size = new System.Drawing.Size(15, 14);
             this.chxcontra.TabIndex = 35;
             this.chxcontra.UseVisualStyleBackColor = true;
-            // 
-            // chxusuario
-            // 
-            this.chxusuario.AutoSize = true;
-            this.chxusuario.Location = new System.Drawing.Point(285, 25);
-            this.chxusuario.Name = "chxusuario";
-            this.chxusuario.Size = new System.Drawing.Size(15, 14);
-            this.chxusuario.TabIndex = 34;
-            this.chxusuario.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -273,14 +263,14 @@ namespace Visual {
             this.label11.TabIndex = 30;
             this.label11.Text = "Usuario:";
             // 
-            // comboBox1
+            // cbxhospital
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(420, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(185, 28);
-            this.comboBox1.TabIndex = 27;
+            this.cbxhospital.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxhospital.FormattingEnabled = true;
+            this.cbxhospital.Location = new System.Drawing.Point(420, 47);
+            this.cbxhospital.Name = "cbxhospital";
+            this.cbxhospital.Size = new System.Drawing.Size(185, 28);
+            this.cbxhospital.TabIndex = 27;
             // 
             // label13
             // 
@@ -453,15 +443,15 @@ namespace Visual {
             this.label6.TabIndex = 3;
             this.label6.Text = "Primer Apellido:";
             // 
-            // textBox3
+            // txtmcedula
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(123, 49);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 26);
-            this.textBox3.TabIndex = 6;
+            this.txtmcedula.BackColor = System.Drawing.SystemColors.Window;
+            this.txtmcedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtmcedula.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmcedula.Location = new System.Drawing.Point(123, 49);
+            this.txtmcedula.Name = "txtmcedula";
+            this.txtmcedula.Size = new System.Drawing.Size(134, 26);
+            this.txtmcedula.TabIndex = 6;
             // 
             // label5
             // 
@@ -609,7 +599,7 @@ namespace Visual {
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtrcontra;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxhospital;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label10;
@@ -625,7 +615,7 @@ namespace Visual {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtmcedula;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gboxnombres;
         private System.Windows.Forms.TextBox textBox2;
@@ -636,12 +626,11 @@ namespace Visual {
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton btnguardar;
         private FontAwesome.Sharp.IconButton btncancelar;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxestado;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblcodigo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox chxcontra;
-        private System.Windows.Forms.CheckBox chxusuario;
         private System.Windows.Forms.TextBox textBox8;
         private FontAwesome.Sharp.IconButton btnBuscar;
     }
