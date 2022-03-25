@@ -158,8 +158,10 @@ namespace Visual {
                 string mensaje= this.admcliente.BuscarClienteID(txtmcedula.Text.ToString(), 2, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac);
                 if(mensaje.Equals("Encontrado"))
                 {
-                    MessageBox.Show("Datos encontrados","SGAR LOS RAPIDOS S.A", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                    MessageBox.Show("Datos encontrados","SGAR LOS RAPIDOS S.A", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.habilitarcampos();
+                    txtmcedula.Enabled = false;
+                    chxactivarbusqueda.Checked = false;
                 }
                 else
                 {
@@ -181,7 +183,7 @@ namespace Visual {
             }
             else
             {
-                txtmcedula.Enabled = false; 
+                txtmcedula.Enabled = false;
             }
         }
 

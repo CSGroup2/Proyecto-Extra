@@ -28,6 +28,7 @@ namespace Visual {
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.pncontenido = new System.Windows.Forms.Panel();
+            this.chxactivarbusqueda = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.lblcodigo = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace Visual {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.errpvdatoscliente = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chxactivarbusqueda = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.pncontenido.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -140,6 +140,19 @@ namespace Visual {
             this.pncontenido.Size = new System.Drawing.Size(651, 370);
             this.pncontenido.TabIndex = 14;
             this.pncontenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pncontenido_Paint);
+            // 
+            // chxactivarbusqueda
+            // 
+            this.chxactivarbusqueda.AutoSize = true;
+            this.chxactivarbusqueda.Checked = true;
+            this.chxactivarbusqueda.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chxactivarbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chxactivarbusqueda.Location = new System.Drawing.Point(292, 62);
+            this.chxactivarbusqueda.Name = "chxactivarbusqueda";
+            this.chxactivarbusqueda.Size = new System.Drawing.Size(15, 14);
+            this.chxactivarbusqueda.TabIndex = 37;
+            this.chxactivarbusqueda.UseVisualStyleBackColor = true;
+            this.chxactivarbusqueda.CheckedChanged += new System.EventHandler(this.chxactivarbusqueda_CheckedChanged);
             // 
             // btnBuscar
             // 
@@ -343,7 +356,7 @@ namespace Visual {
             this.daterfechanac.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.daterfechanac.Location = new System.Drawing.Point(158, 189);
             this.daterfechanac.Name = "daterfechanac";
-            this.daterfechanac.Size = new System.Drawing.Size(311, 26);
+            this.daterfechanac.Size = new System.Drawing.Size(315, 26);
             this.daterfechanac.TabIndex = 16;
             // 
             // label8
@@ -583,19 +596,6 @@ namespace Visual {
             // 
             this.errpvdatoscliente.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errpvdatoscliente.ContainerControl = this;
-            // 
-            // chxactivarbusqueda
-            // 
-            this.chxactivarbusqueda.AutoSize = true;
-            this.chxactivarbusqueda.Checked = true;
-            this.chxactivarbusqueda.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chxactivarbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chxactivarbusqueda.Location = new System.Drawing.Point(292, 62);
-            this.chxactivarbusqueda.Name = "chxactivarbusqueda";
-            this.chxactivarbusqueda.Size = new System.Drawing.Size(15, 14);
-            this.chxactivarbusqueda.TabIndex = 37;
-            this.chxactivarbusqueda.UseVisualStyleBackColor = true;
-            this.chxactivarbusqueda.CheckedChanged += new System.EventHandler(this.chxactivarbusqueda_CheckedChanged);
             // 
             // Frm_Cliente_Editar
             // 
