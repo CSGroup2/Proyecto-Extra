@@ -64,7 +64,7 @@ namespace Visual {
         private void cargarhospitales()
         {
             cbxhospital.Items.Clear();
-            cbxhospital.DataSource = admgeneral.LlenarComboHospitales();
+            cbxhospital.DataSource = admgeneral.HospitalLlenarCombo();
             cbxhospital.ValueMember = "ID_HOSPITAL";
             cbxhospital.DisplayMember = "NOMBRE_HOSPITAL";
         }
@@ -72,7 +72,7 @@ namespace Visual {
         private void cargarestados()
         {
             cbxestado.Items.Clear();
-            cbxestado.DataSource = admgeneral.listerEstados();
+            cbxestado.DataSource = admgeneral.EstadoLlenarCombo();
             cbxestado.ValueMember = "ID_ESTADO";
             cbxestado.DisplayMember = "NOMBRE_ESTADO";
         }

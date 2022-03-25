@@ -9,16 +9,27 @@ using System.Text;
 namespace Datos {
     public class Datos_Secretaria {
 
+        // Variables
+        Conexion conexion = null;
+        SqlConnection sql_conexion = null;
+        SqlCommand sql_comando = null;
 
-        /*----------------------Frm_Secretaria_Editar-------------------------------------*/
-        public string insertarDatosSecretaria (Secretaria secretaria) {
-            Conexion conexion = null;
-            SqlConnection sql_conexion = null;
-            SqlCommand sql_comando = null;
-            string mensaje = "";
-            string query = "sp_insertar_secretaria";  // Stored Procedure name
+        string mensaje = null;
+        string query = null;
+
+        /*------------------------------ Frm_Secretaria_Consultar ------------------------------*/
+
+
+
+        /*------------------------------ Frm_Secretaria_Editar ------------------------------*/
+
+
+
+        /*------------------------------ Frm_Secretaria_Registrar ------------------------------*/
+        public string Secretaria_RegistrarDatos (Secretaria secretaria) {
+            conexion = new Conexion ();
+            query = "sp_insertar_secretaria";                           // Stored Procedure name
             try {
-                conexion = new Conexion ();
                 sql_conexion = conexion.abrir_conexion ();              // Opens conexion to sql server
                 sql_comando = new SqlCommand (query, sql_conexion);     // Creatin SqlCommand object
                 sql_comando.CommandType = CommandType.StoredProcedure;  // Declaring command type as stored Procedure
@@ -44,7 +55,7 @@ namespace Datos {
                     }
                 }
             } catch (Exception ex) {
-                mensaje = "OCURRIO UN ERROR. \n" + ex.Message;
+                mensaje = "¡ERRORO! al guardars los datos dela secretaria. \n" + ex.Message;
             } finally {
                 conexion.cerrar_conexion (sql_conexion);
             }

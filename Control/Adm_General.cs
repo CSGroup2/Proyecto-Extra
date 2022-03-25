@@ -36,17 +36,18 @@ namespace Control {
         }
 
         /*------------------------------ Llenar Combo ------------------------------*/
-        public DataTable listarDisponibilidad () {
-            return Datos_General.listarDatosDisponibilidad ();
+
+        public DataTable DisponibilidadLlenarCombo () {
+            return Datos_General.DisponibilidadLlenarComboDatos ();
         }
 
-        public DataTable listerEstados () {
+        public DataTable EstadoLlenarCombo () {
             //return Datos_General.listarEstados();
-            return Datos_General.listarDatosEstados ();
+            return Datos_General.EstadoLlenarComboDatos ();
         }
 
-        public DataTable LlenarComboHospitales () {
-            return Datos_General.ConsultarHospitales ();
+        public DataTable HospitalLlenarCombo () {
+            return Datos_General.HospitalLlenarComboDatos ();
         }
 
 

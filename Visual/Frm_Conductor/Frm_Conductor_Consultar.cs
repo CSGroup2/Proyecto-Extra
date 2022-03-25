@@ -41,7 +41,7 @@ namespace Visual {
         #region Frm load at begining
 
         public void listarDisponibilidad () {
-            cmb_Disponibilidad.DataSource = Adm_General.listarDisponibilidad ();
+            cmb_Disponibilidad.DataSource = Adm_General.DisponibilidadLlenarCombo ();
             cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
             cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
             cmb_Disponibilidad.Enabled = false;
@@ -49,7 +49,7 @@ namespace Visual {
 
         public void listarDatosConductor () {
             dgv_Conductor.Refresh ();
-            dgv_Conductor.DataSource = Adm_Conductor.listarDatosConductor ();
+            dgv_Conductor.DataSource = Adm_Conductor.ConductorListar ();
         }
 
         #endregion
@@ -142,7 +142,7 @@ namespace Visual {
                     disponibilidad = cmb_Disponibilidad.SelectedValue.ToString ();
                 }
                 dgv_Conductor.Refresh ();
-                dgv_Conductor.DataSource = Adm_Conductor.buscarDatosConductor (cedula_nombre, disponibilidad);
+                dgv_Conductor.DataSource = Adm_Conductor.ConductorConsultar (cedula_nombre, disponibilidad);
             }
         }
 
@@ -194,5 +194,18 @@ namespace Visual {
             }
         }
 
+        private void btn_Eliminar_Click (object sender, EventArgs e) {
+            int
+                posicion = 0,
+                idConductor = 0;
+            posicion = dgv_Conductor.CurrentRow.Index;
+            if (posicion >= 0) {
+                idConductor = Validacion.AEntero (dgv_Conductor.Rows[posicion].Cells["ID"].Value.ToString ());
+                string mensake = Adm_Conductor.ConductorEliminar (idConductor);
+                listarDatosConductor ();
+            } else {
+                MessageBox.Show ("Seleccione un conductor.");
+            }
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace Visual {
             this.btn_Modificar = new FontAwesome.Sharp.IconButton();
             this.sfd_VentanaGuardado = new System.Windows.Forms.SaveFileDialog();
             this.err_Alerta = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btn_Eliminar = new FontAwesome.Sharp.IconButton();
             this.pnl_Titulo.SuspendLayout();
             this.pnl_Cuerpo.SuspendLayout();
             this.pnl_Contenido.SuspendLayout();
@@ -81,6 +82,7 @@ namespace Visual {
             this.pnl_Cuerpo.Controls.Add(this.pnl_Contenido);
             this.pnl_Cuerpo.Controls.Add(this.btn_Imprimir);
             this.pnl_Cuerpo.Controls.Add(this.btn_Modificar);
+            this.pnl_Cuerpo.Controls.Add(this.btn_Eliminar);
             this.pnl_Cuerpo.Location = new System.Drawing.Point(0, 63);
             this.pnl_Cuerpo.Name = "pnl_Cuerpo";
             this.pnl_Cuerpo.Size = new System.Drawing.Size(690, 513);
@@ -236,7 +238,7 @@ namespace Visual {
             this.btn_Imprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.btn_Imprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btn_Imprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Imprimir.Location = new System.Drawing.Point(358, 421);
+            this.btn_Imprimir.Location = new System.Drawing.Point(254, 421);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Imprimir.Size = new System.Drawing.Size(183, 52);
@@ -257,7 +259,7 @@ namespace Visual {
             this.btn_Modificar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
             this.btn_Modificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btn_Modificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Modificar.Location = new System.Drawing.Point(150, 421);
+            this.btn_Modificar.Location = new System.Drawing.Point(49, 421);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Modificar.Size = new System.Drawing.Size(183, 52);
@@ -273,6 +275,27 @@ namespace Visual {
             // 
             this.err_Alerta.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.err_Alerta.ContainerControl = this;
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_Eliminar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_Eliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btn_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Eliminar.IconSize = 35;
+            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btn_Eliminar.Location = new System.Drawing.Point(459, 421);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Eliminar.Size = new System.Drawing.Size(183, 52);
+            this.btn_Eliminar.TabIndex = 3;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // Frm_Conductor_Consultar
             // 
@@ -315,5 +338,6 @@ namespace Visual {
         private FontAwesome.Sharp.IconButton btn_Imprimir;
         private System.Windows.Forms.SaveFileDialog sfd_VentanaGuardado;
         private System.Windows.Forms.ErrorProvider err_Alerta;
+        private FontAwesome.Sharp.IconButton btn_Eliminar;
     }
 }

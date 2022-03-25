@@ -78,11 +78,11 @@ namespace Visual {
                    apellido1 = txt_Apellido1.Text.Trim (),
                    apellido2 = txt_Apellido2.Text.Trim (),
                    telefono = txt_Telefono.Text.Trim (),
-                   sexo = Validacion.esSexo (rdb_Masculino, rdb_Femenino);
+                   sexo = Validacion.LeerSexo (rdb_Masculino, rdb_Femenino);
                 DateTime
                     fecha_nac = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
-                string mensaje = Adm_Conductor.guardarDatosConductor (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
+                string mensaje = Adm_Conductor.ConductorRegistrar (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
                 if (mensaje[0] != '¡') {
                     limpiarCampos ();
                 }
