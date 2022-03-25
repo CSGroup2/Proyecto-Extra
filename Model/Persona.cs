@@ -16,7 +16,6 @@ namespace Model {
         private string sexo;
         private DateTime fecha_nac;
         private string telefono;
-        private string estado;
 
         // Constructor: Default
         public Persona () {
@@ -29,11 +28,10 @@ namespace Model {
             this.sexo = "";
             this.fecha_nac = new DateTime ();
             this.telefono = "";
-            this.estado = "";
         }
 
         // Constructor: Parameterized
-        public Persona (int id_persona, string cedula, string nombre_1, string nombre_2, string apellido_1, string apellido_2, string sexo, DateTime fecha_nac, string telefono, string estado) {
+        public Persona (int id_persona, string cedula, string nombre_1, string nombre_2, string apellido_1, string apellido_2, string sexo, DateTime fecha_nac, string telefono) {
             this.id_persona = id_persona;
             this.cedula = cedula;
             this.nombre_1 = nombre_1;
@@ -43,7 +41,6 @@ namespace Model {
             this.sexo = sexo;
             this.fecha_nac = fecha_nac;
             this.telefono = telefono;
-            this.estado = estado;
         }
 
         // Getters & Setters
@@ -56,7 +53,6 @@ namespace Model {
         public string Sexo { get => sexo; set => sexo = value; }
         public DateTime Fecha_nac { get => fecha_nac; set => fecha_nac = value; }
         public string Telefono { get => telefono; set => telefono = value; }
-        public string Estado { get => estado; set => estado = value; }
 
         // ToString
         public override string ToString () {
@@ -66,8 +62,7 @@ namespace Model {
                 "\r\nApellidos: " + apellido_1 + " " + apellido_2 +
                 "\r\nSexo: " + sexo +
                 "\r\nFecha de Nacimiento: " + fecha_nac +
-                "\r\nTeléfono: " + telefono +
-                "\r\nEstado: " + estado;
+                "\r\nTeléfono: " + telefono;
         }
 
     }

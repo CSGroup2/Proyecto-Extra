@@ -157,7 +157,7 @@ namespace Visual {
             posicion = dgv_Conductor.CurrentRow.Index;
             if (posicion >= 0) {
                 idConductor = Validacion.AEntero (dgv_Conductor.Rows[posicion].Cells["ID"].Value.ToString ());
-                Frm_Menu.abrirhijoform (new Frm_Conductor_Editar (posicion, idConductor));
+                Frm_Menu.abrirhijoform (new Frm_Conductor_Editar (idConductor));
             } else {
                 MessageBox.Show ("Seleccione un conductor.");
             }

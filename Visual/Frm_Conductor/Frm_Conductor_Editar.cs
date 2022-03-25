@@ -20,29 +20,30 @@ namespace Visual {
             InitializeComponent ();
             listarEstados ();
             listarDisponibilidad ();
+            rdb_Masculino.Checked = false;
         }
 
-        public Frm_Conductor_Editar (int posicion, int idConductor) {
+        public Frm_Conductor_Editar (int idConductor) {
             // Constructor overcharge
             InitializeComponent ();
-            llenarCamposEditar (posicion, idConductor);
             listarEstados ();
             listarDisponibilidad ();
+            llenarCamposEditar (idConductor);
         }
 
         private void Frm_Conductor_Editar_Load (object sender, EventArgs e) {
             this.pnl_Contenido.BackColor = Color.FromArgb (200, 255, 255, 255);
             listarEstados ();
             listarDisponibilidad ();
+            rdb_Masculino.Checked = false;
         }
 
-        #region Frm load at begining
+        #region ------------------------------ Frm load at begining
 
         public void listarDisponibilidad () {
             cmb_Disponibilidad.DataSource = Adm_General.listarDisponibilidad ();
             cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
             cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
-            cmb_Disponibilidad.Enabled = false;
         }
 
         private void listarEstados () {
@@ -52,13 +53,13 @@ namespace Visual {
             cmb_Estado.DisplayMember = "NOMBRE_ESTADO";
         }
 
-        private void llenarCamposEditar (int posicion, int idConductor) {
-            Adm_Conductor.buscarDatosConductorEditar (posicion, idConductor, lbl_IdConductor, txt_Cedula, cmb_Estado, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato);
+        private void llenarCamposEditar (int idConductor) {
+            Adm_Conductor.buscarDatosConductorEditar (idConductor, lbl_IdConductor, txt_Cedula, cmb_Estado, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato);
         }
 
         #endregion
 
-        #region Frm behavior
+        #region ------------------------------ Frm behavior
 
         #region Efcto Botones
 
@@ -113,15 +114,32 @@ namespace Visual {
                 DateTime
                     fecha_nacimiento = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
-                string mensaje = Adm_Conductor.actualizarDatosConductor (id, cedula, estado, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nacimiento, fecha_contrato);
+                string mensaje = Adm_Conductor.actualizarDatosConductor (id, cedula, estado, nombre1, nombre2, apellido1, apellido2, disponibilidad, telefono, sexo, fecha_nacimiento, fecha_contrato);
                 if (mensaje[0] != '¡') {
-                    Adm_Conductor.limpiarCamposGuardarConductorEditar (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta);
+                    limpiarCampos ();
                 }
             }
         }
 
         private void btn_Cancelar_Click (object sender, EventArgs e) {
             this.Close ();
+        }
+
+        private void limpiarCampos () {
+            lbl_IdConductor.Text = "";
+            txt_Cedula.Clear ();
+            cmb_Estado.SelectedIndex = 0;
+            txt_Nombre1.Clear ();
+            txt_Nombre2.Clear ();
+            txt_Apellido1.Clear ();
+            txt_Apellido2.Clear ();
+            cmb_Disponibilidad.SelectedIndex = 0;
+            txt_Telefono.Clear ();
+            rdb_Masculino.Checked = false;
+            rdb_Femenino.Checked = false;
+            dtp_FechaNacimiento.Value = DateTime.Today;
+            dtp_FechaContrato.Value = DateTime.Today;
+            err_Alerta.Clear ();
         }
 
     }

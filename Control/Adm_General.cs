@@ -35,7 +35,7 @@ namespace Control {
             return adm_General;
         }
 
-        /*---------------------------------------------------------------------------------------*/
+        /*------------------------------ Llenar Combo ------------------------------*/
         public DataTable listarDisponibilidad () {
             return Datos_General.listarDatosDisponibilidad ();
         }

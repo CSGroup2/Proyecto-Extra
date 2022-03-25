@@ -83,7 +83,7 @@ namespace Visual {
             this.lbl_Titulo.Location = new System.Drawing.Point(119, 22);
             this.lbl_Titulo.Name = "lbl_Titulo";
             this.lbl_Titulo.Size = new System.Drawing.Size(461, 44);
-            this.lbl_Titulo.TabIndex = 1;
+            this.lbl_Titulo.TabIndex = 0;
             this.lbl_Titulo.Text = "Registro de Conductores";
             // 
             // pnl_Cuerpo
@@ -113,8 +113,8 @@ namespace Visual {
             this.pnl_Contenido.Controls.Add(this.lbl_Telefono);
             this.pnl_Contenido.Controls.Add(this.txt_Telefono);
             this.pnl_Contenido.Controls.Add(this.lbl_Sexo);
-            this.pnl_Contenido.Controls.Add(this.rdb_Femenino);
             this.pnl_Contenido.Controls.Add(this.rdb_Masculino);
+            this.pnl_Contenido.Controls.Add(this.rdb_Femenino);
             this.pnl_Contenido.Controls.Add(this.lbl_FechaNacimiento);
             this.pnl_Contenido.Controls.Add(this.dtp_FechaNacimiento);
             this.pnl_Contenido.Controls.Add(this.lbl_FechaContrato);
@@ -122,7 +122,7 @@ namespace Visual {
             this.pnl_Contenido.Location = new System.Drawing.Point(26, 15);
             this.pnl_Contenido.Name = "pnl_Contenido";
             this.pnl_Contenido.Size = new System.Drawing.Size(639, 310);
-            this.pnl_Contenido.TabIndex = 14;
+            this.pnl_Contenido.TabIndex = 0;
             // 
             // lbl_Cedula
             // 
@@ -133,7 +133,7 @@ namespace Visual {
             this.lbl_Cedula.Location = new System.Drawing.Point(16, 17);
             this.lbl_Cedula.Name = "lbl_Cedula";
             this.lbl_Cedula.Size = new System.Drawing.Size(109, 18);
-            this.lbl_Cedula.TabIndex = 7;
+            this.lbl_Cedula.TabIndex = 0;
             this.lbl_Cedula.Text = "Num. Cédula:";
             // 
             // txt_Cedula
@@ -145,7 +145,7 @@ namespace Visual {
             this.txt_Cedula.MaxLength = 10;
             this.txt_Cedula.Name = "txt_Cedula";
             this.txt_Cedula.Size = new System.Drawing.Size(137, 26);
-            this.txt_Cedula.TabIndex = 6;
+            this.txt_Cedula.TabIndex = 1;
             this.txt_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cedula_KeyPress);
             // 
             // grp_Nombres
@@ -159,7 +159,7 @@ namespace Visual {
             this.grp_Nombres.Location = new System.Drawing.Point(10, 51);
             this.grp_Nombres.Name = "grp_Nombres";
             this.grp_Nombres.Size = new System.Drawing.Size(302, 85);
-            this.grp_Nombres.TabIndex = 4;
+            this.grp_Nombres.TabIndex = 2;
             this.grp_Nombres.TabStop = false;
             this.grp_Nombres.Text = "Nombres";
             // 
@@ -172,7 +172,7 @@ namespace Visual {
             this.lbl_Nombre1.Location = new System.Drawing.Point(6, 20);
             this.lbl_Nombre1.Name = "lbl_Nombre1";
             this.lbl_Nombre1.Size = new System.Drawing.Size(128, 18);
-            this.lbl_Nombre1.TabIndex = 3;
+            this.lbl_Nombre1.TabIndex = 0;
             this.lbl_Nombre1.Text = "Primer Nombre:";
             // 
             // txt_Nombre1
@@ -182,7 +182,7 @@ namespace Visual {
             this.txt_Nombre1.Location = new System.Drawing.Point(147, 15);
             this.txt_Nombre1.Name = "txt_Nombre1";
             this.txt_Nombre1.Size = new System.Drawing.Size(137, 26);
-            this.txt_Nombre1.TabIndex = 0;
+            this.txt_Nombre1.TabIndex = 1;
             this.txt_Nombre1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // lbl_Nombre2
@@ -194,7 +194,7 @@ namespace Visual {
             this.lbl_Nombre2.Location = new System.Drawing.Point(4, 50);
             this.lbl_Nombre2.Name = "lbl_Nombre2";
             this.lbl_Nombre2.Size = new System.Drawing.Size(142, 18);
-            this.lbl_Nombre2.TabIndex = 5;
+            this.lbl_Nombre2.TabIndex = 2;
             this.lbl_Nombre2.Text = "Segundo Nombre:";
             // 
             // txt_Nombre2
@@ -204,7 +204,7 @@ namespace Visual {
             this.txt_Nombre2.Location = new System.Drawing.Point(147, 47);
             this.txt_Nombre2.Name = "txt_Nombre2";
             this.txt_Nombre2.Size = new System.Drawing.Size(137, 26);
-            this.txt_Nombre2.TabIndex = 4;
+            this.txt_Nombre2.TabIndex = 3;
             this.txt_Nombre2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // grp_Apellidos
@@ -218,7 +218,7 @@ namespace Visual {
             this.grp_Apellidos.Location = new System.Drawing.Point(330, 51);
             this.grp_Apellidos.Name = "grp_Apellidos";
             this.grp_Apellidos.Size = new System.Drawing.Size(302, 85);
-            this.grp_Apellidos.TabIndex = 6;
+            this.grp_Apellidos.TabIndex = 3;
             this.grp_Apellidos.TabStop = false;
             this.grp_Apellidos.Text = "Apellidos";
             // 
@@ -231,7 +231,7 @@ namespace Visual {
             this.lbl_Apellido1.Location = new System.Drawing.Point(2, 20);
             this.lbl_Apellido1.Name = "lbl_Apellido1";
             this.lbl_Apellido1.Size = new System.Drawing.Size(127, 18);
-            this.lbl_Apellido1.TabIndex = 3;
+            this.lbl_Apellido1.TabIndex = 0;
             this.lbl_Apellido1.Text = "Primer Apellido:";
             // 
             // txt_Apellido1
@@ -241,7 +241,7 @@ namespace Visual {
             this.txt_Apellido1.Location = new System.Drawing.Point(147, 15);
             this.txt_Apellido1.Name = "txt_Apellido1";
             this.txt_Apellido1.Size = new System.Drawing.Size(137, 26);
-            this.txt_Apellido1.TabIndex = 0;
+            this.txt_Apellido1.TabIndex = 1;
             this.txt_Apellido1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // lbl_Apellido2
@@ -253,7 +253,7 @@ namespace Visual {
             this.lbl_Apellido2.Location = new System.Drawing.Point(2, 50);
             this.lbl_Apellido2.Name = "lbl_Apellido2";
             this.lbl_Apellido2.Size = new System.Drawing.Size(145, 18);
-            this.lbl_Apellido2.TabIndex = 5;
+            this.lbl_Apellido2.TabIndex = 2;
             this.lbl_Apellido2.Text = "Segundo Apellido:";
             // 
             // txt_Apellido2
@@ -263,7 +263,7 @@ namespace Visual {
             this.txt_Apellido2.Location = new System.Drawing.Point(147, 47);
             this.txt_Apellido2.Name = "txt_Apellido2";
             this.txt_Apellido2.Size = new System.Drawing.Size(137, 26);
-            this.txt_Apellido2.TabIndex = 4;
+            this.txt_Apellido2.TabIndex = 3;
             this.txt_Apellido2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // lbl_Telefono
@@ -275,7 +275,7 @@ namespace Visual {
             this.lbl_Telefono.Location = new System.Drawing.Point(335, 145);
             this.lbl_Telefono.Name = "lbl_Telefono";
             this.lbl_Telefono.Size = new System.Drawing.Size(78, 18);
-            this.lbl_Telefono.TabIndex = 18;
+            this.lbl_Telefono.TabIndex = 4;
             this.lbl_Telefono.Text = "Num. Telf:";
             // 
             // txt_Telefono
@@ -287,7 +287,7 @@ namespace Visual {
             this.txt_Telefono.MaxLength = 10;
             this.txt_Telefono.Name = "txt_Telefono";
             this.txt_Telefono.Size = new System.Drawing.Size(137, 26);
-            this.txt_Telefono.TabIndex = 17;
+            this.txt_Telefono.TabIndex = 5;
             this.txt_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cedula_KeyPress);
             // 
             // lbl_Sexo
@@ -310,7 +310,7 @@ namespace Visual {
             this.rdb_Femenino.Location = new System.Drawing.Point(208, 175);
             this.rdb_Femenino.Name = "rdb_Femenino";
             this.rdb_Femenino.Size = new System.Drawing.Size(98, 24);
-            this.rdb_Femenino.TabIndex = 14;
+            this.rdb_Femenino.TabIndex = 8;
             this.rdb_Femenino.Text = "Femenino";
             this.rdb_Femenino.UseVisualStyleBackColor = false;
             // 
@@ -323,7 +323,7 @@ namespace Visual {
             this.rdb_Masculino.Location = new System.Drawing.Point(84, 175);
             this.rdb_Masculino.Name = "rdb_Masculino";
             this.rdb_Masculino.Size = new System.Drawing.Size(102, 24);
-            this.rdb_Masculino.TabIndex = 13;
+            this.rdb_Masculino.TabIndex = 7;
             this.rdb_Masculino.TabStop = true;
             this.rdb_Masculino.Text = "Masculino";
             this.rdb_Masculino.UseVisualStyleBackColor = false;
@@ -337,7 +337,7 @@ namespace Visual {
             this.lbl_FechaNacimiento.Location = new System.Drawing.Point(15, 209);
             this.lbl_FechaNacimiento.Name = "lbl_FechaNacimiento";
             this.lbl_FechaNacimiento.Size = new System.Drawing.Size(142, 18);
-            this.lbl_FechaNacimiento.TabIndex = 15;
+            this.lbl_FechaNacimiento.TabIndex = 9;
             this.lbl_FechaNacimiento.Text = "Fech. Nacimiento:";
             // 
             // dtp_FechaNacimiento
@@ -347,7 +347,7 @@ namespace Visual {
             this.dtp_FechaNacimiento.Location = new System.Drawing.Point(157, 205);
             this.dtp_FechaNacimiento.Name = "dtp_FechaNacimiento";
             this.dtp_FechaNacimiento.Size = new System.Drawing.Size(242, 26);
-            this.dtp_FechaNacimiento.TabIndex = 16;
+            this.dtp_FechaNacimiento.TabIndex = 10;
             // 
             // lbl_FechaContrato
             // 
@@ -358,7 +358,7 @@ namespace Visual {
             this.lbl_FechaContrato.Location = new System.Drawing.Point(15, 241);
             this.lbl_FechaContrato.Name = "lbl_FechaContrato";
             this.lbl_FechaContrato.Size = new System.Drawing.Size(120, 18);
-            this.lbl_FechaContrato.TabIndex = 21;
+            this.lbl_FechaContrato.TabIndex = 11;
             this.lbl_FechaContrato.Text = "Fech. Contrato:";
             // 
             // dtp_FechaContrato
@@ -368,7 +368,7 @@ namespace Visual {
             this.dtp_FechaContrato.Location = new System.Drawing.Point(157, 237);
             this.dtp_FechaContrato.Name = "dtp_FechaContrato";
             this.dtp_FechaContrato.Size = new System.Drawing.Size(242, 26);
-            this.dtp_FechaContrato.TabIndex = 22;
+            this.dtp_FechaContrato.TabIndex = 12;
             // 
             // btn_Guardar
             // 
@@ -383,7 +383,7 @@ namespace Visual {
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Guardar.Size = new System.Drawing.Size(183, 52);
-            this.btn_Guardar.TabIndex = 15;
+            this.btn_Guardar.TabIndex = 1;
             this.btn_Guardar.Text = "Guardar";
             this.btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Guardar.UseVisualStyleBackColor = true;
@@ -404,7 +404,7 @@ namespace Visual {
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Cancelar.Size = new System.Drawing.Size(183, 52);
-            this.btn_Cancelar.TabIndex = 12;
+            this.btn_Cancelar.TabIndex = 2;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = true;
@@ -425,7 +425,7 @@ namespace Visual {
             this.btn_Limpiar.Name = "btn_Limpiar";
             this.btn_Limpiar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Limpiar.Size = new System.Drawing.Size(183, 52);
-            this.btn_Limpiar.TabIndex = 11;
+            this.btn_Limpiar.TabIndex = 3;
             this.btn_Limpiar.Text = "Limpiar";
             this.btn_Limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Limpiar.UseVisualStyleBackColor = true;
