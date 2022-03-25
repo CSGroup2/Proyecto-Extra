@@ -174,34 +174,35 @@ namespace Datos
         {
             //Object cliente = new Object();
             Usuario user = new Usuario();
-            Cliente client = new Cliente(); 
+            Cliente client = null; 
             SqlConnection c1 = con.abrir_conexion();
             try
             {
+                
                 using (SqlCommand comando = new SqlCommand("sp_cliente_buscarDatosPorIdCedula", c1))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.Add(new SqlParameter("@dato", dato));
                     comando.Parameters.Add(new SqlParameter("@tipo", tipo));
-                    SqlDataReader datosconductor = comando.ExecuteReader();
-                    while (datosconductor.Read())
+                    SqlDataReader datoscliente = comando.ExecuteReader();
+                    if (datoscliente.Read())
                     {
-                        client.Id_cliente = Convert.ToInt32(datosconductor["ID_CLIENTE"]);
-                        client.Id_estado = Convert.ToInt32(datosconductor["ID_ESTADO"]); 
-                        client.Cedula = datosconductor["CEDULA"].ToString();
-                        client.Id_hospital = Convert.ToInt32(datosconductor["ID_HOSPITAL"]);
-                        client.Nombre_1 = datosconductor["NOMBRE_1"].ToString();
-                        client.Nombre_2 = datosconductor["NOMBRE_2"].ToString();
-                        client.Apellido_1= datosconductor["APELLIDO_1"].ToString(); 
-                        client.Apellido_2 = datosconductor["APELLIDO_2"].ToString();
-                        client.Fecha_nac = DateTime.Parse(datosconductor["FECHA_NAC"].ToString());
-                        client.Sexo = datosconductor["SEXO"].ToString();
-                        client.Telefono = datosconductor["TELEFONO"].ToString();
-                        user.Correo = datosconductor["CORREO"].ToString();
-                        user.Nombre_usuario = datosconductor["NOMBRE_USUARIO"].ToString();
-                        user.Contrasenia = datosconductor["CONTRASENIA"].ToString();
+                        client = new Cliente();
+                        client.Id_cliente = Convert.ToInt32(datoscliente["ID_CLIENTE"]);
+                        client.Id_estado = Convert.ToInt32(datoscliente["ID_ESTADO"]); 
+                        client.Cedula = datoscliente["CEDULA"].ToString();
+                        client.Id_hospital = Convert.ToInt32(datoscliente["ID_HOSPITAL"]);
+                        client.Nombre_1 = datoscliente["NOMBRE_1"].ToString();
+                        client.Nombre_2 = datoscliente["NOMBRE_2"].ToString();
+                        client.Apellido_1= datoscliente["APELLIDO_1"].ToString(); 
+                        client.Apellido_2 = datoscliente["APELLIDO_2"].ToString();
+                        client.Fecha_nac = DateTime.Parse(datoscliente["FECHA_NAC"].ToString());
+                        client.Sexo = datoscliente["SEXO"].ToString();
+                        client.Telefono = datoscliente["TELEFONO"].ToString();
+                        user.Correo = datoscliente["CORREO"].ToString();
+                        user.Nombre_usuario = datoscliente["NOMBRE_USUARIO"].ToString();
+                        user.Contrasenia = datoscliente["CONTRASENIA"].ToString();
                         client.Usuario = user;  
-
                         //cliente = client; 
                     }
                 }

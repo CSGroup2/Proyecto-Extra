@@ -26,7 +26,7 @@ namespace Model {
             this.apellido_1 = "";
             this.apellido_2 = "";
             this.sexo = "";
-            this.fecha_nac = new DateTime ();
+            this.fecha_nac = DateTime.Now;
             this.telefono = "";
         }
 
