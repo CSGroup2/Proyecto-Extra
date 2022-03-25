@@ -170,9 +170,9 @@ namespace Datos
         }
 
         // metodo de busca de cliente por ID 
-        public Object buscarClienteID(int idcliente)
+        public Cliente buscarClienteID(int idcliente)
         {
-            Object cliente = new Object();
+            //Object cliente = new Object();
             Usuario user = new Usuario();
             Cliente client = new Cliente(); 
             SqlConnection c1 = con.abrir_conexion();
@@ -197,24 +197,24 @@ namespace Datos
                         client.Sexo = datosconductor["SEXO"].ToString();
                         client.Telefono = datosconductor["TELEFONO"].ToString();
                         user.Correo = datosconductor["CORREO"].ToString();
+                        user.Nombre_usuario = datosconductor["NOMBRE_USUARIO"].ToString();
                         user.Contrasenia = datosconductor["CONTRASENIA"].ToString();
                         client.Usuario = user;  
 
-                        cliente = client; 
+                        //cliente = client; 
                     }
                 }
             }
             catch (Exception ex)
             {
-                cliente = null;
+                client = null;
                 Console.WriteLine("Error al consultar el Clientes " + ex.Message);
             }
             finally
             {
                 con.cerrar_conexion(c1);
             }
-            return cliente;
+            return client;
         }
-
     }
 }

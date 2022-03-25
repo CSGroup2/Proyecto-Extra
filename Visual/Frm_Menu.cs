@@ -222,7 +222,7 @@ namespace Visual {
             abrirhijoform (new Frm_Cliente_Consultar (this));
         }
         private void btnclientemodi_Click (object sender, EventArgs e) {
-            abrirhijoform (new Frm_Cliente_Editar ());
+            abrirhijoform (new Frm_Cliente_Editar());
         }
         #endregion
 

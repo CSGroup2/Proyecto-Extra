@@ -33,13 +33,28 @@ namespace Visual {
         private void FrmClienteConsul_Load (object sender, EventArgs e) {
             this.pncontenido.BackColor = Color.FromArgb (140, 255, 255, 255);
             this.cargarhospitales();
-            this.cargarclientes();
-            if (dgvClientes.Rows.Count == 0) { btnmodificar.Enabled = false; }
+            this.cargarclientes(); 
             this.cargarestados();
-            this.tamaniocriterio(); 
+            this.tamaniocriterio();
+            this.habilitarbotones();
         }
 
         #region cargado de datos al iniciar  y helpers
+
+        private void habilitarbotones()
+        {
+            if (dgvClientes.Rows.Count == 0)
+            {
+                this.btnImprimir.Enabled = false;
+                this.btnmodificar.Enabled = false;
+            }
+            else
+            {
+                this.btnImprimir.Enabled = true;
+                this.btnmodificar.Enabled = true;
+            }
+        }
+
         private void cargarclientes()
         {
             dgvClientes.Refresh();
@@ -204,11 +219,13 @@ namespace Visual {
             } 
             string dato = txtCriterio.Text.Replace(" ", String.Empty);
             dgvClientes.DataSource = admCliente.ConsultarClientes(dato, estado, hospital, buscarOb, buscarOp);
+            this.habilitarbotones(); 
         }
 
         private void btnmostrartodos_Click(object sender, EventArgs e)
         {
-            this.cargarclientes(); 
+            this.cargarclientes();
+            this.habilitarbotones(); 
         }
 
         private void btnmodificar_Click(object sender, EventArgs e)
@@ -220,7 +237,7 @@ namespace Visual {
                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int idcliente = Int32.Parse(dgvClientes[posicion, 0].Value.ToString());
-                    menu.abrirhijoform(new Frm_Cliente_Editar(idcliente));
+                    menu.abrirhijoform(new Frm_Cliente_Editar(idcliente, menu));
 
                 }
             }

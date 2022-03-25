@@ -115,10 +115,31 @@ namespace Visual {
                 else
                 {
                     MensajeOk(mensaje);
-                    admclient.limpiarCamposGuardarCliente(txt_cedula, cbxhospitales, txt_nombre1, txt_nombre2, txt_apellido1, txt_apellido2, txt_correo, txt_numtelf, opr_masculino, opr_femenino, dtp_fechanac, txt_usuario, txt_contra, txt_confirmarcontra, errpvdatoscliente);
+                    this.limpiar(); 
                 }
 
             }            
+        }
+
+
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            this.limpiar(); 
+        }
+
+        private void limpiar()
+        {
+            if (MessageBox.Show("¿Esta seguro de limpiar todos los campos?", "Warning",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                admclient.limpiarCamposGuardarCliente(txt_cedula, cbxhospitales, txt_nombre1, txt_nombre2, txt_apellido1, txt_apellido2, txt_correo, txt_numtelf, opr_masculino, opr_femenino, dtp_fechanac, txt_usuario, txt_contra, txt_confirmarcontra, errpvdatoscliente);
+            }
         }
     }
 }

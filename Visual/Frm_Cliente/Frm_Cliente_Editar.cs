@@ -14,33 +14,39 @@ namespace Visual {
         Btn_Comportamiento cbtn = new Btn_Comportamiento ();
         Adm_General admgeneral = Adm_General.GetAdm();
         Adm_Cliente admcliente = Adm_Cliente.GetAdm();
-        Object clientetemp;
-        int idclientemodi;
+        int idclientemodi=0;
+        Frm_Menu menu;
 
         public Frm_Cliente_Editar () {
             InitializeComponent ();
         }
 
-        public Frm_Cliente_Editar(int idcliente)
+        public Frm_Cliente_Editar(int idcliente, Frm_Menu menuconsul)
         {
             InitializeComponent();
             this.idclientemodi = idcliente;
+            this.menu = menuconsul;
+            this.btnBuscar.Visible = false;
+            this.chxactivarbusqueda.Visible = false; 
         }
 
         private void FrmClienteModifi_Load (object sender, EventArgs e) {
             this.pncontenido.BackColor = Color.FromArgb (200, 255, 255, 255);
             this.cargarestados();
             this.cargarhospitales();
-            this.cargardatoscliente(); 
+            _ = idclientemodi != 0 ? this.cargardatoscliente() : this.limpiar() ;
         }
 
-        private void cargardatoscliente()
+        private String limpiar()
         {
-            clientetemp = admcliente.BuscarClienteID(idclientemodi);
-            
-            //txtmcedula.Text = clientetemp;
-            //MessageBox.Show("Mensjase: " + clientetemp.GetType() + "HOLAAAA" + clientetemp);
-            MessageBox.Show("Mensjase: " + clientetemp.GetType().Attributes );
+            admcliente.limpiarCamposGuardarCliente(txtmcedula, cbxhospital, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, oprmasculino, oprfemenino, daterfechanac, txtmusur, txtrcontra, txtrcontra, errpvdatoscliente);
+            return "limpiado";
+        }
+
+        private String cargardatoscliente()
+        {
+           this.admcliente.BuscarClienteID(idclientemodi, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac);
+            return "encontrado"; 
         }
 
         private void cargarhospitales()
@@ -79,6 +85,23 @@ namespace Visual {
         #endregion
 
         private void btnguardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            if(this.menu == null)
+            {
+                this.Close();
+            }
+            else
+            {
+                menu.abrirhijoform(new Frm_Cliente_Consultar(menu));
+            }
+        }
+
+        private void pncontenido_Paint(object sender, PaintEventArgs e)
         {
 
         }

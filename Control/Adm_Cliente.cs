@@ -115,10 +115,24 @@ namespace Control
             return Datos_client.eliminarcliente(idcliente); 
         }
 
-        public Object BuscarClienteID(int idclient)
+        public void BuscarClienteID(int idclient, Label lblidcliente, TextBox txtcedula, TextBox txtnombre1, TextBox txtnombre2, TextBox txtapellido1, TextBox txtapellido2, TextBox txtcorreo, TextBox txttelefono, TextBox txtusuario, ComboBox cbxestado, ComboBox cbxhospital, RadioButton masculino, RadioButton femenino, DateTimePicker fechanacimiento)
         {
-            return Datos_client.buscarClienteID(idclient);
+            client = Datos_client.buscarClienteID(idclient);          
+            lblidcliente.Text = client.Id_cliente.ToString();
+            txtcedula.Text = client.Cedula.ToString();
+            txtnombre1.Text = client.Nombre_1.ToString();
+            txtnombre2.Text = client.Nombre_2.ToString();
+            txtapellido1.Text = client.Apellido_1.ToString();
+            txtapellido2.Text = client.Apellido_2.ToString();
+            txtcorreo.Text = client.Usuario.Correo.ToString();
+            txttelefono.Text = client.Telefono.ToString();
+            txtusuario.Text = client.Usuario.Nombre_usuario.ToString();
+            cbxestado.SelectedValue = client.Id_estado;
+            cbxhospital.SelectedValue = client.Id_hospital;
+            fechanacimiento.Value = DateTime.Parse(client.Fecha_nac.ToString());
+            _ = client.Sexo.Equals("Feminino") ? femenino.Checked : masculino.Checked; 
         }
+
 
 
         #endregion

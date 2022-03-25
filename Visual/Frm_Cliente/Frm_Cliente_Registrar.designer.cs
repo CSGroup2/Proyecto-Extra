@@ -476,7 +476,7 @@ namespace Visual {
             this.btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btnlimpiar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnlimpiar.Location = new System.Drawing.Point(479, 416);
+            this.btnlimpiar.Location = new System.Drawing.Point(262, 416);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnlimpiar.Size = new System.Drawing.Size(183, 52);
@@ -484,6 +484,7 @@ namespace Visual {
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnlimpiar.UseVisualStyleBackColor = true;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             this.btnlimpiar.MouseLeave += new System.EventHandler(this.btnlimpiar_MouseLeave);
             this.btnlimpiar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnlimpiar_MouseMove);
             // 
@@ -496,14 +497,15 @@ namespace Visual {
             this.btncancelar.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
             this.btncancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btncancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btncancelar.Location = new System.Drawing.Point(232, 416);
+            this.btncancelar.Location = new System.Drawing.Point(488, 416);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btncancelar.Size = new System.Drawing.Size(214, 52);
+            this.btncancelar.Size = new System.Drawing.Size(175, 52);
             this.btncancelar.TabIndex = 12;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             this.btncancelar.MouseLeave += new System.EventHandler(this.btncancelar_MouseLeave);
             this.btncancelar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btncancelar_MouseMove);
             // 

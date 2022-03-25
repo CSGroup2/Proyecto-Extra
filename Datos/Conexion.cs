@@ -27,6 +27,7 @@ namespace Datos {
             return conexion;
         }
 
+
         //Cerrar conexion a BD
         public void cerrar_conexion (SqlConnection conexion) {
             conexion.Close ();
