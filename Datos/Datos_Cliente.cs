@@ -170,7 +170,7 @@ namespace Datos
         }
 
         // metodo de busca de cliente por ID 
-        public Cliente buscarClienteID(int idcliente)
+        public Cliente buscarClienteID(string dato, int tipo)
         {
             //Object cliente = new Object();
             Usuario user = new Usuario();
@@ -178,10 +178,11 @@ namespace Datos
             SqlConnection c1 = con.abrir_conexion();
             try
             {
-                using (SqlCommand comando = new SqlCommand("sp_cliente_buscarDatosPorId", c1))
+                using (SqlCommand comando = new SqlCommand("sp_cliente_buscarDatosPorIdCedula", c1))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
-                    comando.Parameters.Add(new SqlParameter("@idcliente", idcliente));
+                    comando.Parameters.Add(new SqlParameter("@dato", dato));
+                    comando.Parameters.Add(new SqlParameter("@tipo", tipo));
                     SqlDataReader datosconductor = comando.ExecuteReader();
                     while (datosconductor.Read())
                     {

@@ -45,7 +45,7 @@ namespace Visual {
 
         private String cargardatoscliente()
         {
-           this.admcliente.BuscarClienteID(idclientemodi, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac);
+           this.admcliente.BuscarClienteID(idclientemodi.ToString(), 1, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac);
             return "encontrado"; 
         }
 

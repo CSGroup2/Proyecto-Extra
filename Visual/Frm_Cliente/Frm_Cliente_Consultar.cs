@@ -53,7 +53,7 @@ namespace Visual {
             {
                 this.btnImprimir.Enabled = true;
                 this.btnmodificar.Enabled = true;
-                this.btnEliminar.Enabled = false;
+                this.btnEliminar.Enabled = true;
             }
         }
 
