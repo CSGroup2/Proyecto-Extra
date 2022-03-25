@@ -47,11 +47,13 @@ namespace Visual {
             {
                 this.btnImprimir.Enabled = false;
                 this.btnmodificar.Enabled = false;
+                this.btnEliminar.Enabled = false;
             }
             else
             {
                 this.btnImprimir.Enabled = true;
                 this.btnmodificar.Enabled = true;
+                this.btnEliminar.Enabled = false;
             }
         }
 
