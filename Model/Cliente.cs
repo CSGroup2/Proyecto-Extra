@@ -31,6 +31,7 @@ namespace Model
             this.id_estado = id_estado;
         }
 
+
         //Getters and setters
         public int Id_cliente { get => id_cliente; set => id_cliente = value; }
         public int Id_hospital { get => id_hospital; set => id_hospital = value; }
