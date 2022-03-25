@@ -27,7 +27,7 @@ namespace SGAR_TEST {
             DateTime
                 fecha_nac = new DateTime (1999, 11, 16),
                 fecha_contrato = new DateTime (2022, 01, 05);
-            mensaje = admSecretaria.guardarDatosSecretaria (cedula, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fecha_nac, fecha_contrato, nombre_usuario, contrasenia1);
+            mensaje = admSecretaria.Secretaria_RegistrarDatos (cedula, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fecha_nac, fecha_contrato, nombre_usuario, contrasenia1);
             Assert.AreEqual ("¡DATOS NO GUARDADOS!", mensaje);
         }
 

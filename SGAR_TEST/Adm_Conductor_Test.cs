@@ -10,7 +10,7 @@ namespace SGAR_TEST {
         #region Test Methods: Registrar
         
         [TestMethod]
-        public void InsertarDatosConductor_ConductorExistente () {
+        public void ConductorTestRegistrarExistente () {
             Adm_Conductor admConductor = Adm_Conductor.GetAdm ();
             string
                 mensaje = "",
@@ -22,15 +22,15 @@ namespace SGAR_TEST {
                 telefono = "0992015890",
                 sexo = "Masculino";
             DateTime
-                fecha_nac = new DateTime (2022, 02, 20),
-                fecha_contrato = new DateTime (2022, 02, 20);
-            mensaje = admConductor.guardarDatosConductor (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
+                fechaNacimiento = new DateTime (2022, 02, 20),
+                fechaContrato = new DateTime (2022, 02, 20);
+            mensaje = admConductor.ConductorRegistrar (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fechaNacimiento, fechaContrato);
             Assert.AreEqual ("¡CÉDULA YA EXISTE!", mensaje);
         }
         
         
         [TestMethod]
-        public void InsertarDatosConductor_ConductorNuevo () {
+        public void ConductorTestRegistrarNuevo () {
             Adm_Conductor admConductor = Adm_Conductor.GetAdm ();
             string
                 mensaje = "",
@@ -42,9 +42,9 @@ namespace SGAR_TEST {
                 telefono = "0912121212",
                 sexo = "Masculino";
             DateTime
-                fecha_nac = new DateTime (2022, 02, 20),
-                fecha_contrato = new DateTime (2022, 02, 20);
-            mensaje = admConductor.guardarDatosConductor (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fecha_nac, fecha_contrato);
+                fechaNacimiento = new DateTime (2022, 02, 20),
+                fechaContrato = new DateTime (2022, 02, 20);
+            mensaje = admConductor.ConductorRegistrar (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fechaNacimiento, fechaContrato);
             Assert.AreEqual ("DATOS GUARDADOS CORRECTAMENTE.", mensaje);
         }
         

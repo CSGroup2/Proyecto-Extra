@@ -68,7 +68,7 @@ namespace Control
         //Valida si realmente un sexo se ha escogido
         public string esSexo(RadioButton rdb_Masculino, RadioButton rdb_Femenino)
         {
-            return validacion.esSexo(rdb_Masculino, rdb_Femenino);
+            return validacion.LeerSexo(rdb_Masculino, rdb_Femenino);
         }
         //verifica que todos los datos sean correctos, o que se envien datos incompletos
         public  bool validarDatosCliente(TextBox txt_Cedula, ComboBox cmbhospital, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNac, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider errorProvider1)

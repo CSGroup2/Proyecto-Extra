@@ -8,7 +8,7 @@ using System.Text;
 namespace Datos {
     public class Datos_General {
 
-        public DataTable listarDatosDisponibilidad () {
+        public DataTable DisponibilidadLlenarComboDatos () {
             // Extract all "disponibilidad" data from database
             Conexion conexion = null;
             SqlConnection sql_conexion = null;
@@ -38,14 +38,14 @@ namespace Datos {
             return dataTable_resultado;
         }
 
-        public DataTable listarDatosEstados () {
+        public DataTable EstadoLlenarComboDatos () {
             // Se definen las variables necesarias para la conexion y ejecucion de comandos. 
-            DataTable dataTable_resultado = null;
             Conexion conexion = null;
             SqlConnection sql_conexion = null;
             SqlCommand sql_comando = null;
             SqlDataAdapter sql_adaptador = null;
             DataRow nuevaFila = null;
+            DataTable dataTable_resultado = null;
             string query = null;
             try {
                 conexion = new Conexion ();
@@ -71,7 +71,7 @@ namespace Datos {
 
         // Metodo para poder cargar todos los hospitales disponibles de la base de datos
 
-        public DataTable ConsultarHospitales () {
+        public DataTable HospitalLlenarComboDatos () {
             // Se definen las variables necesarias para la conexion y ejecucion de comandos. 
             DataTable DtResultado = new DataTable ("HOSPITAL");
             Conexion con = new Conexion ();

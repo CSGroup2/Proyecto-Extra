@@ -41,20 +41,20 @@ namespace Visual {
         #region ------------------------------ Frm load at begining
 
         public void listarDisponibilidad () {
-            cmb_Disponibilidad.DataSource = Adm_General.listarDisponibilidad ();
+            cmb_Disponibilidad.DataSource = Adm_General.DisponibilidadLlenarCombo ();
             cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
             cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
         }
 
         private void listarEstados () {
             cmb_Estado.Items.Clear ();
-            cmb_Estado.DataSource = Adm_General.listerEstados ();
+            cmb_Estado.DataSource = Adm_General.EstadoLlenarCombo ();
             cmb_Estado.ValueMember = "ID_ESTADO";
             cmb_Estado.DisplayMember = "NOMBRE_ESTADO";
         }
 
         private void llenarCamposEditar (int idConductor) {
-            Adm_Conductor.buscarDatosConductorEditar (idConductor, lbl_IdConductor, txt_Cedula, cmb_Estado, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato);
+            Adm_Conductor.ConductorBuscarPorId (idConductor, lbl_IdConductor, txt_Cedula, cmb_Estado, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato);
         }
 
         #endregion
@@ -110,11 +110,11 @@ namespace Visual {
                    apellido2 = txt_Apellido2.Text.Trim (),
                    disponibilidad = cmb_Disponibilidad.Text,
                    telefono = txt_Telefono.Text.Trim (),
-                   sexo = Validacion.esSexo (rdb_Masculino, rdb_Femenino);
+                   sexo = Validacion.LeerSexo (rdb_Masculino, rdb_Femenino);
                 DateTime
                     fecha_nacimiento = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
-                string mensaje = Adm_Conductor.actualizarDatosConductor (id, cedula, estado, nombre1, nombre2, apellido1, apellido2, disponibilidad, telefono, sexo, fecha_nacimiento, fecha_contrato);
+                string mensaje = Adm_Conductor.ConductorEditar (id, cedula, estado, nombre1, nombre2, apellido1, apellido2, disponibilidad, telefono, sexo, fecha_nacimiento, fecha_contrato);
                 if (mensaje[0] != '¡') {
                     limpiarCampos ();
                 }

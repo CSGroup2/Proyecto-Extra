@@ -25,11 +25,10 @@ namespace Control {
            3.2.Verificar si atributo es null, si es así, crearlo.
        */
 
-        private static Adm_Conductor adm_Conductor = null;    // 1.
-        List<Conductor> Lista_Conductor = null;
-        Conductor Conductor = null;
-        Datos_Conductor Datos_Conductor = null;
-        Validacion Validacion = null;
+        private static Adm_Conductor s_admConductor = null;    // 1.
+        Conductor conductor = null;
+        Datos_Conductor datosConductor = null;
+        Validacion validacion = null;
 
         //Persona Persona = null;
 
@@ -37,95 +36,97 @@ namespace Control {
 
         // Constructor: Adm_Login
         private Adm_Conductor () {                  // 2.
-            Lista_Conductor = new List<Conductor> ();
-            Conductor = new Conductor ();
-            Datos_Conductor = new Datos_Conductor ();
-            Validacion = new Validacion ();
+            conductor = new Conductor ();
+            datosConductor = new Datos_Conductor ();
+            validacion = new Validacion ();
         }
 
         // Getter: GetAdm
         public static Adm_Conductor GetAdm () {     // 3.1.
-            if (adm_Conductor == null) {                  //3.2
-                adm_Conductor = new Adm_Conductor ();
+            if (s_admConductor == null) {                  //3.2
+                s_admConductor = new Adm_Conductor ();
             }
-            return adm_Conductor;
+            return s_admConductor;
         }
 
-        /*------------------------------Frm_Conductor_Consultar------------------------------*/
+        /*------------------------------ Frm_Conductor_Consultar ------------------------------*/
 
-        #region ------------------------------Frm_Conductor_Consultar
+        #region ------------------------------ Frm_Conductor_Consultar
 
-        public DataTable listarDatosConductor () {
-            return Datos_Conductor.listarDatosConductor ();
+        public DataTable ConductorListar () {
+            return datosConductor.ConductorListarDatos ();
         }
 
-        public DataTable buscarDatosConductor (string cedula_nombre, string disponibilidad) {
-           return Datos_Conductor.buscarDatosConductor (cedula_nombre, disponibilidad);
+        public DataTable ConductorConsultar (string cedula_nombre, string disponibilidad) {
+           return datosConductor.ConductorConsultarDatos (cedula_nombre, disponibilidad);
+        }
+
+        public string ConductorEliminar (int idConductor) {
+            return datosConductor.ConductorEliminarDatos (idConductor);
         }
 
         #endregion
 
-        /*------------------------------Frm_Conductor_Editar------------------------------*/
+        /*------------------------------ Frm_Conductor_Editar ------------------------------*/
 
-        #region ------------------------------Frm_Conductor_Editar
+        #region ------------------------------ Frm_Conductor_Editar
 
-        public void buscarDatosConductorEditar (int idConductor, Label lbl_IdConductor, TextBox txt_Cedula, ComboBox cmb_Estado, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato) {
-            Conductor = new Conductor ();
-            Conductor = Datos_Conductor.buscarDatosConductorEditar (idConductor);
-            lbl_IdConductor.Text = Conductor.Id_conductor.ToString ();
-            txt_Cedula.Text = Conductor.Cedula.ToString ();
-            cmb_Estado.Text = Conductor.Estado.ToString();
-            txt_Nombre1.Text = Conductor.Nombre_1.ToString ();
-            txt_Nombre2.Text = Conductor.Nombre_2.ToString ();
-            txt_Apellido1.Text = Conductor.Apellido_1.ToString ();
-            txt_Apellido2.Text = Conductor.Apellido_2.ToString ();
-            cmb_Disponibilidad.Text = Conductor.Diponibilidad.ToString ();
-            txt_Telefono.Text = Conductor.Telefono.ToString ();
-            if (Conductor.Sexo.ToString() == "Masculino") {
+        public void ConductorBuscarPorId (int idConductor, Label lbl_IdConductor, TextBox txt_Cedula, ComboBox cmb_Estado, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato) {
+            conductor = new Conductor ();
+            conductor = datosConductor.ConductorBuscarPorIdDatos (idConductor);
+            lbl_IdConductor.Text = conductor.Id_conductor.ToString ();
+            txt_Cedula.Text = conductor.Cedula.ToString ();
+            cmb_Estado.Text = conductor.Estado.ToString();
+            txt_Nombre1.Text = conductor.Nombre_1.ToString ();
+            txt_Nombre2.Text = conductor.Nombre_2.ToString ();
+            txt_Apellido1.Text = conductor.Apellido_1.ToString ();
+            txt_Apellido2.Text = conductor.Apellido_2.ToString ();
+            cmb_Disponibilidad.Text = conductor.Diponibilidad.ToString ();
+            txt_Telefono.Text = conductor.Telefono.ToString ();
+            if (conductor.Sexo.ToString() == "Masculino") {
                 rdb_Masculino.Checked = true;
             } else {
                 rdb_Femenino.Checked = true;
             }
-            dtp_FechaNacimiento.Text = Conductor.Fecha_nac.ToString ();
-            dtp_FechaContrato.Text = Conductor.Fecha_contrato.ToString ();
+            dtp_FechaNacimiento.Text = conductor.Fecha_nac.ToString ();
+            dtp_FechaContrato.Text = conductor.Fecha_contrato.ToString ();
         }
         
-        public string actualizarDatosConductor (int id, string cedula, string estado, string nombre1, string nombre2, string apellido1, string apellido2, string disponibilidad, string telefono, string sexo, DateTime fecha_nac, DateTime fecha_contrato) {
+        public string ConductorEditar (int id, string cedula, string estado, string nombre1, string nombre2, string apellido1, string apellido2, string disponibilidad, string telefono, string sexo, DateTime fecha_nac, DateTime fecha_contrato) {
             string mensaje = "¡"; // '¡' in case of incorrec data on fields   
-            Conductor = new Conductor (id, fecha_contrato, disponibilidad, estado, 0, cedula, nombre1, nombre2, apellido1, apellido2, sexo, fecha_nac, telefono);
-            mensaje = Datos_Conductor.actualizarDatosConductor (Conductor);
+            conductor = new Conductor (id, fecha_contrato, disponibilidad, estado, 0, cedula, nombre1, nombre2, apellido1, apellido2, sexo, fecha_nac, telefono);
+            mensaje = datosConductor.ConductorEditarDatos (conductor);
             MessageBox.Show (mensaje, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return mensaje;
         }
 
         #endregion
 
-        /*------------------------------Frm_Conductor_Registrar------------------------------*/
+        /*------------------------------ Frm_Conductor_Registrar ------------------------------*/
 
-        #region ------------------------------Frm_Conductor_Registrar
+        #region ------------------------------ Frm_Conductor_Registrar
 
         // Methods for Buttons
-        public string guardarDatosConductor (string cedula, string nombre1, string nombre2, string apellido1, string apellido2, string telefono, string sexo, DateTime fecha_nac, DateTime fecha_contrato) {
+        public string ConductorRegistrar (string cedula, string nombre1, string nombre2, string apellido1, string apellido2, string telefono, string sexo, DateTime fecha_nac, DateTime fecha_contrato) {
             string mensaje = "¡"; // '¡' in case of incorrec data on fields   
-            Conductor = new Conductor (0, fecha_contrato, "", "", 0, cedula, nombre1, nombre2, apellido1, apellido2, sexo, fecha_nac, telefono);
-            mensaje = Datos_Conductor.insertarDatosConductor (Conductor);
+            conductor = new Conductor (0, fecha_contrato, "", "", 0, cedula, nombre1, nombre2, apellido1, apellido2, sexo, fecha_nac, telefono);
+            mensaje = datosConductor.ConductorRegistrarDatos (conductor);
             MessageBox.Show (mensaje, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return mensaje;
         }
 
         #endregion
 
-
-        /*------------------------------Frm_Asignar------------------------------*/
+        /*------------------------------ Frm_Asignar ------------------------------*/
 
         #region ------------------------------
 
-        internal void ListarConductoresDisponibles (DataGridView dgvConductores) {
+        internal void ConductorListarDisponibles (DataGridView dgvConductores) {
             dgvConductores.Refresh ();
-            Datos_Conductor = new Datos_Conductor ();
-            dgvConductores.DataSource = Datos_Conductor.ListarConductoresDisponibles ();
+            datosConductor = new Datos_Conductor ();
+            dgvConductores.DataSource = datosConductor.ConductorListarDisponiblesDatos ();
         }
-
+        
         #endregion
     }
 }

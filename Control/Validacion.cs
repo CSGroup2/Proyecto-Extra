@@ -20,7 +20,7 @@ namespace Control {
             return x;
         }
 
-        public string esSexo (RadioButton rdb_Masculino, RadioButton rdb_Femenino) {
+        public string LeerSexo (RadioButton rdb_Masculino, RadioButton rdb_Femenino) {
             string sexo = "";
             if (rdb_Masculino.Checked) {
                 sexo = "Masculino";
@@ -30,6 +30,17 @@ namespace Control {
             return sexo;
         }
 
+        public bool EsMayorDeEdad (DateTime fechaNacimiento) {
+            bool esMayorDeEdad = true;
+            DateTime hoy = DateTime.Now;
+            TimeSpan diferenciasDias = hoy.Date.Subtract (fechaNacimiento.Date);
+            double diferenciaAños = (Convert.ToDouble (diferenciasDias.Days) / 365);
+            if (diferenciaAños < 18) {
+                esMayorDeEdad = false;
+            }
+            return esMayorDeEdad;
+        }
+        
         /*------------------------------ KeyPress ------------------------------*/
 
         #region KeyPress for Frm
@@ -91,11 +102,11 @@ namespace Control {
                 err_Alerta.SetError (rdb_Femenino, mensaje);
                 salida = false;
             }
-            if (dtp_FechaNacimiento.Text == null) {
+            if (!EsMayorDeEdad ((DateTime)dtp_FechaNacimiento.Value)) {
                 err_Alerta.SetError (dtp_FechaNacimiento, mensaje);
                 salida = false;
             }
-            if (dtp_FechaContrato.Text == null) {
+            if ((DateTime)dtp_FechaContrato.Value.Date > DateTime.Now.Date) {
                 err_Alerta.SetError (dtp_FechaContrato, mensaje);
                 salida = false;
             }
@@ -105,7 +116,6 @@ namespace Control {
         public bool esCorrecto_EditarDatosConductor (TextBox txt_Cedula, ComboBox cmb_Estado, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, ComboBox cmb_Disponibilidad, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, ErrorProvider err_Alerta) {
             bool salida = true;
             string mensaje = "Campo obligatorio.";
-            
             if (txt_Cedula.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Cedula, mensaje);
                 salida = false;
@@ -138,24 +148,14 @@ namespace Control {
                 err_Alerta.SetError (rdb_Femenino, mensaje);
                 salida = false;
             }
-            
-            DateTime hoy = DateTime.Now;
-            DateTime fechaNacimiento = dtp_FechaNacimiento.Value;
-
-            TimeSpan diferenciasDias = hoy.Subtract (fechaNacimiento);
-            double diferenciaAños = (Convert.ToDouble (diferenciasDias.Days) / 365);
-
-            if (diferenciaAños < 18) {
+            if (!EsMayorDeEdad ((DateTime)dtp_FechaNacimiento.Value)) {
                 err_Alerta.SetError (dtp_FechaNacimiento, mensaje);
                 salida = false;
             }
-
-            DateTime fechaContrato = dtp_FechaContrato.Value;
-            if (dtp_FechaContrato.Text == null) {
+            if ((DateTime)dtp_FechaContrato.Value.Date > DateTime.Now.Date) {
                 err_Alerta.SetError (dtp_FechaContrato, mensaje);
                 salida = false;
             }
-
             return salida;
         }
 
@@ -165,72 +165,72 @@ namespace Control {
 
         #region Validation: Frm_Secretaria_Registrar - errorprovider emtpy fields & incorrect email
 
-        public bool esCorrectoDatosSecretaria (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNac, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider errorProvider1) {
+        public bool esCorrecto_DatosSecretaria (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider err_Alerta) {
             bool salida = true;
             string mensaje = "Campo obligatorio.";
             string correo = txt_Correo.Text.Trim ();
             if (txt_Cedula.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Cedula, mensaje);
+                err_Alerta.SetError (txt_Cedula, mensaje);
                 salida = false;
             }
             if (txt_Nombre1.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Nombre1, mensaje);
+                err_Alerta.SetError (txt_Nombre1, mensaje);
                 salida = false;
             }
             if (txt_Nombre2.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Nombre2, mensaje);
+                err_Alerta.SetError (txt_Nombre2, mensaje);
                 salida = false;
             }
             if (txt_Apellido1.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Apellido1, mensaje);
+                err_Alerta.SetError (txt_Apellido1, mensaje);
                 salida = false;
             }
             if (txt_Apellido2.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Apellido2, mensaje);
+                err_Alerta.SetError (txt_Apellido2, mensaje);
                 salida = false;
             }
             if (correo == "") {
-                errorProvider1.SetError (txt_Correo, mensaje);
+                err_Alerta.SetError (txt_Correo, mensaje);
                 salida = false;
             } else {
                 try {
                     var addr = new System.Net.Mail.MailAddress (correo);
                     //return addr.Address == correo;
                 } catch {
-                    errorProvider1.SetError (txt_Correo, "Correo no valido.");
+                    err_Alerta.SetError (txt_Correo, "Correo no valido.");
                     salida = false;
                 }
             }
             if (txt_Telefono.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Telefono, mensaje);
+                err_Alerta.SetError (txt_Telefono, mensaje);
                 salida = false;
             }
             if (rdb_Femenino.Checked == rdb_Masculino.Checked) {
-                errorProvider1.SetError (rdb_Femenino, mensaje);
+                err_Alerta.SetError (rdb_Femenino, mensaje);
                 salida = false;
             }
-            if (dtp_FechaNac.Text == null) {
-                errorProvider1.SetError (dtp_FechaNac, mensaje);
+            if (!EsMayorDeEdad ((DateTime)dtp_FechaNacimiento.Value)) {
+                err_Alerta.SetError (dtp_FechaNacimiento, mensaje);
                 salida = false;
             }
-            if (dtp_FechaContrato.Text == null) {
-                errorProvider1.SetError (dtp_FechaContrato, mensaje);
+            if ((DateTime)dtp_FechaContrato.Value.Date > DateTime.Now.Date) {
+                err_Alerta.SetError (dtp_FechaContrato, mensaje);
                 salida = false;
             }
             if (txt_NombreUsuario.Text.Trim () == "") {
-                errorProvider1.SetError (txt_NombreUsuario, mensaje);
+                err_Alerta.SetError (txt_NombreUsuario, mensaje);
                 salida = false;
             }
             if (txt_Contrasenia1.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Contrasenia1, mensaje);
+                err_Alerta.SetError (txt_Contrasenia1, mensaje);
                 salida = false;
             }
             if (txt_Contrasenia2.Text.Trim () == "") {
-                errorProvider1.SetError (txt_Contrasenia2, mensaje);
+                err_Alerta.SetError (txt_Contrasenia2, mensaje);
                 salida = false;
             }
             if (salida == true && txt_Contrasenia1.Text.Trim () != txt_Contrasenia2.Text.Trim ()) {
-                errorProvider1.SetError (txt_Contrasenia2, "Las contraseñas no coinciden.");
+                err_Alerta.SetError (txt_Contrasenia2, "Las contraseñas no coinciden.");
                 salida = false;
             }
             return salida;

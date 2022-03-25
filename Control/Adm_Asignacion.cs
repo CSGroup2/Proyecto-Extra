@@ -91,7 +91,7 @@ namespace Control {
         //Llena dgv con los conductores "disponibles"
         public void llenarTablaConductorAsignar(DataGridView dgvConductores)
         {
-            admCo.ListarConductoresDisponibles(dgvConductores);
+            admCo.ConductorListarDisponibles(dgvConductores);
         }
 
         //Llena La lista de asignacion detalle y la muestra en un dgv
