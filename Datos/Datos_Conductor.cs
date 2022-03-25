@@ -8,7 +8,9 @@ using System.Text;
 
 namespace Datos {
     public class Datos_Conductor {
-        /*----------------------Frm_Conductor_Registrar-------------------------------------*/
+
+        /*------------------------------ Frm_Conductor_Registrar ------------------------------*/
+
         public string insertarDatosConductor (Conductor conductor) {
             // insert new "condutor" data into the database
             Conexion conexion = null;
@@ -48,9 +50,9 @@ namespace Datos {
             return mensaje;
         }
 
-        /*----------------------Frm_Conductor_Consultar-------------------------------------*/
+        /*------------------------------ Frm_Conductor_Consultar ------------------------------*/
 
-        public object listarDatosConductor () {
+        public DataTable listarDatosConductor () {
             // Extract all "conductor" data from database
             DataTable dataTable_resultado = null;
             Conexion conexion = null;
@@ -78,7 +80,6 @@ namespace Datos {
             return dataTable_resultado;
         }
 
-
         public object listarDatosDisponibilidad () {
             // Extract all "disponibilidad" data from database
             Conexion conexion = null;
@@ -102,45 +103,6 @@ namespace Datos {
                 conexion.cerrar_conexion (sql_conexion);
             }
             return dataTable_resultado;
-        }
-
-        public string actualizarDatosConductor (Conductor conductor) {
-            // insert new "condutor" data into the database
-            Conexion conexion = null;
-            SqlConnection sql_conexion = null;
-            SqlCommand sql_comando = null;
-            string mensaje = "";
-            string query = null;
-            try {
-                conexion = new Conexion ();
-                sql_conexion = conexion.abrir_conexion ();              // Opens conexion to sql server
-                query = "sp_conductor_actualizarDatos";                        // Stored Procedure name
-                sql_comando = new SqlCommand (query, sql_conexion);     // Creatin SqlCommand object
-                sql_comando.CommandType = CommandType.StoredProcedure;  // Declaring command type as stored Procedure
-                if (conductor != null) {
-                    // Adding values to paramerters to SqlCommand below
-                    sql_comando.Parameters.AddWithValue ("@cedula", conductor.Cedula);
-                    sql_comando.Parameters.AddWithValue ("@nombre_1", conductor.Nombre_1);
-                    sql_comando.Parameters.AddWithValue ("@nombre_2", conductor.Nombre_2);
-                    sql_comando.Parameters.AddWithValue ("@apellido_1", conductor.Apellido_1);
-                    sql_comando.Parameters.AddWithValue ("@apellido_2", conductor.Apellido_2);
-                    sql_comando.Parameters.AddWithValue ("@sexo", conductor.Sexo);
-                    sql_comando.Parameters.AddWithValue ("@fecha_nac", conductor.Fecha_nac);
-                    sql_comando.Parameters.AddWithValue ("@telefono", conductor.Telefono);
-                    sql_comando.Parameters.AddWithValue ("@fecha_contrato", conductor.Fecha_contrato);
-                    mensaje = Convert.ToString (sql_comando.ExecuteNonQuery ());
-                    if (mensaje == "-1") {
-                        mensaje = "¡CÉDULA YA EXISTE!";
-                    } else {
-                        mensaje = "DATOS GUARDADOS CORRECTAMENTE.";
-                    }
-                }
-            } catch (Exception ex) {
-                mensaje = "OCURRIO UN ERROR. \n" + ex.Message;
-            } finally {
-                conexion.cerrar_conexion (sql_conexion);
-            }
-            return mensaje;
         }
 
         public DataTable buscarDatosConductor (string cedula_nombre, string disponibilidad) {
@@ -184,7 +146,7 @@ namespace Datos {
             return dataTable_resultado;
         }
 
-        /*----------------------Frm_Conductor_Editar-------------------------------------*/
+        /*------------------------------ Frm_Conductor_Editar ------------------------------*/
 
         public Conductor buscarDatosConductorEditar (int idConductor) {
             // Extract all "conductor" data from database
@@ -217,7 +179,6 @@ namespace Datos {
                     conductor_resultado.Fecha_nac = DateTime.Parse(sql_lector["FECHA_NACIMIENTO"].ToString());
                     conductor_resultado.Fecha_contrato = DateTime.Parse (sql_lector["FECHA_CONTRATO"].ToString());
                 }
-
             } catch (Exception ex) {
                 conductor_resultado = null;
                 Console.WriteLine ("¡ERROR! al buscar datos de conductore por ID." + ex.Message);
@@ -226,9 +187,49 @@ namespace Datos {
             }
             return conductor_resultado;
         }
-        /**/
 
-        /*---------------------- Billy -------------------------------------*/
+        public string actualizarDatosConductor (Conductor conductor) {
+            // insert new "condutor" data into the database
+            Conexion conexion = null;
+            SqlConnection sql_conexion = null;
+            SqlCommand sql_comando = null;
+            string mensaje = "";
+            string query = null;
+            try {
+                conexion = new Conexion ();
+                sql_conexion = conexion.abrir_conexion ();              // Opens conexion to sql server
+                query = "sp_conductor_actualizarDatos";                        // Stored Procedure name
+                sql_comando = new SqlCommand (query, sql_conexion);     // Creatin SqlCommand object
+                sql_comando.CommandType = CommandType.StoredProcedure;  // Declaring command type as stored Procedure
+                if (conductor != null) {
+                    // Adding values to paramerters to SqlCommand below
+                    sql_comando.Parameters.AddWithValue ("@cedula", conductor.Cedula);
+                    sql_comando.Parameters.AddWithValue ("@nombre_1", conductor.Nombre_1);
+                    sql_comando.Parameters.AddWithValue ("@nombre_2", conductor.Nombre_2);
+                    sql_comando.Parameters.AddWithValue ("@apellido_1", conductor.Apellido_1);
+                    sql_comando.Parameters.AddWithValue ("@apellido_2", conductor.Apellido_2);
+                    sql_comando.Parameters.AddWithValue ("@sexo", conductor.Sexo);
+                    sql_comando.Parameters.AddWithValue ("@fecha_nac", conductor.Fecha_nac);
+                    sql_comando.Parameters.AddWithValue ("@telefono", conductor.Telefono);
+                    sql_comando.Parameters.AddWithValue ("@fecha_contrato", conductor.Fecha_contrato);
+                    sql_comando.Parameters.AddWithValue ("@disponibilidad", conductor.Diponibilidad);
+                    sql_comando.Parameters.AddWithValue ("@estado", conductor.Estado);
+                    mensaje = Convert.ToString (sql_comando.ExecuteNonQuery ());
+                    if (mensaje == "-1") {
+                        mensaje = "¡CÉDULA YA EXISTE!";
+                    } else {
+                        mensaje = "DATOS GUARDADOS CORRECTAMENTE.";
+                    }
+                }
+            } catch (Exception ex) {
+                mensaje = "OCURRIO UN ERROR. \n" + ex.Message;
+            } finally {
+                conexion.cerrar_conexion (sql_conexion);
+            }
+            return mensaje;
+        }
+
+        /*------------------------------ Frm_Asignacion ------------------------------*/
 
         public object ListarConductoresDisponibles () {
             Conexion conexion = null;

@@ -29,8 +29,8 @@ namespace Visual {
         }
 
         private void btn_Guardar_Click (object sender, EventArgs e) {
-            errorProvider1.Clear ();
-            if (admSecretaria.esCorrectoDatosSecretariaValidacion (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, errorProvider1)) {
+            err_Alerta.Clear ();
+            if (admSecretaria.esCorrectoDatosSecretariaValidacion (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, err_Alerta)) {
                 string
                    cedula = txt_Cedula.Text.Trim (),
                    nombre1 = txt_Nombre1.Text.Trim (),
@@ -43,11 +43,11 @@ namespace Visual {
                    nombre_usuario = txt_NombreUsuario.Text.Trim (),
                    contrasenia1 = txt_Contrasenia1.Text.Trim ();
                 DateTime
-                    fecha_nac = dtp_FechaNac.Value.Date,
+                    fecha_nac = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
                 string mensaje = admSecretaria.guardarDatosSecretaria (cedula, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fecha_nac, fecha_contrato, nombre_usuario, contrasenia1);
                 if (mensaje[0] != '¡') {
-                    admSecretaria.limpiarCamposGuardarSecretaria (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, errorProvider1);
+                    admSecretaria.limpiarCamposGuardarSecretaria (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, err_Alerta);
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace Visual {
         }
 
         private void btn_Limpiar_Click (object sender, EventArgs e) {
-            admSecretaria.limpiarCamposGuardarSecretaria (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNac, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, errorProvider1);
+            admSecretaria.limpiarCamposGuardarSecretaria (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, err_Alerta);
         }
 
 

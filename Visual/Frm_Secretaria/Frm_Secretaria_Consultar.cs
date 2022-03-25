@@ -25,19 +25,19 @@ namespace Visual
         {
             DataTable dataTable_resultado = new DataTable();
             // Convert DataGridView to DataTable
-            dataTable_resultado = (DataTable)dgvSecretaria.DataSource;
+            dataTable_resultado = (DataTable)dgv_Secretaria.DataSource;
             // Defines the file extension
-            saveFileDialog1.DefaultExt = "pdf";
+            sfd_VentanaGuardado.DefaultExt = "pdf";
             // Defines a filter for the file explorer
-            saveFileDialog1.Filter = "Pdf File |*.pdf";
+            sfd_VentanaGuardado.Filter = "Pdf File |*.pdf";
             // Defines a title to saveFileDialog
-            saveFileDialog1.Title = "SGAR: Conductores - Guardar";
+            sfd_VentanaGuardado.Title = "SGAR: Conductores - Guardar";
             if (dataTable_resultado.Rows.Count > 0)
             {
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                if (sfd_VentanaGuardado.ShowDialog() == DialogResult.OK)
                 {
                     // Captures file's path
-                    string file = saveFileDialog1.FileName;
+                    string file = sfd_VentanaGuardado.FileName;
                     
                     /*EL SIGUIENTE ARRAY ES PARA DETALLAR LOS NOMBRES DE LAS COLUMNAS EN LA TABLA DEL PDF
                     MODIFICALO EN EL MISMO ORDEN QUE UBICASTE LAS COLUMNAS DE TU DATAGRIDVIEW*/
