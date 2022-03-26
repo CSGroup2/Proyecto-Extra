@@ -142,6 +142,7 @@ namespace Visual {
                 case "Gerente":
                     btnpeticion.Visible = false;
                     btnasignacion.Visible = false;
+                    btnEliminarAsig.Visible = false;
                     break;
                 case "Cliente":
                     btnsecretaria.Visible = false;
@@ -150,6 +151,7 @@ namespace Visual {
                     btnconductor.Visible = false;
                     btnasignar.Visible = false;
                     btnasignacion.Visible = false;
+                    btnEliminarAsig.Visible = false;
                     break;
                 case "Secretaria":
                     btnconsultarpet.Visible = false;
