@@ -70,6 +70,7 @@ namespace Visual {
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.timerhorafecha = new System.Windows.Forms.Timer(this.components);
+            this.btnEliminarAsig = new FontAwesome.Sharp.IconButton();
             this.pnlateral.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnsubmenuasignacion.SuspendLayout();
@@ -113,7 +114,7 @@ namespace Visual {
             // 
             this.panel3.Controls.Add(this.btncerrarsesion);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 1136);
+            this.panel3.Location = new System.Drawing.Point(0, 1177);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(242, 100);
             this.panel3.TabIndex = 13;
@@ -145,11 +146,12 @@ namespace Visual {
             // 
             this.pnsubmenuasignacion.AutoSize = true;
             this.pnsubmenuasignacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.pnsubmenuasignacion.Controls.Add(this.btnEliminarAsig);
             this.pnsubmenuasignacion.Controls.Add(this.btnConsultarAsig);
             this.pnsubmenuasignacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnsubmenuasignacion.Location = new System.Drawing.Point(0, 1095);
             this.pnsubmenuasignacion.Name = "pnsubmenuasignacion";
-            this.pnsubmenuasignacion.Size = new System.Drawing.Size(242, 41);
+            this.pnsubmenuasignacion.Size = new System.Drawing.Size(242, 82);
             this.pnsubmenuasignacion.TabIndex = 15;
             // 
             // btnConsultarAsig
@@ -823,6 +825,26 @@ namespace Visual {
             this.timerhorafecha.Enabled = true;
             this.timerhorafecha.Tick += new System.EventHandler(this.timerhorafecha_Tick);
             // 
+            // btnEliminarAsig
+            // 
+            this.btnEliminarAsig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEliminarAsig.FlatAppearance.BorderSize = 0;
+            this.btnEliminarAsig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarAsig.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarAsig.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminarAsig.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnEliminarAsig.IconColor = System.Drawing.Color.Black;
+            this.btnEliminarAsig.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminarAsig.Location = new System.Drawing.Point(0, 41);
+            this.btnEliminarAsig.Name = "btnEliminarAsig";
+            this.btnEliminarAsig.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.btnEliminarAsig.Size = new System.Drawing.Size(242, 41);
+            this.btnEliminarAsig.TabIndex = 7;
+            this.btnEliminarAsig.Text = "Eliminar";
+            this.btnEliminarAsig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarAsig.UseVisualStyleBackColor = true;
+            this.btnEliminarAsig.Click += new System.EventHandler(this.btnEliminarAsig_Click);
+            // 
             // Frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -903,5 +925,6 @@ namespace Visual {
         private FontAwesome.Sharp.IconButton btnasignacion;
         private FontAwesome.Sharp.IconButton btnopciones1;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton btnEliminarAsig;
     }
 }
