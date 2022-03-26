@@ -12,7 +12,6 @@ namespace Datos {
         Conexion conn = new Conexion ();
 
         public Usuario_Cache LoginUser (String usuario, String contraseña) {
-            bool var = false;
             SqlConnection sql_conexion = conn.abrir_conexion ();
             Usuario_Cache usuarioCache = new Usuario_Cache ();
 
@@ -34,11 +33,9 @@ namespace Datos {
                         usuarioCache.Nombres = registros["nombre"].ToString();
                         usuarioCache.Apellidos = registros["apellido"].ToString();
                     }
-                    //var = true;
                 }
                 else
                 {
-                    //var = false;
                     usuarioCache = null;
                 }
                 conn.cerrar_conexion(sql_conexion);
