@@ -279,7 +279,7 @@ namespace Visual {
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int posicion = dgvClientes.CurrentRow.Index;
-            int idcliente = Int32.Parse(dgvClientes[posicion,0].Value.ToString());
+            int idcliente = Int32.Parse(dgvClientes[0,posicion].Value.ToString());
             string mensaje = admCliente.eliminarcliente(idcliente);
             if (mensaje.Contains("¡Error "))
             {
