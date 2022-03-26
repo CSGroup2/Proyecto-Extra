@@ -73,11 +73,11 @@ namespace Visual {
         private void btn_Modificar_Click (object sender, EventArgs e) {
             int
               posicion = 0,
-              idConductor = 0;
+              idSecretaria = 0;
             posicion = dgv_Secretaria.CurrentRow.Index;
             if (posicion >= 0) {
-                idConductor = validacion.AEntero (dgv_Secretaria.Rows[posicion].Cells["ID"].Value.ToString ());
-                Frm_Menu.abrirhijoform (new Frm_Secretaria_Editar (idConductor));
+                idSecretaria = validacion.AEntero (dgv_Secretaria.Rows[posicion].Cells["ID"].Value.ToString ());
+                Frm_Menu.abrirhijoform (new Frm_Secretaria_Editar (idSecretaria));
             } else {
                 MessageBox.Show ("Seleccione una secretaria.");
             }
