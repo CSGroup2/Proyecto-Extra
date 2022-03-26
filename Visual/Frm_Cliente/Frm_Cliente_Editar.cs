@@ -15,6 +15,7 @@ namespace Visual {
         Adm_General admgeneral = Adm_General.GetAdm();
         Adm_Cliente admcliente = Adm_Cliente.GetAdm();
         int idclientemodi=0;
+        string contrasenia="";
         Frm_Menu menu;
 
         public Frm_Cliente_Editar () {
@@ -48,7 +49,7 @@ namespace Visual {
 
         private String cargardatoscliente()
         {
-           String mensaje = this.admcliente.BuscarClienteID(idclientemodi.ToString(), 1, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac);
+           String mensaje = this.admcliente.BuscarClienteID(idclientemodi.ToString(), 1, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac, ref contrasenia);
            return mensaje; 
         }
 
@@ -85,6 +86,8 @@ namespace Visual {
             oprfemenino.Enabled = false; 
             daterfechanac.Enabled = false;
             chxcontra.Enabled = false;
+            chxcontra.Checked = false;
+            txtrcontra.Enabled = false; 
         }
         private void habilitarcampos()
         {
@@ -107,6 +110,16 @@ namespace Visual {
         {
             txtmcedula.Enabled = true;
             txtmcedula.Focus();
+        }
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "SGAR LOS RAPIDOS S.A", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "SGAR LOS RAPIDOS S.A", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
         #endregion
 
@@ -131,18 +144,51 @@ namespace Visual {
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("¿Desea realmente actualizar los datos de este registro?", "Warning",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int idcliente = Int32.Parse(lblcodigo.Text.Trim().ToString());
+                string cedula = txtmcedula.Text.Trim(),
+                nombre1 = txtmnombre1.Text.Trim(),
+                nombre2 = txtmnombre2.Text.Trim(),
+                apellido1 = txtmape1.Text.Trim(),
+                apellido2 = txtmape2.Text.Trim(),
+                correo = txtmcorreo.Text.Trim(),
+                telefono = txtmtelf.Text.Trim(),
+                sexo = admcliente.esSexo(oprmasculino, oprfemenino),
+                usuario = txtmusur.Text.Trim();
+                string contra = (txtrcontra.Text.Trim() == "") ? contra = contrasenia : contra = txtrcontra.Text.Trim();
+                DateTime fechanac = daterfechanac.Value;
+                int Id_hospital = Int16.Parse(cbxhospital.SelectedValue.ToString());
+                int id_estado = Int16.Parse(cbxestado.SelectedValue.ToString());
+                string mensaje = admcliente.actualizarDatosCliente(idcliente, cedula, Id_hospital, id_estado, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fechanac, usuario, contra);
+                if (mensaje.Contains("¡Error "))
+                {
+                    MensajeError(mensaje);
+                }
+                else
+                {
+                    MensajeOk(mensaje);
+                    this.limpiar();
+                    this.inactivarcampos();
+                    this.setfocusbusqueda(); 
+                }
+            }
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            if(this.menu == null)
+            if (MessageBox.Show("¿Desea cerrar este formulario?", "Warning",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Close();
-            }
-            else
-            {
-                menu.abrirhijoform(new Frm_Cliente_Consultar(menu));
+                if (this.menu == null)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    menu.abrirhijoform(new Frm_Cliente_Consultar(menu));
+                }
             }
         }
 
@@ -155,7 +201,7 @@ namespace Visual {
         {
             if (!String.IsNullOrEmpty(txtmcedula.Text))
             {
-                string mensaje= this.admcliente.BuscarClienteID(txtmcedula.Text.ToString(), 2, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac);
+                string mensaje= this.admcliente.BuscarClienteID(txtmcedula.Text.ToString(), 2, lblcodigo, txtmcedula, txtmnombre1, txtmnombre2, txtmape1, txtmape2, txtmcorreo, txtmtelf, txtmusur, cbxestado, cbxhospital, oprmasculino, oprfemenino, daterfechanac, ref contrasenia);
                 if(mensaje.Equals("Encontrado"))
                 {
                     MessageBox.Show("Datos encontrados","SGAR LOS RAPIDOS S.A", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -200,6 +246,18 @@ namespace Visual {
         private void txtmcorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
             admcliente.validarSoloCorreoKeypress(sender, e);
+        }
+
+        private void chxcontra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chxcontra.Checked)
+            {
+                txtrcontra.Enabled = true;
+            }
+            else
+            {
+                txtrcontra.Enabled = false;
+            }
         }
     }
 }
