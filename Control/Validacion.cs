@@ -400,6 +400,11 @@ namespace Control {
                 errorProvider1.SetError(txt_Contrasenia2, "Las contraseñas no coinciden.");
                 salida = false;
             }
+            if (!EsMayorDeEdad((DateTime)dtp_FechaNac.Value))
+            {
+                errorProvider1.SetError(dtp_FechaNac, mensaje);
+                salida = false;
+            }
             return salida;
         }
 

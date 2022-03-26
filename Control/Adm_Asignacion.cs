@@ -34,6 +34,7 @@ namespace Control {
         List<Asignacion_Cabecera> listaC = null;
         List<Asignacion_Detalle> listaD = null;
 
+
         Adm_Login admL = Adm_Login.GetAdm();
 
         Adm_Peticion admP = Adm_Peticion.GetAdm();
@@ -205,17 +206,16 @@ namespace Control {
         //guarda asignacion en base de datos
         public string guardarAsignacionBD(List<Asignacion_Cabecera> ac,List<Asignacion_Detalle> ad)
         {
-            string mensaje = "",msj="";
+            string mensaje = "";
             mensaje = datosAsignacion.insetarAsignacion(ac,ad);
             if (mensaje[0] == '1')
             {
                 MessageBox.Show("La Asignación fue ingresada correctamente.");
-                msj = "La Asignación fue ingresada correctamente.";
             }
             else 
             {
-                MessageBox.Show("Error: " + mensaje);
-                msj = "Error no se pudo ingresar la asignacion";
+                mensaje = "No se pudo insertar";
+                MessageBox.Show("Error." + mensaje);
             }
             return mensaje;
         }
@@ -288,6 +288,30 @@ namespace Control {
         {
             dgvAmb_Cond.DataSource = null;
             dgvAmb_Cond.DataSource = datosAsignacion.consultarAsigDetallexIdAs(idAs);
+        }
+
+        public void CumplirAsignacion(int idAs)
+        {
+            string mensaje = datosAsignacion.CumplirAsignacion(idAs);  //editar la asignacion en la base de datos
+
+            if (mensaje[0] == '1')
+                MessageBox.Show("Se ha cumplido la peticion.");
+            else
+                MessageBox.Show("error al cumplir petición.");
+        }
+
+        /*--------------------------Frm_Asignacion_Eliminar-------------------------------*/
+        public void LlenarTablaAsignacionesAntiguas(DataGridView dgvAsignaciones)
+        {
+            dgvAsignaciones.Refresh();
+            dgvAsignaciones.DataSource = datosAsignacion.ListarAsignacionesAntiguas(admL.IdUsuario());
+        }
+
+        public string EliminarAsignacion(int id)
+        {
+            string msj = "";
+            msj = datosAsignacion.EliminarAsignacion(id);
+            return msj;
         }
     }
 }

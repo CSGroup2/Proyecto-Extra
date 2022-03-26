@@ -115,7 +115,7 @@ namespace Control
             return Datos_client.eliminarcliente(idcliente); 
         }
 
-        public String BuscarClienteID(string dato, int tipo, Label lblidcliente, TextBox txtcedula, TextBox txtnombre1, TextBox txtnombre2, TextBox txtapellido1, TextBox txtapellido2, TextBox txtcorreo, TextBox txttelefono, TextBox txtusuario, ComboBox cbxestado, ComboBox cbxhospital, RadioButton masculino, RadioButton femenino, DateTimePicker fechanacimiento)
+        public String BuscarClienteID(string dato, int tipo, Label lblidcliente, TextBox txtcedula, TextBox txtnombre1, TextBox txtnombre2, TextBox txtapellido1, TextBox txtapellido2, TextBox txtcorreo, TextBox txttelefono, TextBox txtusuario, ComboBox cbxestado, ComboBox cbxhospital, RadioButton masculino, RadioButton femenino, DateTimePicker fechanacimiento, ref string contrasenia)
         {
             client = Datos_client.buscarClienteID(dato, tipo);
             string mensaje = "Datos no ecnontrados"; 
@@ -133,11 +133,21 @@ namespace Control
             cbxhospital.SelectedValue = client.Id_hospital;
             fechanacimiento.Value = DateTime.Parse(client.Fecha_nac.ToString());
             _ = client.Sexo.Equals("Femenino") ? femenino.Checked = true : masculino.Checked = true;
+            contrasenia = client.Usuario.Contrasenia; 
             mensaje = "Encontrado";
             }
             return mensaje; 
         }
 
+
+        public string actualizarDatosCliente(int idcliente, string Cedula, int id_hospital, int id_estado ,string Nombre1, string Nombre2, string Apellido1, string Apellido2, string Correo, string Telefono, string sexo, DateTime dtp_FechaNac, string NombreUsuario, string Contrasenia1)
+        {
+            string mensaje = "";
+            usuario = new Usuario(0, Correo, NombreUsuario, Contrasenia1);
+            client = new Cliente(idcliente, id_hospital, usuario, id_estado, 0, Cedula, Nombre1, Nombre2, Apellido1, Apellido2, sexo, dtp_FechaNac, Telefono, "");
+            mensaje = Datos_client.actualizarcliente(client);
+            return mensaje;
+        }
 
 
         #endregion

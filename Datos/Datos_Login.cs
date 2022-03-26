@@ -12,7 +12,6 @@ namespace Datos {
         Conexion conn = new Conexion ();
 
         public Usuario_Cache LoginUser (String usuario, String contraseña) {
-            bool var = false;
             SqlConnection sql_conexion = conn.abrir_conexion ();
             Usuario_Cache usuarioCache = new Usuario_Cache ();
 
@@ -28,17 +27,14 @@ namespace Datos {
                 {
                     while (registros.Read())
                     {
-
                         usuarioCache.Id_tipo = Int16.Parse(registros["id_tipo"].ToString());
                         usuarioCache.Tipo = registros["tipo"].ToString();
                         usuarioCache.Nombres = registros["nombre"].ToString();
                         usuarioCache.Apellidos = registros["apellido"].ToString();
                     }
-                    //var = true;
                 }
                 else
                 {
-                    //var = false;
                     usuarioCache = null;
                 }
                 conn.cerrar_conexion(sql_conexion);
@@ -82,7 +78,48 @@ namespace Datos {
             } else {
                 return "Lo sentimos, no existe una cuenta asociada a este usuario o correo electronico";
             }
-
         }
+
+        public string cambiarcontrasenia(int idtipo, string tipo, string contra, string contranueva)
+        {
+            Conexion conexion = null;
+            SqlConnection sql_conexion = null;
+            SqlCommand sql_comando = null;
+            string mensaje = "";
+            string procedimeinto = "sp_cambiarcontrasenia";  // Stored Procedure name
+            try
+            {
+                conexion = new Conexion();
+                sql_conexion = conexion.abrir_conexion();              // Opens conexion to sql server
+                sql_comando = new SqlCommand(procedimeinto, sql_conexion);     // Creatin SqlCommand object
+                sql_comando.CommandType = CommandType.StoredProcedure;  // Declaring command type as stored Procedure
+                                                                        // Adding values to paramerters to SqlCommand below
+                sql_comando.Parameters.AddWithValue("@id_tipo", idtipo);
+                sql_comando.Parameters.AddWithValue("@tipo", tipo);
+                sql_comando.Parameters.AddWithValue("@contraseniaantigua", contra);
+                sql_comando.Parameters.AddWithValue("@contrasenianueva", contranueva);
+                int cant = sql_comando.ExecuteNonQuery();
+                if (cant > 0)
+                {
+                    mensaje = "Contraseña actualizada con exito";
+                }
+                else
+                {
+                    mensaje = "No es posible actualizar, verifique su contraseña actual";
+                }
+                conexion.cerrar_conexion(sql_conexion);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "OCURRIO UN ERROR. \n" + ex.Message;
+                conexion.cerrar_conexion(sql_conexion);
+            }
+            finally
+            {
+                conexion.cerrar_conexion(sql_conexion);
+            }
+            return mensaje;
+        }
+
     }
 }

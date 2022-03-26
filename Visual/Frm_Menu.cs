@@ -125,7 +125,7 @@ namespace Visual {
         private void cargardatos () {
 
             admLogin.CargarDatos (lblapellido, lblnombres, lbltipo);
-            int id = 0;
+            //int id = 0;
             admLogin.IdUsuario ();
         }
 
@@ -142,6 +142,7 @@ namespace Visual {
                 case "Gerente":
                     btnpeticion.Visible = false;
                     btnasignacion.Visible = false;
+                    btnEliminarAsig.Visible = false;
                     break;
                 case "Cliente":
                     btnsecretaria.Visible = false;
@@ -150,12 +151,12 @@ namespace Visual {
                     btnconductor.Visible = false;
                     btnasignar.Visible = false;
                     btnasignacion.Visible = false;
+                    btnEliminarAsig.Visible = false;
                     break;
                 case "Secretaria":
                     btnconsultarpet.Visible = false;
                     btnsecretaria.Visible = false;
                     btncliente.Visible = false;
-                    btnambulancia.Visible = false;
                     btnregistrar.Visible = false;
                     break;
                 default:
@@ -265,8 +266,10 @@ namespace Visual {
 
         private void timerhorafecha_Tick (object sender, EventArgs e) {
             //mayusculas formato de 24 minusculas formato de 12
-            lblhora.Text = DateTime.Now.ToString ("HH:mm:ss");
-            lblfecha.Text = DateTime.Now.ToLongDateString ();
+            /*lblhora.Text = DateTime.Now.ToString ("HH:mm:ss");
+            lblfecha.Text = DateTime.Now.ToLongDateString ();*/
+            lblhora.Text = "14:06:22";
+            lblfecha.Text = "lunes, 21 de marzo de 2022";
         }
 
         private void btnregistrar_Click (object sender, EventArgs e) {
@@ -330,6 +333,25 @@ namespace Visual {
             }
         }
 
-        
+        private void btnEliminarAsig_Click(object sender, EventArgs e)
+        {
+            abrirhijoform(new Frm_Asignacion.Frm_Asignacion_Eliminar());
+        }
+
+        private void lblconfiguracion_Click(object sender, EventArgs e)
+        {
+            this.configuracion();
+        }
+
+        private void configuracion()
+        {
+            Frm_Configuracion_Cuenta frmConfig = new Frm_Configuracion_Cuenta();
+            frmConfig.ShowDialog();
+        }
+
+        private void btnconfig_Click(object sender, EventArgs e)
+        {
+            this.configuracion();
+        }
     }
 }

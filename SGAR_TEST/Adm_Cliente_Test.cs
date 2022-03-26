@@ -35,7 +35,7 @@ namespace SGAR_TEST
         }
         
         // Metodo de prueba que nos asegura que no se pueden ingresar clientes con un mismo nombre de usuario
-        [TestMethod]
+        /*[TestMethod]
         public void InsertarDatosCliente_NombreUsurExistente()
         {
             Adm_Cliente admclient = Adm_Cliente.GetAdm();
@@ -57,13 +57,13 @@ namespace SGAR_TEST
             msj = admclient.guardarDatosCliente(cedula, Id_hospital, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fechanac, usuario, contra);
 
             Assert.AreEqual("¡Error el numero de cedula o usuario ya existen! \n DATOS NO GUARDADOS", msj);
-        }
+        }*/
 
 
         // El metodo de prueba de abajo esta comentado ya que solo se puede ejecutar una vez debido a que el
         // registro se ingresa correctamente a la base, si 
         //se va a probar este metodo cambiar los datos respectivamente
-        /*
+        
         [TestMethod]
         public void InsertarDatosCliente_RegistroExitoso()
         {
@@ -86,7 +86,7 @@ namespace SGAR_TEST
             msj = admclient.guardarDatosCliente(cedula, Id_hospital, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fechanac, usuario, contra);
 
             Assert.AreEqual("DATOS GUARDADOS CORRECTAMENTE.", msj);
-        }*/
+        }
                 
     }
 }

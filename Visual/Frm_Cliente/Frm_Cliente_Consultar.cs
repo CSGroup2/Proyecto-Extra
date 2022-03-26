@@ -161,7 +161,10 @@ namespace Visual {
         {
             DataTable dt = new DataTable();
             dt = (DataTable)dgvClientes.DataSource;
-            string[] columnas = {"N." ,"Código", "Estado", "Hospital", "Cédula", "Nombres", "Apellidos", "Sexo", "Fecha Nacimiento", "Telefono" , "Correo" };
+            if (MessageBox.Show("¿Desea imrpimir la lista de registros?", "Warning",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string[] columnas = {"N." ,"Código", "Estado", "Hospital", "Cédula", "Nombres", "Apellidos", "Sexo", "Fecha Nacimiento", "Telefono" , "Correo" };
             float[] tamanios = { 2, 2, 2, 4, 4, 4, 4, 2, 3, 3, 4 };
             
             saveFileDialog1.DefaultExt = "pdf";
@@ -183,6 +186,7 @@ namespace Visual {
             else
             {
                 MessageBox.Show("No hay datos para imprimir");
+            }
             }
         }
 
@@ -238,7 +242,7 @@ namespace Visual {
                 if (MessageBox.Show("¿Desea actualizar el registro seleccionado?", "Warning",
                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int idcliente = Int32.Parse(dgvClientes[posicion, 0].Value.ToString());
+                    int idcliente = Int32.Parse(dgvClientes[0, posicion].Value.ToString());
                     menu.abrirhijoform(new Frm_Cliente_Editar(idcliente, menu));
 
                 }
@@ -275,7 +279,7 @@ namespace Visual {
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int posicion = dgvClientes.CurrentRow.Index;
-            int idcliente = Int32.Parse(dgvClientes[posicion,0].Value.ToString());
+            int idcliente = Int32.Parse(dgvClientes[0,posicion].Value.ToString());
             string mensaje = admCliente.eliminarcliente(idcliente);
             if (mensaje.Contains("¡Error "))
             {
