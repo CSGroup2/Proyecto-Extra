@@ -36,8 +36,8 @@ namespace Visual
             this.txt_CedulaNombre = new System.Windows.Forms.TextBox();
             this.rdb_Cedula = new System.Windows.Forms.RadioButton();
             this.rdb_Nombre = new System.Windows.Forms.RadioButton();
-            this.cmb_Disponibilidad = new System.Windows.Forms.ComboBox();
-            this.chk_Disponibilidad = new System.Windows.Forms.CheckBox();
+            this.cmb_Estado = new System.Windows.Forms.ComboBox();
+            this.chk_Estado = new System.Windows.Forms.CheckBox();
             this.btn_Consultar = new FontAwesome.Sharp.IconButton();
             this.btn_MostrarTodos = new FontAwesome.Sharp.IconButton();
             this.dgv_Secretaria = new System.Windows.Forms.DataGridView();
@@ -76,8 +76,8 @@ namespace Visual
             this.pnl_Contenido.Controls.Add(this.txt_CedulaNombre);
             this.pnl_Contenido.Controls.Add(this.rdb_Cedula);
             this.pnl_Contenido.Controls.Add(this.rdb_Nombre);
-            this.pnl_Contenido.Controls.Add(this.cmb_Disponibilidad);
-            this.pnl_Contenido.Controls.Add(this.chk_Disponibilidad);
+            this.pnl_Contenido.Controls.Add(this.cmb_Estado);
+            this.pnl_Contenido.Controls.Add(this.chk_Estado);
             this.pnl_Contenido.Controls.Add(this.btn_Consultar);
             this.pnl_Contenido.Controls.Add(this.btn_MostrarTodos);
             this.pnl_Contenido.Controls.Add(this.dgv_Secretaria);
@@ -103,6 +103,7 @@ namespace Visual
             this.txt_CedulaNombre.Name = "txt_CedulaNombre";
             this.txt_CedulaNombre.Size = new System.Drawing.Size(152, 20);
             this.txt_CedulaNombre.TabIndex = 1;
+            this.txt_CedulaNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CedulaNombre_KeyPress);
             // 
             // rdb_Cedula
             // 
@@ -117,6 +118,7 @@ namespace Visual
             this.rdb_Cedula.TabStop = true;
             this.rdb_Cedula.Text = "Cédula";
             this.rdb_Cedula.UseVisualStyleBackColor = false;
+            this.rdb_Cedula.CheckedChanged += new System.EventHandler(this.rdb_Cedula_CheckedChanged);
             // 
             // rdb_Nombre
             // 
@@ -130,26 +132,27 @@ namespace Visual
             this.rdb_Nombre.Text = "Nombre";
             this.rdb_Nombre.UseVisualStyleBackColor = false;
             // 
-            // cmb_Disponibilidad
+            // cmb_Estado
             // 
-            this.cmb_Disponibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Disponibilidad.FormattingEnabled = true;
-            this.cmb_Disponibilidad.Location = new System.Drawing.Point(88, 48);
-            this.cmb_Disponibilidad.Name = "cmb_Disponibilidad";
-            this.cmb_Disponibilidad.Size = new System.Drawing.Size(152, 21);
-            this.cmb_Disponibilidad.TabIndex = 4;
+            this.cmb_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Estado.FormattingEnabled = true;
+            this.cmb_Estado.Location = new System.Drawing.Point(88, 48);
+            this.cmb_Estado.Name = "cmb_Estado";
+            this.cmb_Estado.Size = new System.Drawing.Size(152, 21);
+            this.cmb_Estado.TabIndex = 4;
             // 
-            // chk_Disponibilidad
+            // chk_Estado
             // 
-            this.chk_Disponibilidad.AutoSize = true;
-            this.chk_Disponibilidad.BackColor = System.Drawing.Color.Transparent;
-            this.chk_Disponibilidad.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Disponibilidad.Location = new System.Drawing.Point(258, 51);
-            this.chk_Disponibilidad.Name = "chk_Disponibilidad";
-            this.chk_Disponibilidad.Size = new System.Drawing.Size(124, 19);
-            this.chk_Disponibilidad.TabIndex = 5;
-            this.chk_Disponibilidad.Text = "Disponibilidad";
-            this.chk_Disponibilidad.UseVisualStyleBackColor = false;
+            this.chk_Estado.AutoSize = true;
+            this.chk_Estado.BackColor = System.Drawing.Color.Transparent;
+            this.chk_Estado.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Estado.Location = new System.Drawing.Point(258, 51);
+            this.chk_Estado.Name = "chk_Estado";
+            this.chk_Estado.Size = new System.Drawing.Size(68, 19);
+            this.chk_Estado.TabIndex = 5;
+            this.chk_Estado.Text = "Estado";
+            this.chk_Estado.UseVisualStyleBackColor = false;
+            this.chk_Estado.CheckedChanged += new System.EventHandler(this.chk_Estado_CheckedChanged);
             // 
             // btn_Consultar
             // 
@@ -298,8 +301,8 @@ namespace Visual
         private System.Windows.Forms.Panel pnl_Contenido;
         private FontAwesome.Sharp.IconButton btn_MostrarTodos;
         private FontAwesome.Sharp.IconButton btn_Consultar;
-        private System.Windows.Forms.ComboBox cmb_Disponibilidad;
-        private System.Windows.Forms.CheckBox chk_Disponibilidad;
+        private System.Windows.Forms.ComboBox cmb_Estado;
+        private System.Windows.Forms.CheckBox chk_Estado;
         private System.Windows.Forms.RadioButton rdb_Nombre;
         private System.Windows.Forms.RadioButton rdb_Cedula;
         private System.Windows.Forms.TextBox txt_CedulaNombre;

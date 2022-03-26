@@ -33,7 +33,6 @@ namespace Visual {
         #region ------------------------------ Frm load at begining
 
         private void listarEstados () {
-            cmb_Estado.ResetText ();
             cmb_Estado.DataSource = admGeneral.EstadoLlenarCombo ();
             cmb_Estado.ValueMember = "ID_ESTADO";
             cmb_Estado.DisplayMember = "NOMBRE_ESTADO";

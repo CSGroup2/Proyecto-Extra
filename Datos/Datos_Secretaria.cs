@@ -24,7 +24,7 @@ namespace Datos {
 
         /*------------------------------ Frm_Secretaria_Consultar ------------------------------*/
 
-        public object SecretariaListarDatos () {
+        public DataTable SecretariaListarDatos () {
             // Extract all "conductor" data from database
             conexion = new Conexion ();
             query = "sp_secretaria_listarDatos";                        // Stored Procedure name
@@ -45,7 +45,41 @@ namespace Datos {
             }
             return dataTable;
         }
-        
+
+        public DataTable SecretariaConsultarDatos (string cedula_nombre, string estado) {
+            // Extract all "conductor" data from database
+            conexion = new Conexion ();
+            query = "sp_secretaria_listarDatosPor_Cedula_Nombre_Estado";// Stored Procedure name
+            dataTable = new DataTable ();
+            try {
+                sqlConexion = conexion.abrir_conexion ();              // Opens conexion to sql server
+                sqlComando = new SqlCommand (query, sqlConexion);     // Creatin SqlCommand object
+                sqlComando.CommandType = CommandType.StoredProcedure;  // Declaring command type as stored Procedure
+                sqlDatosAdaptador = new SqlDataAdapter (sqlComando);
+                using (sqlComando) {
+                    // Adding values to paramerters for SqlCommand below
+                    // Use DBNull.Value make stored procedure parameters have defaults of NULL
+                    if (cedula_nombre != null) {
+                        sqlComando.Parameters.Add (new SqlParameter ("@cedula_nombre", cedula_nombre));
+                    } else {
+                        sqlComando.Parameters.Add (new SqlParameter ("@cedula_nombre", DBNull.Value));
+                    }
+                    if (estado != null) {
+                        sqlComando.Parameters.Add (new SqlParameter ("@estado", estado));
+                    } else {
+                        sqlComando.Parameters.Add (new SqlParameter ("@estado", DBNull.Value));
+                    }
+                    sqlDatosAdaptador.Fill (dataTable);
+                }
+            } catch (Exception ex) {
+                dataTable = null;
+                Console.WriteLine ("¡ERROR! al listar los datos de los conductores. \n" + ex.Message);
+            } finally {
+                conexion.cerrar_conexion (sqlConexion);
+            }
+            return dataTable;
+        }
+
         /*------------------------------ Frm_Secretaria_Editar ------------------------------*/
 
         public Secretaria SecretariaBuscarPorIdDatos (int idSecretaria) {
@@ -129,7 +163,6 @@ namespace Datos {
 
         /*------------------------------ Frm_Secretaria_Registrar ------------------------------*/
         public string Secretaria_RegistrarDatos (Secretaria secretaria) {
-            int queryResultado = 0;
             conexion = new Conexion ();
             query = "sp_secretaria_insertarDatos";                           // Stored Procedure name
             try {
@@ -153,22 +186,15 @@ namespace Datos {
                     sqlComando.Parameters.AddWithValue ("@contrasenia", secretaria.Usuario.Contrasenia);
                     // Secretaria
                     sqlComando.Parameters.AddWithValue ("@fecha_contrato", secretaria.Fecha_contrato);
-                    //mensaje = Convert.ToString (sqlComando.ExecuteNonQuery ());
-                    queryResultado = sqlComando.ExecuteNonQuery ();
-                    if (queryResultado == 1) {
-                        mensaje = "Datos guardados correctamente.";
+                    mensaje = Convert.ToString (sqlComando.ExecuteNonQuery ());
+                    if (mensaje == "-1") {
+                        mensaje = "¡DATOS NO GUARDADOS! \nYa existe Cedula, Correo o Nombre de usuario. \nVerifique su datos nuevamente.";
                     } else {
-                        if (queryResultado == -1) {
-                            mensaje = "¡DATOS NO GUARDADOS! Ya existe nombre de usuario. " + queryResultado;
-                        } else if (queryResultado == -2) {
-                            mensaje = "¡DATOS NO GUARDADOS! Ya existe dirección de correo. " + queryResultado;
-                        } else if (queryResultado == -3) {
-                            mensaje = "¡DATOS NO GUARDADOS! Ya existe número de cédula. " + queryResultado;
-                        }
+                        mensaje = "DATOS GUARDADOS CORRECTAMENTE.";
                     }
                 }
             } catch (Exception ex) {
-                mensaje = "¡ERRORO! al guardars los datos dela secretaria. \n" + ex.Message;
+                mensaje = "¡ERROR! al guardar los datos de secretaria. \n" + ex.Message;
             } finally {
                 conexion.cerrar_conexion (sqlConexion);
             }

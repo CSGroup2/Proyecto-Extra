@@ -29,14 +29,16 @@ namespace Visual {
         }
 
         private void Frm_Secretaria_Consultar_Load (object sender, EventArgs e) {
+            listarEstados ();
             listarDatosSecretaria ();
         }
 
-        public void listarDisponibilidad () {
-            cmb_Disponibilidad.DataSource = admGeneral.DisponibilidadLlenarCombo ();
-            cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
-            cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
-            cmb_Disponibilidad.Enabled = false;
+        private void listarEstados () {
+            cmb_Estado.Items.Clear ();
+            cmb_Estado.DataSource = admGeneral.EstadoLlenarCombo ();
+            cmb_Estado.ValueMember = "ID_ESTADO";
+            cmb_Estado.DisplayMember = "NOMBRE_ESTADO";
+            cmb_Estado.Enabled = false;
         }
 
         public void listarDatosSecretaria () {
@@ -45,7 +47,23 @@ namespace Visual {
         }
 
         private void btn_Consultar_Click (object sender, EventArgs e) {
-
+            // Search for "conductor" data
+            string cedula_nombre = null;
+            string estado = null;
+            err_Alerta.Clear ();
+            if (txt_CedulaNombre.Text.Trim () == "" && (chk_Estado.Checked == false || cmb_Estado.SelectedIndex == 0)) {
+                err_Alerta.SetError (txt_CedulaNombre, "Opcional 1");
+                err_Alerta.SetError (chk_Estado, "Opcional 2");
+            } else {
+                if (!String.IsNullOrWhiteSpace (txt_CedulaNombre.Text)) {
+                    cedula_nombre = txt_CedulaNombre.Text.Trim ().Replace (" ", String.Empty);
+                }
+                if (chk_Estado.Checked) {
+                    estado = cmb_Estado.SelectedValue.ToString ();
+                }
+                dgv_Secretaria.Refresh ();
+                dgv_Secretaria.DataSource = admSecretaria.SecretariaConsultar (cedula_nombre, estado);
+            }
         }
 
         private void btn_MostrarTodos_Click (object sender, EventArgs e) {
@@ -98,6 +116,28 @@ namespace Visual {
             }
         }
 
-        
+        private void txt_CedulaNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            if (rdb_Cedula.Checked) {
+                txt_CedulaNombre.MaxLength = 10;
+                // Only allows numbers on press
+                validacion.validarSoloNumerosKeyPress (sender, e);
+            } else {
+                txt_CedulaNombre.MaxLength = 300;
+                // Only allows alphabetic characters
+                validacion.validarSoloLettrasConEspaciosKeyPress (sender, e);
+            }
+        }
+
+        private void chk_Estado_CheckedChanged (object sender, EventArgs e) {
+            if (chk_Estado.Checked) {
+                cmb_Estado.Enabled = true;
+            } else {
+                cmb_Estado.Enabled = false;
+            }
+        }
+
+        private void rdb_Cedula_CheckedChanged (object sender, EventArgs e) {
+            txt_CedulaNombre.Clear ();
+        }
     }
 }

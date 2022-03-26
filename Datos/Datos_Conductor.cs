@@ -48,7 +48,7 @@ namespace Datos {
         public DataTable ConductorConsultarDatos (string cedula_nombre, string disponibilidad) {
             // Extract all "conductor" data from database
             conexion = new Conexion ();
-            query = "sp_buscar_conductores";                        // Stored Procedure name
+            query = "sp_conductor_listarDatosPor_Cedula_Nombre_Disponibilidad";                        // Stored Procedure name
             dataTable = new DataTable ();
             try {
                 sqlConexion = conexion.abrir_conexion ();              // Opens conexion to sql server

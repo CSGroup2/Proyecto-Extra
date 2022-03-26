@@ -116,7 +116,7 @@ namespace Visual {
             } else {
                 txt_CedulaNombre.MaxLength = 300;
                 // Only allows alphabetic characters
-                validacion.validarSoloLettrasKeyPress (sender, e);
+                validacion.validarSoloLettrasConEspaciosKeyPress (sender, e);
             }
         }
 
