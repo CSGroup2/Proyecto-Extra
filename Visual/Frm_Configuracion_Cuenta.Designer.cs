@@ -289,7 +289,7 @@ namespace Visual
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Frm_Configuracion_Cuenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Configuracion_Cuenta";
+            this.Text = "Configuración de Cuenta";
             this.Load += new System.EventHandler(this.Frm_Configuracion_Cuenta_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

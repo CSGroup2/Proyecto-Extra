@@ -33,10 +33,10 @@ namespace Visual
             this.pnl_Cuerpo = new System.Windows.Forms.Panel();
             this.pnl_Contenido = new System.Windows.Forms.Panel();
             this.lbl_Codigo = new System.Windows.Forms.Label();
-            this.lbl_idSecretaria = new System.Windows.Forms.Label();
+            this.lbl_IdSecretaria = new System.Windows.Forms.Label();
             this.lbl_Cedula = new System.Windows.Forms.Label();
             this.txt_Cedula = new System.Windows.Forms.TextBox();
-            this.btn_Buscar = new FontAwesome.Sharp.IconButton();
+            this.lbl_Estado = new System.Windows.Forms.Label();
             this.grp_Nombres = new System.Windows.Forms.GroupBox();
             this.lbl_Nombre1 = new System.Windows.Forms.Label();
             this.txt_Nombre1 = new System.Windows.Forms.TextBox();
@@ -61,7 +61,6 @@ namespace Visual
             this.grp_Usuario = new System.Windows.Forms.GroupBox();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.txt_NombreUsuario = new System.Windows.Forms.TextBox();
-            this.chk_NombreUsuario = new System.Windows.Forms.CheckBox();
             this.lbl_Contrasenia = new System.Windows.Forms.Label();
             this.txt_Contrasenia = new System.Windows.Forms.TextBox();
             this.chk_Contrasenia = new System.Windows.Forms.CheckBox();
@@ -70,6 +69,7 @@ namespace Visual
             this.pnl_Titulo = new System.Windows.Forms.Panel();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.err_Alerta = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmb_Estado = new System.Windows.Forms.ComboBox();
             this.pnl_Cuerpo.SuspendLayout();
             this.pnl_Contenido.SuspendLayout();
             this.grp_Nombres.SuspendLayout();
@@ -96,10 +96,11 @@ namespace Visual
             // 
             this.pnl_Contenido.BackColor = System.Drawing.Color.White;
             this.pnl_Contenido.Controls.Add(this.lbl_Codigo);
-            this.pnl_Contenido.Controls.Add(this.lbl_idSecretaria);
+            this.pnl_Contenido.Controls.Add(this.lbl_IdSecretaria);
             this.pnl_Contenido.Controls.Add(this.lbl_Cedula);
             this.pnl_Contenido.Controls.Add(this.txt_Cedula);
-            this.pnl_Contenido.Controls.Add(this.btn_Buscar);
+            this.pnl_Contenido.Controls.Add(this.lbl_Estado);
+            this.pnl_Contenido.Controls.Add(this.cmb_Estado);
             this.pnl_Contenido.Controls.Add(this.grp_Nombres);
             this.pnl_Contenido.Controls.Add(this.grp_Apellidos);
             this.pnl_Contenido.Controls.Add(this.lbl_Correo);
@@ -131,15 +132,15 @@ namespace Visual
             this.lbl_Codigo.TabIndex = 0;
             this.lbl_Codigo.Text = "Código:";
             // 
-            // lbl_idSecretaria
+            // lbl_IdSecretaria
             // 
-            this.lbl_idSecretaria.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lbl_idSecretaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_idSecretaria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idSecretaria.Location = new System.Drawing.Point(157, 6);
-            this.lbl_idSecretaria.Name = "lbl_idSecretaria";
-            this.lbl_idSecretaria.Size = new System.Drawing.Size(74, 26);
-            this.lbl_idSecretaria.TabIndex = 1;
+            this.lbl_IdSecretaria.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lbl_IdSecretaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_IdSecretaria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_IdSecretaria.Location = new System.Drawing.Point(157, 6);
+            this.lbl_IdSecretaria.Name = "lbl_IdSecretaria";
+            this.lbl_IdSecretaria.Size = new System.Drawing.Size(74, 26);
+            this.lbl_IdSecretaria.TabIndex = 1;
             // 
             // lbl_Cedula
             // 
@@ -157,31 +158,26 @@ namespace Visual
             // 
             this.txt_Cedula.BackColor = System.Drawing.SystemColors.Window;
             this.txt_Cedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Cedula.Enabled = false;
             this.txt_Cedula.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Cedula.Location = new System.Drawing.Point(157, 40);
             this.txt_Cedula.MaxLength = 10;
             this.txt_Cedula.Name = "txt_Cedula";
             this.txt_Cedula.Size = new System.Drawing.Size(137, 26);
             this.txt_Cedula.TabIndex = 3;
+            this.txt_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cedula_KeyPress);
             // 
-            // btn_Buscar
+            // lbl_Estado
             // 
-            this.btn_Buscar.FlatAppearance.BorderSize = 0;
-            this.btn_Buscar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_Buscar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btn_Buscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_Buscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Buscar.IconSize = 20;
-            this.btn_Buscar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btn_Buscar.Location = new System.Drawing.Point(327, 39);
-            this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Buscar.Size = new System.Drawing.Size(44, 30);
-            this.btn_Buscar.TabIndex = 4;
-            this.btn_Buscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Buscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Buscar.UseVisualStyleBackColor = true;
+            this.lbl_Estado.AutoSize = true;
+            this.lbl_Estado.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Estado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Estado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lbl_Estado.Location = new System.Drawing.Point(335, 44);
+            this.lbl_Estado.Name = "lbl_Estado";
+            this.lbl_Estado.Size = new System.Drawing.Size(60, 18);
+            this.lbl_Estado.TabIndex = 4;
+            this.lbl_Estado.Text = "Estado:";
             // 
             // grp_Nombres
             // 
@@ -194,7 +190,7 @@ namespace Visual
             this.grp_Nombres.Location = new System.Drawing.Point(10, 78);
             this.grp_Nombres.Name = "grp_Nombres";
             this.grp_Nombres.Size = new System.Drawing.Size(302, 85);
-            this.grp_Nombres.TabIndex = 5;
+            this.grp_Nombres.TabIndex = 6;
             this.grp_Nombres.TabStop = false;
             this.grp_Nombres.Text = "Nombres";
             // 
@@ -218,6 +214,7 @@ namespace Visual
             this.txt_Nombre1.Name = "txt_Nombre1";
             this.txt_Nombre1.Size = new System.Drawing.Size(137, 26);
             this.txt_Nombre1.TabIndex = 1;
+            this.txt_Nombre1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // lbl_Nombre2
             // 
@@ -239,6 +236,7 @@ namespace Visual
             this.txt_Nombre2.Name = "txt_Nombre2";
             this.txt_Nombre2.Size = new System.Drawing.Size(137, 26);
             this.txt_Nombre2.TabIndex = 3;
+            this.txt_Nombre2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // grp_Apellidos
             // 
@@ -251,7 +249,7 @@ namespace Visual
             this.grp_Apellidos.Location = new System.Drawing.Point(330, 78);
             this.grp_Apellidos.Name = "grp_Apellidos";
             this.grp_Apellidos.Size = new System.Drawing.Size(302, 85);
-            this.grp_Apellidos.TabIndex = 6;
+            this.grp_Apellidos.TabIndex = 7;
             this.grp_Apellidos.TabStop = false;
             this.grp_Apellidos.Text = "Apellidos";
             // 
@@ -275,6 +273,7 @@ namespace Visual
             this.txt_Apellido1.Name = "txt_Apellido1";
             this.txt_Apellido1.Size = new System.Drawing.Size(137, 26);
             this.txt_Apellido1.TabIndex = 1;
+            this.txt_Apellido1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // lbl_Apellido2
             // 
@@ -296,6 +295,7 @@ namespace Visual
             this.txt_Apellido2.Name = "txt_Apellido2";
             this.txt_Apellido2.Size = new System.Drawing.Size(137, 26);
             this.txt_Apellido2.TabIndex = 3;
+            this.txt_Apellido2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre1_KeyPress);
             // 
             // lbl_Correo
             // 
@@ -306,18 +306,20 @@ namespace Visual
             this.lbl_Correo.Location = new System.Drawing.Point(14, 172);
             this.lbl_Correo.Name = "lbl_Correo";
             this.lbl_Correo.Size = new System.Drawing.Size(64, 18);
-            this.lbl_Correo.TabIndex = 7;
+            this.lbl_Correo.TabIndex = 8;
             this.lbl_Correo.Text = "Correo:";
             // 
             // txt_Correo
             // 
             this.txt_Correo.BackColor = System.Drawing.SystemColors.Window;
             this.txt_Correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Correo.Enabled = false;
             this.txt_Correo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Correo.Location = new System.Drawing.Point(84, 169);
             this.txt_Correo.Name = "txt_Correo";
             this.txt_Correo.Size = new System.Drawing.Size(209, 26);
-            this.txt_Correo.TabIndex = 8;
+            this.txt_Correo.TabIndex = 9;
+            this.txt_Correo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Correo_KeyPress);
             // 
             // lbl_Telefono
             // 
@@ -328,7 +330,7 @@ namespace Visual
             this.lbl_Telefono.Location = new System.Drawing.Point(335, 172);
             this.lbl_Telefono.Name = "lbl_Telefono";
             this.lbl_Telefono.Size = new System.Drawing.Size(78, 18);
-            this.lbl_Telefono.TabIndex = 9;
+            this.lbl_Telefono.TabIndex = 10;
             this.lbl_Telefono.Text = "Num. Telf:";
             // 
             // txt_Telefono
@@ -340,7 +342,8 @@ namespace Visual
             this.txt_Telefono.MaxLength = 10;
             this.txt_Telefono.Name = "txt_Telefono";
             this.txt_Telefono.Size = new System.Drawing.Size(137, 26);
-            this.txt_Telefono.TabIndex = 10;
+            this.txt_Telefono.TabIndex = 11;
+            this.txt_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cedula_KeyPress);
             // 
             // lbl_Sexo
             // 
@@ -351,7 +354,7 @@ namespace Visual
             this.lbl_Sexo.Location = new System.Drawing.Point(16, 205);
             this.lbl_Sexo.Name = "lbl_Sexo";
             this.lbl_Sexo.Size = new System.Drawing.Size(48, 18);
-            this.lbl_Sexo.TabIndex = 11;
+            this.lbl_Sexo.TabIndex = 12;
             this.lbl_Sexo.Text = "Sexo:";
             // 
             // rdb_Masculino
@@ -363,7 +366,7 @@ namespace Visual
             this.rdb_Masculino.Location = new System.Drawing.Point(84, 202);
             this.rdb_Masculino.Name = "rdb_Masculino";
             this.rdb_Masculino.Size = new System.Drawing.Size(102, 24);
-            this.rdb_Masculino.TabIndex = 12;
+            this.rdb_Masculino.TabIndex = 13;
             this.rdb_Masculino.TabStop = true;
             this.rdb_Masculino.Text = "Masculino";
             this.rdb_Masculino.UseVisualStyleBackColor = false;
@@ -376,7 +379,7 @@ namespace Visual
             this.rdb_Femenino.Location = new System.Drawing.Point(208, 202);
             this.rdb_Femenino.Name = "rdb_Femenino";
             this.rdb_Femenino.Size = new System.Drawing.Size(98, 24);
-            this.rdb_Femenino.TabIndex = 13;
+            this.rdb_Femenino.TabIndex = 14;
             this.rdb_Femenino.Text = "Femenino";
             this.rdb_Femenino.UseVisualStyleBackColor = false;
             // 
@@ -389,7 +392,7 @@ namespace Visual
             this.lbl_FechaNacimiento.Location = new System.Drawing.Point(15, 236);
             this.lbl_FechaNacimiento.Name = "lbl_FechaNacimiento";
             this.lbl_FechaNacimiento.Size = new System.Drawing.Size(142, 18);
-            this.lbl_FechaNacimiento.TabIndex = 14;
+            this.lbl_FechaNacimiento.TabIndex = 15;
             this.lbl_FechaNacimiento.Text = "Fech. Nacimiento:";
             // 
             // dtp_FechaNacimiento
@@ -398,7 +401,7 @@ namespace Visual
             this.dtp_FechaNacimiento.Location = new System.Drawing.Point(157, 232);
             this.dtp_FechaNacimiento.Name = "dtp_FechaNacimiento";
             this.dtp_FechaNacimiento.Size = new System.Drawing.Size(256, 26);
-            this.dtp_FechaNacimiento.TabIndex = 15;
+            this.dtp_FechaNacimiento.TabIndex = 16;
             // 
             // lbl_FechaContrato
             // 
@@ -409,7 +412,7 @@ namespace Visual
             this.lbl_FechaContrato.Location = new System.Drawing.Point(15, 268);
             this.lbl_FechaContrato.Name = "lbl_FechaContrato";
             this.lbl_FechaContrato.Size = new System.Drawing.Size(120, 18);
-            this.lbl_FechaContrato.TabIndex = 16;
+            this.lbl_FechaContrato.TabIndex = 17;
             this.lbl_FechaContrato.Text = "Fech. Contrato:";
             // 
             // dtp_FechaContrato
@@ -418,20 +421,19 @@ namespace Visual
             this.dtp_FechaContrato.Location = new System.Drawing.Point(157, 264);
             this.dtp_FechaContrato.Name = "dtp_FechaContrato";
             this.dtp_FechaContrato.Size = new System.Drawing.Size(256, 26);
-            this.dtp_FechaContrato.TabIndex = 17;
+            this.dtp_FechaContrato.TabIndex = 18;
             // 
             // grp_Usuario
             // 
             this.grp_Usuario.Controls.Add(this.lbl_NombreUsuario);
             this.grp_Usuario.Controls.Add(this.txt_NombreUsuario);
-            this.grp_Usuario.Controls.Add(this.chk_NombreUsuario);
             this.grp_Usuario.Controls.Add(this.lbl_Contrasenia);
             this.grp_Usuario.Controls.Add(this.txt_Contrasenia);
             this.grp_Usuario.Controls.Add(this.chk_Contrasenia);
             this.grp_Usuario.Location = new System.Drawing.Point(19, 296);
             this.grp_Usuario.Name = "grp_Usuario";
             this.grp_Usuario.Size = new System.Drawing.Size(336, 95);
-            this.grp_Usuario.TabIndex = 18;
+            this.grp_Usuario.TabIndex = 19;
             this.grp_Usuario.TabStop = false;
             this.grp_Usuario.Text = "Cuenta";
             // 
@@ -457,15 +459,6 @@ namespace Visual
             this.txt_NombreUsuario.Name = "txt_NombreUsuario";
             this.txt_NombreUsuario.Size = new System.Drawing.Size(169, 26);
             this.txt_NombreUsuario.TabIndex = 1;
-            // 
-            // chk_NombreUsuario
-            // 
-            this.chk_NombreUsuario.AutoSize = true;
-            this.chk_NombreUsuario.Location = new System.Drawing.Point(301, 26);
-            this.chk_NombreUsuario.Name = "chk_NombreUsuario";
-            this.chk_NombreUsuario.Size = new System.Drawing.Size(15, 14);
-            this.chk_NombreUsuario.TabIndex = 2;
-            this.chk_NombreUsuario.UseVisualStyleBackColor = true;
             // 
             // lbl_Contrasenia
             // 
@@ -515,6 +508,7 @@ namespace Visual
             this.btn_Guardar.Text = "Guardar";
             this.btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // btn_Cancelar
             // 
@@ -532,6 +526,7 @@ namespace Visual
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // pnl_Titulo
             // 
@@ -561,6 +556,16 @@ namespace Visual
             // 
             this.err_Alerta.ContainerControl = this;
             // 
+            // cmb_Estado
+            // 
+            this.cmb_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Estado.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.cmb_Estado.FormattingEnabled = true;
+            this.cmb_Estado.Location = new System.Drawing.Point(477, 40);
+            this.cmb_Estado.Name = "cmb_Estado";
+            this.cmb_Estado.Size = new System.Drawing.Size(137, 28);
+            this.cmb_Estado.TabIndex = 20;
+            // 
             // Frm_Secretaria_Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,6 +576,7 @@ namespace Visual
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Secretaria_Editar";
             this.Text = "Frm_Secretaria_Editar";
+            this.Load += new System.EventHandler(this.Frm_Secretaria_Editar_Load);
             this.pnl_Cuerpo.ResumeLayout(false);
             this.pnl_Contenido.ResumeLayout(false);
             this.pnl_Contenido.PerformLayout();
@@ -623,11 +629,11 @@ namespace Visual
         private System.Windows.Forms.Label lbl_Titulo;
         private FontAwesome.Sharp.IconButton btn_Guardar;
         private FontAwesome.Sharp.IconButton btn_Cancelar;
-        private FontAwesome.Sharp.IconButton btn_Buscar;
-        private System.Windows.Forms.Label lbl_idSecretaria;
+        private System.Windows.Forms.Label lbl_IdSecretaria;
         private System.Windows.Forms.Label lbl_Codigo;
         private System.Windows.Forms.CheckBox chk_Contrasenia;
-        private System.Windows.Forms.CheckBox chk_NombreUsuario;
         private System.Windows.Forms.ErrorProvider err_Alerta;
+        private System.Windows.Forms.Label lbl_Estado;
+        private System.Windows.Forms.ComboBox cmb_Estado;
     }
 }

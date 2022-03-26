@@ -58,6 +58,8 @@ namespace Visual {
             this.btnregsecretaria = new FontAwesome.Sharp.IconButton();
             this.btnsecretaria = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnconfig = new FontAwesome.Sharp.IconButton();
+            this.lblconfiguracion = new System.Windows.Forms.Label();
             this.btnopciones1 = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lbltipo = new System.Windows.Forms.Label();
@@ -71,8 +73,6 @@ namespace Visual {
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.timerhorafecha = new System.Windows.Forms.Timer(this.components);
-            this.btnconfig = new FontAwesome.Sharp.IconButton();
-            this.lblconfiguracion = new System.Windows.Forms.Label();
             this.pnlateral.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnsubmenuasignacion.SuspendLayout();
@@ -705,6 +705,35 @@ namespace Visual {
             this.panel2.Size = new System.Drawing.Size(242, 181);
             this.panel2.TabIndex = 0;
             // 
+            // btnconfig
+            // 
+            this.btnconfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnconfig.FlatAppearance.BorderSize = 0;
+            this.btnconfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnconfig.IconChar = FontAwesome.Sharp.IconChar.Cog;
+            this.btnconfig.IconColor = System.Drawing.Color.White;
+            this.btnconfig.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnconfig.IconSize = 28;
+            this.btnconfig.Location = new System.Drawing.Point(12, 37);
+            this.btnconfig.Name = "btnconfig";
+            this.btnconfig.Size = new System.Drawing.Size(35, 32);
+            this.btnconfig.TabIndex = 13;
+            this.btnconfig.UseVisualStyleBackColor = true;
+            this.btnconfig.Click += new System.EventHandler(this.btnconfig_Click);
+            // 
+            // lblconfiguracion
+            // 
+            this.lblconfiguracion.AutoSize = true;
+            this.lblconfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblconfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblconfiguracion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblconfiguracion.Location = new System.Drawing.Point(42, 39);
+            this.lblconfiguracion.Name = "lblconfiguracion";
+            this.lblconfiguracion.Size = new System.Drawing.Size(127, 24);
+            this.lblconfiguracion.TabIndex = 14;
+            this.lblconfiguracion.Text = "Configuración";
+            this.lblconfiguracion.Click += new System.EventHandler(this.lblconfiguracion_Click);
+            // 
             // btnopciones1
             // 
             this.btnopciones1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -851,35 +880,6 @@ namespace Visual {
             this.timerhorafecha.Enabled = true;
             this.timerhorafecha.Tick += new System.EventHandler(this.timerhorafecha_Tick);
             // 
-            // btnconfig
-            // 
-            this.btnconfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnconfig.FlatAppearance.BorderSize = 0;
-            this.btnconfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnconfig.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.btnconfig.IconColor = System.Drawing.Color.White;
-            this.btnconfig.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnconfig.IconSize = 28;
-            this.btnconfig.Location = new System.Drawing.Point(12, 37);
-            this.btnconfig.Name = "btnconfig";
-            this.btnconfig.Size = new System.Drawing.Size(35, 32);
-            this.btnconfig.TabIndex = 13;
-            this.btnconfig.UseVisualStyleBackColor = true;
-            this.btnconfig.Click += new System.EventHandler(this.btnconfig_Click);
-            // 
-            // lblconfiguracion
-            // 
-            this.lblconfiguracion.AutoSize = true;
-            this.lblconfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblconfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblconfiguracion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblconfiguracion.Location = new System.Drawing.Point(42, 39);
-            this.lblconfiguracion.Name = "lblconfiguracion";
-            this.lblconfiguracion.Size = new System.Drawing.Size(127, 24);
-            this.lblconfiguracion.TabIndex = 14;
-            this.lblconfiguracion.Text = "Configuración";
-            this.lblconfiguracion.Click += new System.EventHandler(this.lblconfiguracion_Click);
-            // 
             // Frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,7 +890,7 @@ namespace Visual {
             this.Controls.Add(this.pnlateral);
             this.Name = "Frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMenuPr";
+            this.Text = "Sistema SGAR";
             this.Load += new System.EventHandler(this.FrmMenuPr_Load);
             this.pnlateral.ResumeLayout(false);
             this.pnlateral.PerformLayout();

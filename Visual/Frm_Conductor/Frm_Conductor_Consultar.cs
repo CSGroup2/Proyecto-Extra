@@ -15,10 +15,10 @@ namespace Visual {
     public partial class Frm_Conductor_Consultar : Form {
 
         Btn_Comportamiento Btn_Comportamiento = new Btn_Comportamiento ();
-        Adm_Conductor Adm_Conductor = Adm_Conductor.GetAdm ();
-        Adm_General Adm_General = Adm_General.GetAdm ();
-        Adm_PDF Adm_PDF = Adm_PDF.GetAdm ();
-        Validacion Validacion = new Validacion ();
+        Adm_Conductor admConductor = Adm_Conductor.GetAdm ();
+        Adm_General admGeneral = Adm_General.GetAdm ();
+        Adm_PDF admPDF = Adm_PDF.GetAdm ();
+        Validacion validacion = new Validacion ();
         Frm_Menu Frm_Menu;
 
         public Frm_Conductor_Consultar () {
@@ -41,7 +41,7 @@ namespace Visual {
         #region Frm load at begining
 
         public void listarDisponibilidad () {
-            cmb_Disponibilidad.DataSource = Adm_General.DisponibilidadLlenarCombo ();
+            cmb_Disponibilidad.DataSource = admGeneral.DisponibilidadLlenarCombo ();
             cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
             cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
             cmb_Disponibilidad.Enabled = false;
@@ -49,7 +49,7 @@ namespace Visual {
 
         public void listarDatosConductor () {
             dgv_Conductor.Refresh ();
-            dgv_Conductor.DataSource = Adm_Conductor.ConductorListar ();
+            dgv_Conductor.DataSource = admConductor.ConductorListar ();
         }
 
         #endregion
@@ -112,11 +112,11 @@ namespace Visual {
             if (rdb_Cedula.Checked) {
                 txt_CedulaNombre.MaxLength = 10;
                 // Only allows numbers on press
-                Validacion.validarSoloNumerosKeyPress (sender, e);
+                validacion.validarSoloNumerosKeyPress (sender, e);
             } else {
                 txt_CedulaNombre.MaxLength = 300;
                 // Only allows alphabetic characters
-                Validacion.validarSoloLettrasKeyPress (sender, e);
+                validacion.validarSoloLettrasKeyPress (sender, e);
             }
         }
 
@@ -142,7 +142,7 @@ namespace Visual {
                     disponibilidad = cmb_Disponibilidad.SelectedValue.ToString ();
                 }
                 dgv_Conductor.Refresh ();
-                dgv_Conductor.DataSource = Adm_Conductor.ConductorConsultar (cedula_nombre, disponibilidad);
+                dgv_Conductor.DataSource = admConductor.ConductorConsultar (cedula_nombre, disponibilidad);
             }
         }
 
@@ -156,7 +156,7 @@ namespace Visual {
                 idConductor = 0;
             posicion = dgv_Conductor.CurrentRow.Index;
             if (posicion >= 0) {
-                idConductor = Validacion.AEntero (dgv_Conductor.Rows[posicion].Cells["ID"].Value.ToString ());
+                idConductor = validacion.AEntero (dgv_Conductor.Rows[posicion].Cells["ID"].Value.ToString ());
                 Frm_Menu.abrirhijoform (new Frm_Conductor_Editar (idConductor));
             } else {
                 MessageBox.Show ("Seleccione un conductor.");
@@ -182,7 +182,7 @@ namespace Visual {
                     float[] tamanios = { 1, float.Parse ("1.5"), 1, 1, 3, 3, 3, 1, 2, 3, 3 };
 
                     // Creates PDF file
-                    Adm_PDF.CrearPdf (dataTable_resultado, file, columnas, tamanios, 2);
+                    admPDF.CrearPdf (dataTable_resultado, file, columnas, tamanios, 2);
                     //
                     if (File.Exists (file)) {
                         // Opens PDF file
@@ -200,8 +200,8 @@ namespace Visual {
                 idConductor = 0;
             posicion = dgv_Conductor.CurrentRow.Index;
             if (posicion >= 0) {
-                idConductor = Validacion.AEntero (dgv_Conductor.Rows[posicion].Cells["ID"].Value.ToString ());
-                string mensake = Adm_Conductor.ConductorEliminar (idConductor);
+                idConductor = validacion.AEntero (dgv_Conductor.Rows[posicion].Cells["ID"].Value.ToString ());
+                string mensake = admConductor.ConductorEliminar (idConductor);
                 listarDatosConductor ();
             } else {
                 MessageBox.Show ("Seleccione un conductor.");

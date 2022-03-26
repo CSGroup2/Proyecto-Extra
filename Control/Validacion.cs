@@ -55,6 +55,14 @@ namespace Control {
 
         public void validarSoloLettrasKeyPress (object sender, KeyPressEventArgs e) {
             char c = e.KeyChar;
+            if (!char.IsLetter (c) && (c != Convert.ToChar (Keys.Back))) {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        public void validarSoloLettrasConEspaciosKeyPress (object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
             if (!char.IsLetter (c) && c != ' ' && (c != Convert.ToChar (Keys.Back))) {
                 e.Handled = true;
                 return;
@@ -166,74 +174,134 @@ namespace Control {
         #region Validation: Frm_Secretaria_Registrar - errorprovider emtpy fields & incorrect email
 
         public bool esCorrecto_DatosSecretaria (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider err_Alerta) {
-            bool salida = true;
+            bool esCorrecto = true;
             string mensaje = "Campo obligatorio.";
             string correo = txt_Correo.Text.Trim ();
             if (txt_Cedula.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Cedula, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_Nombre1.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Nombre1, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_Nombre2.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Nombre2, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_Apellido1.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Apellido1, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_Apellido2.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Apellido2, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (correo == "") {
                 err_Alerta.SetError (txt_Correo, mensaje);
-                salida = false;
+                esCorrecto = false;
             } else {
                 try {
                     var addr = new System.Net.Mail.MailAddress (correo);
                     //return addr.Address == correo;
                 } catch {
                     err_Alerta.SetError (txt_Correo, "Correo no valido.");
-                    salida = false;
+                    esCorrecto = false;
                 }
             }
             if (txt_Telefono.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Telefono, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (rdb_Femenino.Checked == rdb_Masculino.Checked) {
                 err_Alerta.SetError (rdb_Femenino, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (!EsMayorDeEdad ((DateTime)dtp_FechaNacimiento.Value)) {
                 err_Alerta.SetError (dtp_FechaNacimiento, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if ((DateTime)dtp_FechaContrato.Value.Date > DateTime.Now.Date) {
                 err_Alerta.SetError (dtp_FechaContrato, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_NombreUsuario.Text.Trim () == "") {
                 err_Alerta.SetError (txt_NombreUsuario, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_Contrasenia1.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Contrasenia1, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
             if (txt_Contrasenia2.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Contrasenia2, mensaje);
-                salida = false;
+                esCorrecto = false;
             }
-            if (salida == true && txt_Contrasenia1.Text.Trim () != txt_Contrasenia2.Text.Trim ()) {
+            if (esCorrecto == true && txt_Contrasenia1.Text.Trim () != txt_Contrasenia2.Text.Trim ()) {
                 err_Alerta.SetError (txt_Contrasenia2, "Las contraseñas no coinciden.");
-                salida = false;
+                esCorrecto = false;
             }
-            return salida;
+            return esCorrecto;
+        }
+
+        public bool esCorrecto_EditarDatosSecretaria (TextBox txt_Cedula, ComboBox cmb_Estado, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia, ErrorProvider err_Alerta) {
+            bool esCorrecto = true;
+            string mensaje = "Campo obligatorio.";
+            string correo = txt_Correo.Text.Trim ();
+            if (txt_Cedula.Text.Trim () == "") {
+                err_Alerta.SetError (txt_Cedula, mensaje);
+                esCorrecto = false;
+            }
+            if (txt_Nombre1.Text.Trim () == "") {
+                err_Alerta.SetError (txt_Nombre1, mensaje);
+                esCorrecto = false;
+            }
+           
+            if (txt_Apellido1.Text.Trim () == "") {
+                err_Alerta.SetError (txt_Apellido1, mensaje);
+                esCorrecto = false;
+            }
+            if (txt_Apellido2.Text.Trim () == "") {
+                err_Alerta.SetError (txt_Apellido2, mensaje);
+                esCorrecto = false;
+            }
+            if (correo == "") {
+                err_Alerta.SetError (txt_Correo, mensaje);
+                esCorrecto = false;
+            } else {
+                try {
+                    var addr = new System.Net.Mail.MailAddress (correo);
+                    //return addr.Address == correo;
+                } catch {
+                    err_Alerta.SetError (txt_Correo, "Correo no valido.");
+                    esCorrecto = false;
+                }
+            }
+            if (txt_Telefono.Text.Trim () == "") {
+                err_Alerta.SetError (txt_Telefono, mensaje);
+                esCorrecto = false;
+            }
+            if (rdb_Femenino.Checked == rdb_Masculino.Checked) {
+                err_Alerta.SetError (rdb_Femenino, mensaje);
+                esCorrecto = false;
+            }
+            if (!EsMayorDeEdad ((DateTime)dtp_FechaNacimiento.Value)) {
+                err_Alerta.SetError (dtp_FechaNacimiento, mensaje);
+                esCorrecto = false;
+            }
+            if ((DateTime)dtp_FechaContrato.Value.Date > DateTime.Now.Date) {
+                err_Alerta.SetError (dtp_FechaContrato, mensaje);
+                esCorrecto = false;
+            }
+            if (txt_NombreUsuario.Text.Trim () == "") {
+                err_Alerta.SetError (txt_NombreUsuario, mensaje);
+                esCorrecto = false;
+            }
+            if (txt_Contrasenia.Text.Trim () == "") {
+                err_Alerta.SetError (txt_Contrasenia, mensaje);
+                esCorrecto = false;
+            }
+            return esCorrecto;
         }
 
         #endregion
@@ -330,6 +398,11 @@ namespace Control {
             if (salida == true && txt_Contrasenia1.Text.Trim() != txt_Contrasenia2.Text.Trim())
             {
                 errorProvider1.SetError(txt_Contrasenia2, "Las contraseñas no coinciden.");
+                salida = false;
+            }
+            if (!EsMayorDeEdad((DateTime)dtp_FechaNac.Value))
+            {
+                errorProvider1.SetError(dtp_FechaNac, mensaje);
                 salida = false;
             }
             return salida;
