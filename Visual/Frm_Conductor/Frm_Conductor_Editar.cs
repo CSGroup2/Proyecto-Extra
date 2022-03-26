@@ -12,9 +12,9 @@ using System.Windows.Forms;
 namespace Visual {
     public partial class Frm_Conductor_Editar : Form {
         Btn_Comportamiento Btn_Comportamiento = new Btn_Comportamiento ();
-        Adm_Conductor Adm_Conductor = Adm_Conductor.GetAdm ();
-        Adm_General Adm_General = Adm_General.GetAdm ();
-        Validacion Validacion = new Validacion ();
+        Adm_Conductor admConductor = Adm_Conductor.GetAdm ();
+        Adm_General admGeneral = Adm_General.GetAdm ();
+        Validacion validacion = new Validacion ();
 
         public Frm_Conductor_Editar () {
             InitializeComponent ();
@@ -41,20 +41,20 @@ namespace Visual {
         #region ------------------------------ Frm load at begining
 
         public void listarDisponibilidad () {
-            cmb_Disponibilidad.DataSource = Adm_General.DisponibilidadLlenarCombo ();
+            cmb_Disponibilidad.DataSource = admGeneral.DisponibilidadLlenarCombo ();
             cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
             cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
         }
 
         private void listarEstados () {
             cmb_Estado.Items.Clear ();
-            cmb_Estado.DataSource = Adm_General.EstadoLlenarCombo ();
+            cmb_Estado.DataSource = admGeneral.EstadoLlenarCombo ();
             cmb_Estado.ValueMember = "ID_ESTADO";
             cmb_Estado.DisplayMember = "NOMBRE_ESTADO";
         }
 
         private void llenarCamposEditar (int idConductor) {
-            Adm_Conductor.ConductorBuscarPorId (idConductor, lbl_IdConductor, txt_Cedula, cmb_Estado, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato);
+            admConductor.ConductorBuscarPorId (idConductor, lbl_IdConductor, txt_Cedula, cmb_Estado, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato);
         }
 
         #endregion
@@ -87,19 +87,19 @@ namespace Visual {
 
         private void txt_Cedula_KeyPress (object sender, KeyPressEventArgs e) {
             // Only allows numbers on press
-            Validacion.validarSoloNumerosKeyPress (sender, e);
+            validacion.validarSoloNumerosKeyPress (sender, e);
         }
 
         private void txt_Nombre1_KeyPress (object sender, KeyPressEventArgs e) {
             // Only allows alphabetic characters
-            Validacion.validarSoloLettrasKeyPress (sender, e);
+            validacion.validarSoloLettrasKeyPress (sender, e);
         }
 
         #endregion
 
         private void btn_Guardar_Click (object sender, EventArgs e) {
             err_Alerta.Clear ();
-            if (Validacion.esCorrecto_EditarDatosConductor (txt_Cedula, cmb_Estado, txt_Nombre1, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta)) {
+            if (validacion.esCorrecto_EditarDatosConductor (txt_Cedula, cmb_Estado, txt_Nombre1, txt_Apellido1, txt_Apellido2, cmb_Disponibilidad, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, err_Alerta)) {
                 int id = Convert.ToInt32 (lbl_IdConductor.Text);
                 string
                    cedula = txt_Cedula.Text.Trim (),
@@ -110,11 +110,11 @@ namespace Visual {
                    apellido2 = txt_Apellido2.Text.Trim (),
                    disponibilidad = cmb_Disponibilidad.Text,
                    telefono = txt_Telefono.Text.Trim (),
-                   sexo = Validacion.LeerSexo (rdb_Masculino, rdb_Femenino);
+                   sexo = validacion.LeerSexo (rdb_Masculino, rdb_Femenino);
                 DateTime
                     fecha_nacimiento = dtp_FechaNacimiento.Value.Date,
                     fecha_contrato = dtp_FechaContrato.Value.Date;
-                string mensaje = Adm_Conductor.ConductorEditar (id, cedula, estado, nombre1, nombre2, apellido1, apellido2, disponibilidad, telefono, sexo, fecha_nacimiento, fecha_contrato);
+                string mensaje = admConductor.ConductorEditar (id, cedula, estado, nombre1, nombre2, apellido1, apellido2, disponibilidad, telefono, sexo, fecha_nacimiento, fecha_contrato);
                 if (mensaje[0] != '¡') {
                     limpiarCampos ();
                 }

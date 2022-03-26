@@ -193,7 +193,7 @@ namespace Visual {
         }
 
         private void btnconsulsecretaria_Click (object sender, EventArgs e) {
-            abrirhijoform (new Frm_Secretaria_Consultar ());
+            abrirhijoform (new Frm_Secretaria_Consultar (this));
         }
 
         private void btnmodisecretaria_Click (object sender, EventArgs e) {

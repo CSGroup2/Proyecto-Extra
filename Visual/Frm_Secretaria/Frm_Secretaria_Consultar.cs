@@ -12,9 +12,10 @@ using System.Windows.Forms;
 
 namespace Visual {
     public partial class Frm_Secretaria_Consultar : Form {
-        Adm_Secretaria Adm_Secretaria = Adm_Secretaria.GetAdm ();
-        Adm_General Adm_General = Adm_General.GetAdm ();
+        Adm_Secretaria admSecretaria = Adm_Secretaria.GetAdm ();
+        Adm_General admGeneral = Adm_General.GetAdm ();
         Adm_PDF admPDF = Adm_PDF.GetAdm ();
+        Validacion validacion = new Validacion ();
         Frm_Menu Frm_Menu;
 
         public Frm_Secretaria_Consultar () {
@@ -32,7 +33,7 @@ namespace Visual {
         }
 
         public void listarDisponibilidad () {
-            cmb_Disponibilidad.DataSource = Adm_General.DisponibilidadLlenarCombo ();
+            cmb_Disponibilidad.DataSource = admGeneral.DisponibilidadLlenarCombo ();
             cmb_Disponibilidad.ValueMember = "ID_DISPONIBILIDAD";
             cmb_Disponibilidad.DisplayMember = "NOMBRE_DISPONIBILIDAD";
             cmb_Disponibilidad.Enabled = false;
@@ -40,7 +41,7 @@ namespace Visual {
 
         public void listarDatosSecretaria () {
             dgv_Secretaria.Refresh ();
-            dgv_Secretaria.DataSource = Adm_Secretaria.SecretariaListar ();
+            dgv_Secretaria.DataSource = admSecretaria.SecretariaListar ();
         }
 
         private void btn_Consultar_Click (object sender, EventArgs e) {
@@ -52,7 +53,16 @@ namespace Visual {
         }
 
         private void btn_Modificar_Click (object sender, EventArgs e) {
-
+            int
+              posicion = 0,
+              idConductor = 0;
+            posicion = dgv_Secretaria.CurrentRow.Index;
+            if (posicion >= 0) {
+                idConductor = validacion.AEntero (dgv_Secretaria.Rows[posicion].Cells["ID"].Value.ToString ());
+                Frm_Menu.abrirhijoform (new Frm_Secretaria_Editar (idConductor));
+            } else {
+                MessageBox.Show ("Seleccione una secretaria.");
+            }
         }
 
         private void btnImprimir_Click (object sender, EventArgs e) {

@@ -14,7 +14,7 @@ namespace Model {
 
         public Secretaria () : base () {
             this.id_secretaria = 0;
-            this.usuario = null;
+            this.usuario = new Usuario ();
             this.fecha_contrato = new DateTime ();
             this.estado = "";
         }
@@ -34,8 +34,8 @@ namespace Model {
         public override string ToString () {
             return
                 base.ToString ()+
-                "\r\nUsuario: \n"+usuario.ToString()+
-                "\r\nFecha de Contraro: "+ fecha_contrato +
+                "\r\nUsuario: \n" + usuario.ToString() +
+                "\r\nFecha de Contraro: " + fecha_contrato +
                 "\r\nEstado: " + estado;
         }
     }
