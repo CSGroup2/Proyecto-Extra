@@ -116,7 +116,7 @@ namespace Visual {
             // 
             this.panel3.Controls.Add(this.btncerrarsesion);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 1218);
+            this.panel3.Location = new System.Drawing.Point(0, 1210);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(242, 100);
             this.panel3.TabIndex = 13;
@@ -151,7 +151,7 @@ namespace Visual {
             this.pnsubmenuasignacion.Controls.Add(this.btnEliminarAsig);
             this.pnsubmenuasignacion.Controls.Add(this.btnConsultarAsig);
             this.pnsubmenuasignacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnsubmenuasignacion.Location = new System.Drawing.Point(0, 1136);
+            this.pnsubmenuasignacion.Location = new System.Drawing.Point(0, 1128);
             this.pnsubmenuasignacion.Name = "pnsubmenuasignacion";
             this.pnsubmenuasignacion.Size = new System.Drawing.Size(242, 82);
             this.pnsubmenuasignacion.TabIndex = 15;
@@ -207,7 +207,7 @@ namespace Visual {
             this.btnasignacion.IconColor = System.Drawing.Color.Gainsboro;
             this.btnasignacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnasignacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnasignacion.Location = new System.Drawing.Point(0, 1082);
+            this.btnasignacion.Location = new System.Drawing.Point(0, 1074);
             this.btnasignacion.Name = "btnasignacion";
             this.btnasignacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnasignacion.Size = new System.Drawing.Size(242, 54);
@@ -226,7 +226,7 @@ namespace Visual {
             this.pnsubmenupeticion.Controls.Add(this.btnconsultarpet);
             this.pnsubmenupeticion.Controls.Add(this.btnregistrar);
             this.pnsubmenupeticion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnsubmenupeticion.Location = new System.Drawing.Point(0, 959);
+            this.pnsubmenupeticion.Location = new System.Drawing.Point(0, 951);
             this.pnsubmenupeticion.Name = "pnsubmenupeticion";
             this.pnsubmenupeticion.Size = new System.Drawing.Size(242, 123);
             this.pnsubmenupeticion.TabIndex = 14;
@@ -302,7 +302,7 @@ namespace Visual {
             this.btnpeticion.IconColor = System.Drawing.Color.Gainsboro;
             this.btnpeticion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnpeticion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnpeticion.Location = new System.Drawing.Point(0, 905);
+            this.btnpeticion.Location = new System.Drawing.Point(0, 897);
             this.btnpeticion.Name = "btnpeticion";
             this.btnpeticion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnpeticion.Size = new System.Drawing.Size(242, 54);
@@ -315,14 +315,15 @@ namespace Visual {
             // 
             // pnsubmconductor
             // 
+            this.pnsubmconductor.AutoSize = true;
             this.pnsubmconductor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.pnsubmconductor.Controls.Add(this.btnmodiconductor);
             this.pnsubmconductor.Controls.Add(this.btnconsulconduc);
             this.pnsubmconductor.Controls.Add(this.btnregconduc);
             this.pnsubmconductor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnsubmconductor.Location = new System.Drawing.Point(0, 778);
+            this.pnsubmconductor.Location = new System.Drawing.Point(0, 774);
             this.pnsubmconductor.Name = "pnsubmconductor";
-            this.pnsubmconductor.Size = new System.Drawing.Size(242, 127);
+            this.pnsubmconductor.Size = new System.Drawing.Size(242, 123);
             this.pnsubmconductor.TabIndex = 10;
             // 
             // btnmodiconductor
@@ -343,6 +344,7 @@ namespace Visual {
             this.btnmodiconductor.Text = "Modificar";
             this.btnmodiconductor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmodiconductor.UseVisualStyleBackColor = true;
+            this.btnmodiconductor.Visible = false;
             this.btnmodiconductor.Click += new System.EventHandler(this.btnmodiconductor_Click);
             // 
             // btnconsulconduc
@@ -396,7 +398,7 @@ namespace Visual {
             this.btnconductor.IconColor = System.Drawing.Color.Gainsboro;
             this.btnconductor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnconductor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnconductor.Location = new System.Drawing.Point(0, 724);
+            this.btnconductor.Location = new System.Drawing.Point(0, 720);
             this.btnconductor.Name = "btnconductor";
             this.btnconductor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnconductor.Size = new System.Drawing.Size(242, 54);
@@ -414,7 +416,7 @@ namespace Visual {
             this.pnsubmambulancia.Controls.Add(this.btnconsulambulancia);
             this.pnsubmambulancia.Controls.Add(this.btnregambulancia);
             this.pnsubmambulancia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnsubmambulancia.Location = new System.Drawing.Point(0, 597);
+            this.pnsubmambulancia.Location = new System.Drawing.Point(0, 593);
             this.pnsubmambulancia.Name = "pnsubmambulancia";
             this.pnsubmambulancia.Size = new System.Drawing.Size(242, 127);
             this.pnsubmambulancia.TabIndex = 9;
@@ -490,7 +492,7 @@ namespace Visual {
             this.btnambulancia.IconColor = System.Drawing.Color.Gainsboro;
             this.btnambulancia.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnambulancia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnambulancia.Location = new System.Drawing.Point(0, 543);
+            this.btnambulancia.Location = new System.Drawing.Point(0, 539);
             this.btnambulancia.Name = "btnambulancia";
             this.btnambulancia.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnambulancia.Size = new System.Drawing.Size(242, 54);
@@ -508,7 +510,7 @@ namespace Visual {
             this.pnsubmcliente.Controls.Add(this.btnclienteconsul);
             this.pnsubmcliente.Controls.Add(this.btnclientereg);
             this.pnsubmcliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnsubmcliente.Location = new System.Drawing.Point(0, 416);
+            this.pnsubmcliente.Location = new System.Drawing.Point(0, 412);
             this.pnsubmcliente.Name = "pnsubmcliente";
             this.pnsubmcliente.Size = new System.Drawing.Size(242, 127);
             this.pnsubmcliente.TabIndex = 8;
@@ -584,7 +586,7 @@ namespace Visual {
             this.btncliente.IconColor = System.Drawing.Color.Gainsboro;
             this.btncliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btncliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncliente.Location = new System.Drawing.Point(0, 362);
+            this.btncliente.Location = new System.Drawing.Point(0, 358);
             this.btncliente.Name = "btncliente";
             this.btncliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btncliente.Size = new System.Drawing.Size(242, 54);
@@ -597,6 +599,7 @@ namespace Visual {
             // 
             // pnsubmgerente
             // 
+            this.pnsubmgerente.AutoSize = true;
             this.pnsubmgerente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.pnsubmgerente.Controls.Add(this.btnmodisecretaria);
             this.pnsubmgerente.Controls.Add(this.btnconsulsecretaria);
@@ -604,7 +607,7 @@ namespace Visual {
             this.pnsubmgerente.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnsubmgerente.Location = new System.Drawing.Point(0, 235);
             this.pnsubmgerente.Name = "pnsubmgerente";
-            this.pnsubmgerente.Size = new System.Drawing.Size(242, 127);
+            this.pnsubmgerente.Size = new System.Drawing.Size(242, 123);
             this.pnsubmgerente.TabIndex = 6;
             // 
             // btnmodisecretaria
@@ -625,6 +628,7 @@ namespace Visual {
             this.btnmodisecretaria.Text = "Modificar";
             this.btnmodisecretaria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmodisecretaria.UseVisualStyleBackColor = true;
+            this.btnmodisecretaria.Visible = false;
             this.btnmodisecretaria.Click += new System.EventHandler(this.btnmodisecretaria_Click);
             // 
             // btnconsulsecretaria
