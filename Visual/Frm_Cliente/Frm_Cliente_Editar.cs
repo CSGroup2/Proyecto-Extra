@@ -86,6 +86,8 @@ namespace Visual {
             oprfemenino.Enabled = false; 
             daterfechanac.Enabled = false;
             chxcontra.Enabled = false;
+            chxcontra.Checked = false;
+            txtrcontra.Enabled = false; 
         }
         private void habilitarcampos()
         {
@@ -167,7 +169,9 @@ namespace Visual {
                 else
                 {
                     MensajeOk(mensaje);
-                    //this.limpiar();
+                    this.limpiar();
+                    this.inactivarcampos();
+                    this.setfocusbusqueda(); 
                 }
             }
         }
