@@ -100,8 +100,8 @@ namespace Visual {
 
                     /*EL SIGUIENTE ARRAY ES PARA DETALLAR LOS NOMBRES DE LAS COLUMNAS EN LA TABLA DEL PDF
                     MODIFICALO EN EL MISMO ORDEN QUE UBICASTE LAS COLUMNAS DE TU DATAGRIDVIEW*/
-                    string[] columnas = { "Nº", "id", "disponibilidad", "placa", "modelo", "tipo", "capacidad", "observación" };
-                    float[] tamanios = { 2, 2, 3, 4, 4, 3, 2, 5 };
+                    string[] columnas = { "Nº", "ID", "Cédula", "Estado", "Nombre", "Apellidos", "Correo", "Telefono", "Sexo", "Fecha_Nacimiento", "Fecha_Contrato" };
+                    float[] tamanios = { 1, float.Parse ("1.5"), 1, 1, 3, 3, 3, 1, 2, 3, 3 };
 
                     // Creates PDF file
                     admPDF.CrearPdf (dataTable_resultado, file, columnas, tamanios, 2);
