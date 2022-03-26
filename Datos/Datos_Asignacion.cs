@@ -495,5 +495,61 @@ namespace Datos {
             }
             return msj;
         }
+
+        public object ListarAsignacionesAntiguas(int idSecretario)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection conexion = con.abrir_conexion();
+            try
+            {
+                using (SqlCommand comando = new SqlCommand("sp_listar_asignaciones_antiguas", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    SqlParameter param_id = new SqlParameter();
+                    param_id.ParameterName = "@idS";
+                    param_id.SqlDbType = SqlDbType.Int;
+                    param_id.Value = idSecretario;
+                    comando.Parameters.Add(param_id);
+                    SqlDataAdapter da = new SqlDataAdapter(comando);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+                Console.WriteLine("Error al listar las asignaciones " + ex.Message);
+            }
+            return dt;
+        }
+
+        public string EliminarAsignacion(int id_cabecera)
+        {
+            string msj = "";
+            SqlConnection conexion = con.abrir_conexion();
+
+            try
+            {
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "sp_update_asignacion";
+                comando.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param_id_cabecera = new SqlParameter();
+                param_id_cabecera.ParameterName = "@id_cabecera";
+                param_id_cabecera.SqlDbType = SqlDbType.Int;
+                param_id_cabecera.Value = id_cabecera;
+                comando.Parameters.Add(param_id_cabecera);
+
+
+                comando.ExecuteNonQuery();
+                msj = "1";
+            }
+            catch (Exception ex)
+            {
+                con.cerrar_conexion(conexion);
+                msj = "en cabecera error " + ex.Message;
+            }
+            return msj;
+        }
     }
 }
