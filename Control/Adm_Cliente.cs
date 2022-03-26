@@ -145,7 +145,6 @@ namespace Control
             string mensaje = "";
             usuario = new Usuario(0, Correo, NombreUsuario, Contrasenia1);
             client = new Cliente(idcliente, id_hospital, usuario, id_estado, 0, Cedula, Nombre1, Nombre2, Apellido1, Apellido2, sexo, dtp_FechaNac, Telefono, "");
-            //MessageBox.Show("datos: " + client.ToString());
             mensaje = Datos_client.actualizarcliente(client);
             return mensaje;
         }

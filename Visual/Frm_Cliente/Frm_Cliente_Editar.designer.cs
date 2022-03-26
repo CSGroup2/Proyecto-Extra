@@ -249,6 +249,7 @@ namespace Visual {
             this.chxcontra.Size = new System.Drawing.Size(15, 14);
             this.chxcontra.TabIndex = 35;
             this.chxcontra.UseVisualStyleBackColor = true;
+            this.chxcontra.CheckedChanged += new System.EventHandler(this.chxcontra_CheckedChanged);
             // 
             // label12
             // 

@@ -142,41 +142,49 @@ namespace Visual {
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            int idcliente = Int32.Parse(lblcodigo.Text.Trim().ToString());
-            string cedula = txtmcedula.Text.Trim(),
-            nombre1 = txtmnombre1.Text.Trim(),
-            nombre2 = txtmnombre2.Text.Trim(),
-            apellido1 = txtmape1.Text.Trim(),
-            apellido2 = txtmape2.Text.Trim(),
-            correo = txtmcorreo.Text.Trim(),
-            telefono = txtmtelf.Text.Trim(),
-            sexo = admcliente.esSexo(oprmasculino, oprfemenino),
-            usuario = txtmusur.Text.Trim();
-            string contra = (txtrcontra.Text.Trim() == "") ? contra = contrasenia: contra = txtrcontra.Text.Trim();
-            DateTime fechanac = daterfechanac.Value;
-            int Id_hospital = Int16.Parse(cbxhospital.SelectedValue.ToString());
-            int id_estado = Int16.Parse(cbxestado.SelectedValue.ToString());
-            string mensaje = admcliente.actualizarDatosCliente(idcliente ,cedula, Id_hospital, id_estado, nombre1, nombre2, apellido1, apellido2, correo, telefono,  sexo, fechanac, usuario, contra);
-            if (mensaje.Contains("¡Error "))
+            if (MessageBox.Show("¿Desea realmente actualizar los datos de este registro?", "Warning",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MensajeError(mensaje);
-            }
-            else
-            {
-                MensajeOk(mensaje);
-                //this.limpiar();
+                int idcliente = Int32.Parse(lblcodigo.Text.Trim().ToString());
+                string cedula = txtmcedula.Text.Trim(),
+                nombre1 = txtmnombre1.Text.Trim(),
+                nombre2 = txtmnombre2.Text.Trim(),
+                apellido1 = txtmape1.Text.Trim(),
+                apellido2 = txtmape2.Text.Trim(),
+                correo = txtmcorreo.Text.Trim(),
+                telefono = txtmtelf.Text.Trim(),
+                sexo = admcliente.esSexo(oprmasculino, oprfemenino),
+                usuario = txtmusur.Text.Trim();
+                string contra = (txtrcontra.Text.Trim() == "") ? contra = contrasenia : contra = txtrcontra.Text.Trim();
+                DateTime fechanac = daterfechanac.Value;
+                int Id_hospital = Int16.Parse(cbxhospital.SelectedValue.ToString());
+                int id_estado = Int16.Parse(cbxestado.SelectedValue.ToString());
+                string mensaje = admcliente.actualizarDatosCliente(idcliente, cedula, Id_hospital, id_estado, nombre1, nombre2, apellido1, apellido2, correo, telefono, sexo, fechanac, usuario, contra);
+                if (mensaje.Contains("¡Error "))
+                {
+                    MensajeError(mensaje);
+                }
+                else
+                {
+                    MensajeOk(mensaje);
+                    //this.limpiar();
+                }
             }
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            if(this.menu == null)
+            if (MessageBox.Show("¿Desea cerrar este formulario?", "Warning",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Close();
-            }
-            else
-            {
-                menu.abrirhijoform(new Frm_Cliente_Consultar(menu));
+                if (this.menu == null)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    menu.abrirhijoform(new Frm_Cliente_Consultar(menu));
+                }
             }
         }
 
@@ -234,6 +242,18 @@ namespace Visual {
         private void txtmcorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
             admcliente.validarSoloCorreoKeypress(sender, e);
+        }
+
+        private void chxcontra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chxcontra.Checked)
+            {
+                txtrcontra.Enabled = true;
+            }
+            else
+            {
+                txtrcontra.Enabled = false;
+            }
         }
     }
 }
