@@ -531,7 +531,7 @@ namespace Datos {
             {
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
-                comando.CommandText = "sp_update_asignacion";
+                comando.CommandText = "sp_asignacion_eliminar";
                 comando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter param_id_cabecera = new SqlParameter();
@@ -542,12 +542,12 @@ namespace Datos {
 
 
                 comando.ExecuteNonQuery();
-                msj = "1";
+                msj = "Se eliminó con éxito";
             }
             catch (Exception ex)
             {
                 con.cerrar_conexion(conexion);
-                msj = "en cabecera error " + ex.Message;
+                msj = "Error: " + ex.Message;
             }
             return msj;
         }
