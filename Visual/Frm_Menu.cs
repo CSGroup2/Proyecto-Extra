@@ -266,8 +266,10 @@ namespace Visual {
 
         private void timerhorafecha_Tick (object sender, EventArgs e) {
             //mayusculas formato de 24 minusculas formato de 12
-            lblhora.Text = DateTime.Now.ToString ("HH:mm:ss");
-            lblfecha.Text = DateTime.Now.ToLongDateString ();
+            /*lblhora.Text = DateTime.Now.ToString ("HH:mm:ss");
+            lblfecha.Text = DateTime.Now.ToLongDateString ();*/
+            lblhora.Text = "14:06:22";
+            lblfecha.Text = "lunes, 21 de marzo de 2022";
         }
 
         private void btnregistrar_Click (object sender, EventArgs e) {

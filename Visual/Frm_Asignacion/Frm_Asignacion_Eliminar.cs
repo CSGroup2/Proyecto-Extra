@@ -31,7 +31,7 @@ namespace Visual.Frm_Asignacion
             int posicion = dgvAsignaciones.CurrentRow.Index;
             if (posicion >= 0)
             {
-                id = Int32.Parse(dgvAsignaciones[posicion, 0].Value.ToString());
+                id = Int32.Parse(dgvAsignaciones[0, posicion].Value.ToString());
                 dgvAsignaciones.Rows.RemoveAt(posicion);
                 msj = admA.EliminarAsignacion(id);
                 MessageBox.Show(msj);
