@@ -125,7 +125,7 @@ namespace Visual {
         private void cargardatos () {
 
             admLogin.CargarDatos (lblapellido, lblnombres, lbltipo);
-            int id = 0;
+            //int id = 0;
             admLogin.IdUsuario ();
         }
 
