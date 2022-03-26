@@ -334,7 +334,7 @@ namespace Visual {
 
         private void btnEliminarAsig_Click(object sender, EventArgs e)
         {
-            abrirhijoform(new Frm_Asignacion_Eliminar());
+            abrirhijoform(new Frm_Asignacion.Frm_Asignacion_Eliminar());
         }
     }
 }
