@@ -300,13 +300,13 @@ namespace Visual {
             //abrirhijoform(new Frm_Ayuda());
             switch (admLogin.TipoUsuario ()) {
                 case "Gerente":
-                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EZU9wnjXjslLjaCfF0gictcBfgBJfktRyzHQZDpaRdodjA?e=Cin1EO");
+                    System.Diagnostics.Process.Start ("https://drive.google.com/file/d/12BGFm48_RQj7VlD8jE-AqY9MUvMJ5lc7/view?usp=sharing");
                     break;
                 case "Cliente":
-                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EfEa3IfbVMNBrug1WztCO94Bn-BUA-fAJT9D3kyRkB0Tgw?e=vJSZ11");
+                    System.Diagnostics.Process.Start ("https://drive.google.com/file/d/1HJ1leRKVrBaqgsVIlewszOCmHUmePNn5/view?usp=sharing");
                     break;
                 case "Secretaria":
-                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EQfDkf-Ba21JsCVZfalRYSABdGTOwlJZnLwrSAKcxFRDIg?e=fq5k4y");
+                    System.Diagnostics.Process.Start ("https://drive.google.com/file/d/1pNl0rA4QYsdXeKQ0lki0_58cV1MhINEH/view?usp=sharing");
                     break;
                 default:
                     break;
@@ -320,13 +320,13 @@ namespace Visual {
         private void label1_Click (object sender, EventArgs e) {
             switch (admLogin.TipoUsuario ()) {
                 case "Gerente":
-                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EZU9wnjXjslLjaCfF0gictcBfgBJfktRyzHQZDpaRdodjA?e=Cin1EO");
+                    System.Diagnostics.Process.Start ("https://drive.google.com/file/d/12BGFm48_RQj7VlD8jE-AqY9MUvMJ5lc7/view?usp=sharing");
                     break;
                 case "Cliente":
-                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EfEa3IfbVMNBrug1WztCO94Bn-BUA-fAJT9D3kyRkB0Tgw?e=vJSZ11");
+                    System.Diagnostics.Process.Start ("https://drive.google.com/file/d/1HJ1leRKVrBaqgsVIlewszOCmHUmePNn5/view?usp=sharing");
                     break;
                 case "Secretaria":
-                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EQfDkf-Ba21JsCVZfalRYSABdGTOwlJZnLwrSAKcxFRDIg?e=fq5k4y");
+                    System.Diagnostics.Process.Start ("https://drive.google.com/file/d/1pNl0rA4QYsdXeKQ0lki0_58cV1MhINEH/view?usp=sharing");
                     break;
                 default:
                     break;
