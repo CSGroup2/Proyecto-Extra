@@ -242,7 +242,7 @@ namespace Visual {
                 if (MessageBox.Show("¿Desea actualizar el registro seleccionado?", "Warning",
                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int idcliente = Int32.Parse(dgvClientes[posicion, 0].Value.ToString());
+                    int idcliente = Int32.Parse(dgvClientes[0, posicion].Value.ToString());
                     menu.abrirhijoform(new Frm_Cliente_Editar(idcliente, menu));
 
                 }
