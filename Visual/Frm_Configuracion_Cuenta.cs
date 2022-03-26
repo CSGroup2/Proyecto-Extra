@@ -45,7 +45,7 @@ namespace Visual
             {
                 if (txt_Contrasenia1.Text.Trim() != txt_Contrasenia2.Text.Trim())
                 {
-                    MessageBox.Show("Las contraseñas no coinciden.");
+                    MessageBox.Show("Las contraseñas no coinciden.", "Los Rapidos SGAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -53,6 +53,10 @@ namespace Visual
                     if (mensaje.Contains("exito"))
                     {
                         MensajeOk(mensaje);
+                        this.txtcontractual.Clear();
+                        this.txt_Contrasenia1.Clear();
+                        this.txt_Contrasenia2.Clear();
+                        this.deshabilitarcontrasenias();
                     }
                     else
                     {
@@ -60,6 +64,13 @@ namespace Visual
                     }
                 }
             }
+        }
+
+        private void deshabilitarcontrasenias()
+        {
+            chxcontra.Checked = false;
+            txt_Contrasenia1.Enabled = false;
+            txt_Contrasenia2.Enabled = false;
         }
 
         private void chxcontra_CheckedChanged(object sender, EventArgs e)
@@ -71,8 +82,7 @@ namespace Visual
             }
             else
             {
-                txt_Contrasenia1.Enabled = false;
-                txt_Contrasenia2.Enabled = false;
+                this.deshabilitarcontrasenias();
             }
         }
     }

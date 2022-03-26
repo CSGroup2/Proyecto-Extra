@@ -37,17 +37,17 @@ namespace Visual
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblnombres = new System.Windows.Forms.Label();
-            this.lblapellidos = new System.Windows.Forms.Label();
-            this.lblcargo = new System.Windows.Forms.Label();
-            this.btnguardar = new FontAwesome.Sharp.IconButton();
+            this.chxcontra = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtcontractual = new System.Windows.Forms.TextBox();
             this.txt_Contrasenia2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txt_Contrasenia1 = new System.Windows.Forms.TextBox();
-            this.txtcontractual = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.chxcontra = new System.Windows.Forms.CheckBox();
+            this.lblnombres = new System.Windows.Forms.Label();
+            this.lblapellidos = new System.Windows.Forms.Label();
+            this.lblcargo = new System.Windows.Forms.Label();
+            this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -145,6 +145,82 @@ namespace Visual
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contraseña";
             // 
+            // chxcontra
+            // 
+            this.chxcontra.AutoSize = true;
+            this.chxcontra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chxcontra.Location = new System.Drawing.Point(324, 78);
+            this.chxcontra.Name = "chxcontra";
+            this.chxcontra.Size = new System.Drawing.Size(15, 14);
+            this.chxcontra.TabIndex = 43;
+            this.chxcontra.UseVisualStyleBackColor = true;
+            this.chxcontra.CheckedChanged += new System.EventHandler(this.chxcontra_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label5.Location = new System.Drawing.Point(10, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(148, 18);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Contraseña actual:";
+            // 
+            // txtcontractual
+            // 
+            this.txtcontractual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcontractual.Location = new System.Drawing.Point(164, 23);
+            this.txtcontractual.Name = "txtcontractual";
+            this.txtcontractual.PasswordChar = '*';
+            this.txtcontractual.Size = new System.Drawing.Size(191, 26);
+            this.txtcontractual.TabIndex = 41;
+            // 
+            // txt_Contrasenia2
+            // 
+            this.txt_Contrasenia2.Enabled = false;
+            this.txt_Contrasenia2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Contrasenia2.Location = new System.Drawing.Point(113, 108);
+            this.txt_Contrasenia2.Name = "txt_Contrasenia2";
+            this.txt_Contrasenia2.PasswordChar = '*';
+            this.txt_Contrasenia2.Size = new System.Drawing.Size(191, 26);
+            this.txt_Contrasenia2.TabIndex = 40;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label14.Location = new System.Drawing.Point(10, 112);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(97, 18);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Contraseña:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label12.Location = new System.Drawing.Point(10, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 18);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "Contraseña:";
+            // 
+            // txt_Contrasenia1
+            // 
+            this.txt_Contrasenia1.Enabled = false;
+            this.txt_Contrasenia1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Contrasenia1.Location = new System.Drawing.Point(113, 70);
+            this.txt_Contrasenia1.Name = "txt_Contrasenia1";
+            this.txt_Contrasenia1.PasswordChar = '*';
+            this.txt_Contrasenia1.Size = new System.Drawing.Size(191, 26);
+            this.txt_Contrasenia1.TabIndex = 37;
+            // 
             // lblnombres
             // 
             this.lblnombres.BackColor = System.Drawing.Color.White;
@@ -194,82 +270,6 @@ namespace Visual
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // txt_Contrasenia2
-            // 
-            this.txt_Contrasenia2.Enabled = false;
-            this.txt_Contrasenia2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Contrasenia2.Location = new System.Drawing.Point(113, 108);
-            this.txt_Contrasenia2.Name = "txt_Contrasenia2";
-            this.txt_Contrasenia2.PasswordChar = '*';
-            this.txt_Contrasenia2.Size = new System.Drawing.Size(191, 26);
-            this.txt_Contrasenia2.TabIndex = 40;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label14.Location = new System.Drawing.Point(10, 112);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(97, 18);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Contraseña:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label12.Location = new System.Drawing.Point(10, 74);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 18);
-            this.label12.TabIndex = 38;
-            this.label12.Text = "Contraseña:";
-            // 
-            // txt_Contrasenia1
-            // 
-            this.txt_Contrasenia1.Enabled = false;
-            this.txt_Contrasenia1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Contrasenia1.Location = new System.Drawing.Point(113, 70);
-            this.txt_Contrasenia1.Name = "txt_Contrasenia1";
-            this.txt_Contrasenia1.PasswordChar = '*';
-            this.txt_Contrasenia1.Size = new System.Drawing.Size(191, 26);
-            this.txt_Contrasenia1.TabIndex = 37;
-            // 
-            // txtcontractual
-            // 
-            this.txtcontractual.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontractual.Location = new System.Drawing.Point(164, 23);
-            this.txtcontractual.Name = "txtcontractual";
-            this.txtcontractual.PasswordChar = '*';
-            this.txtcontractual.Size = new System.Drawing.Size(191, 26);
-            this.txtcontractual.TabIndex = 41;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label5.Location = new System.Drawing.Point(10, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 18);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Contraseña actual:";
-            // 
-            // chxcontra
-            // 
-            this.chxcontra.AutoSize = true;
-            this.chxcontra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chxcontra.Location = new System.Drawing.Point(324, 78);
-            this.chxcontra.Name = "chxcontra";
-            this.chxcontra.Size = new System.Drawing.Size(15, 14);
-            this.chxcontra.TabIndex = 43;
-            this.chxcontra.UseVisualStyleBackColor = true;
-            this.chxcontra.CheckedChanged += new System.EventHandler(this.chxcontra_CheckedChanged);
-            // 
             // Frm_Configuracion_Cuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +288,7 @@ namespace Visual
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Frm_Configuracion_Cuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Configuracion_Cuenta";
             this.Load += new System.EventHandler(this.Frm_Configuracion_Cuenta_Load);
             this.panel1.ResumeLayout(false);
