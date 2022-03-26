@@ -601,6 +601,7 @@ namespace Visual {
             this.btnmodisecretaria.Text = "Modificar";
             this.btnmodisecretaria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmodisecretaria.UseVisualStyleBackColor = true;
+            this.btnmodisecretaria.Click += new System.EventHandler(this.btnmodisecretaria_Click);
             // 
             // btnconsulsecretaria
             // 
@@ -620,6 +621,7 @@ namespace Visual {
             this.btnconsulsecretaria.Text = "Consultar";
             this.btnconsulsecretaria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnconsulsecretaria.UseVisualStyleBackColor = true;
+            this.btnconsulsecretaria.Click += new System.EventHandler(this.btnconsulsecretaria_Click);
             // 
             // btnregsecretaria
             // 

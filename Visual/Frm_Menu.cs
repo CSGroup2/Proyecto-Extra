@@ -62,7 +62,6 @@ namespace Visual {
             }
         }
 
-
         private void customdesign () {
             this.pnsubmgerente.Visible = false;
             this.pnsubmcliente.Visible = false;
@@ -164,7 +163,7 @@ namespace Visual {
             }
         }
 
-    
+
         private void btncliente_Click (object sender, EventArgs e) {
             showsubmenu (pnsubmcliente);
             ActivarBoton (sender, RGBCOLORS.azulbajo);
@@ -185,6 +184,23 @@ namespace Visual {
             showsubmenu (pnsubmenupeticion);
             ActivarBoton (sender, RGBCOLORS.azulbajo);
         }
+
+
+        #region Modulo Secretaria
+
+        private void btnregsecretaria_Click (object sender, EventArgs e) {
+            abrirhijoform (new Frm_Secretaria_Registrar ());
+        }
+
+        private void btnconsulsecretaria_Click (object sender, EventArgs e) {
+            abrirhijoform (new Frm_Secretaria_Consultar ());
+        }
+
+        private void btnmodisecretaria_Click (object sender, EventArgs e) {
+            abrirhijoform (new Frm_Secretaria_Editar ());
+        }
+
+        #endregion
 
         #region Modulo Conductor
         private void btnregconduc_Click (object sender, EventArgs e) {
@@ -222,7 +238,7 @@ namespace Visual {
             abrirhijoform (new Frm_Cliente_Consultar (this));
         }
         private void btnclientemodi_Click (object sender, EventArgs e) {
-            abrirhijoform (new Frm_Cliente_Editar());
+            abrirhijoform (new Frm_Cliente_Editar ());
         }
         #endregion
 
@@ -257,74 +273,63 @@ namespace Visual {
             abrirhijoform (new Frm_Peticion_Registrar ());
         }
 
-        private void btnasignar_Click(object sender, EventArgs e)
-        {
-            abrirhijoform(new Frm_Asignacion_Registrar());
+        private void btnasignar_Click (object sender, EventArgs e) {
+            abrirhijoform (new Frm_Asignacion_Registrar ());
         }
 
-        private void btnsecretaria_Click(object sender, EventArgs e)
-        {
-            showsubmenu(pnsubmgerente);
-            ActivarBoton(sender, RGBCOLORS.azulbajo);
-        }
-
-        private void btnregsecretaria_Click(object sender, EventArgs e)
-        {
-            abrirhijoform(new Frm_Secretaria_Registrar());
-        }
-
-        private void btnconsultarpet_Click(object sender, EventArgs e)
-        {
-            abrirhijoform(new Frm_Peticion_Consultar());
+        private void btnsecretaria_Click (object sender, EventArgs e) {
+            showsubmenu (pnsubmgerente);
+            ActivarBoton (sender, RGBCOLORS.azulbajo);
         }
 
 
-        private void btnasignacion_Click(object sender, EventArgs e)
-        {
-            showsubmenu(pnsubmenuasignacion);
-            ActivarBoton(sender, RGBCOLORS.azulbajo);
+        private void btnconsultarpet_Click (object sender, EventArgs e) {
+            abrirhijoform (new Frm_Peticion_Consultar ());
         }
 
-        private void btnopciones1_Click(object sender, EventArgs e)
-        {
+
+        private void btnasignacion_Click (object sender, EventArgs e) {
+            showsubmenu (pnsubmenuasignacion);
+            ActivarBoton (sender, RGBCOLORS.azulbajo);
+        }
+
+        private void btnopciones1_Click (object sender, EventArgs e) {
             //abrirhijoform(new Frm_Ayuda());
-            switch (admLogin.TipoUsuario())
-            {
+            switch (admLogin.TipoUsuario ()) {
                 case "Gerente":
-                    System.Diagnostics.Process.Start("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EZU9wnjXjslLjaCfF0gictcBfgBJfktRyzHQZDpaRdodjA?e=Cin1EO");
+                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EZU9wnjXjslLjaCfF0gictcBfgBJfktRyzHQZDpaRdodjA?e=Cin1EO");
                     break;
                 case "Cliente":
-                    System.Diagnostics.Process.Start("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EfEa3IfbVMNBrug1WztCO94Bn-BUA-fAJT9D3kyRkB0Tgw?e=vJSZ11");
+                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EfEa3IfbVMNBrug1WztCO94Bn-BUA-fAJT9D3kyRkB0Tgw?e=vJSZ11");
                     break;
                 case "Secretaria":
-                    System.Diagnostics.Process.Start("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EQfDkf-Ba21JsCVZfalRYSABdGTOwlJZnLwrSAKcxFRDIg?e=fq5k4y");
+                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EQfDkf-Ba21JsCVZfalRYSABdGTOwlJZnLwrSAKcxFRDIg?e=fq5k4y");
                     break;
                 default:
                     break;
             }
         }
 
-        private void btnConsultarAsig_Click(object sender, EventArgs e)
-        {
-            abrirhijoform(new Frm_Asignacion_Consultar());
+        private void btnConsultarAsig_Click (object sender, EventArgs e) {
+            abrirhijoform (new Frm_Asignacion_Consultar ());
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            switch (admLogin.TipoUsuario())
-            {
+        private void label1_Click (object sender, EventArgs e) {
+            switch (admLogin.TipoUsuario ()) {
                 case "Gerente":
-                    System.Diagnostics.Process.Start("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EZU9wnjXjslLjaCfF0gictcBfgBJfktRyzHQZDpaRdodjA?e=Cin1EO");
+                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EZU9wnjXjslLjaCfF0gictcBfgBJfktRyzHQZDpaRdodjA?e=Cin1EO");
                     break;
                 case "Cliente":
-                    System.Diagnostics.Process.Start("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EfEa3IfbVMNBrug1WztCO94Bn-BUA-fAJT9D3kyRkB0Tgw?e=vJSZ11");
+                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EfEa3IfbVMNBrug1WztCO94Bn-BUA-fAJT9D3kyRkB0Tgw?e=vJSZ11");
                     break;
                 case "Secretaria":
-                    System.Diagnostics.Process.Start("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EQfDkf-Ba21JsCVZfalRYSABdGTOwlJZnLwrSAKcxFRDIg?e=fq5k4y");
+                    System.Diagnostics.Process.Start ("https://ugye-my.sharepoint.com/:b:/g/personal/rehan_perezb_ug_edu_ec/EQfDkf-Ba21JsCVZfalRYSABdGTOwlJZnLwrSAKcxFRDIg?e=fq5k4y");
                     break;
                 default:
                     break;
             }
         }
+
+        
     }
 }

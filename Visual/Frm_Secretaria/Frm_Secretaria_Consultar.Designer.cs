@@ -31,18 +31,18 @@ namespace Visual
         {
             this.components = new System.ComponentModel.Container();
             this.pnl_Cuerpo = new System.Windows.Forms.Panel();
-            this.btn_Imprimir = new FontAwesome.Sharp.IconButton();
-            this.btn_Modificar = new FontAwesome.Sharp.IconButton();
             this.pnl_Contenido = new System.Windows.Forms.Panel();
-            this.btn_MostrarTodos = new FontAwesome.Sharp.IconButton();
-            this.btn_Consultar = new FontAwesome.Sharp.IconButton();
+            this.lbl_Dato = new System.Windows.Forms.Label();
+            this.txt_CedulaNombre = new System.Windows.Forms.TextBox();
+            this.rdb_Cedula = new System.Windows.Forms.RadioButton();
+            this.rdb_Nombre = new System.Windows.Forms.RadioButton();
             this.cmb_Disponibilidad = new System.Windows.Forms.ComboBox();
             this.chk_Disponibilidad = new System.Windows.Forms.CheckBox();
-            this.rdb_Nombre = new System.Windows.Forms.RadioButton();
-            this.rdb_Cedula = new System.Windows.Forms.RadioButton();
-            this.txt_CedulaNombre = new System.Windows.Forms.TextBox();
-            this.lbl_Dato = new System.Windows.Forms.Label();
+            this.btn_Consultar = new FontAwesome.Sharp.IconButton();
+            this.btn_MostrarTodos = new FontAwesome.Sharp.IconButton();
             this.dgv_Secretaria = new System.Windows.Forms.DataGridView();
+            this.btn_Modificar = new FontAwesome.Sharp.IconButton();
+            this.btn_Imprimir = new FontAwesome.Sharp.IconButton();
             this.pnl_Titulo = new System.Windows.Forms.Panel();
             this.lbl_titulo = new System.Windows.Forms.Label();
             this.sfd_VentanaGuardado = new System.Windows.Forms.SaveFileDialog();
@@ -65,44 +65,7 @@ namespace Visual
             this.pnl_Cuerpo.Location = new System.Drawing.Point(0, 63);
             this.pnl_Cuerpo.Name = "pnl_Cuerpo";
             this.pnl_Cuerpo.Size = new System.Drawing.Size(690, 513);
-            this.pnl_Cuerpo.TabIndex = 4;
-            // 
-            // btn_Imprimir
-            // 
-            this.btn_Imprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Imprimir.FlatAppearance.BorderSize = 0;
-            this.btn_Imprimir.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Imprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_Imprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btn_Imprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_Imprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Imprimir.Location = new System.Drawing.Point(358, 427);
-            this.btn_Imprimir.Name = "btn_Imprimir";
-            this.btn_Imprimir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Imprimir.Size = new System.Drawing.Size(183, 52);
-            this.btn_Imprimir.TabIndex = 16;
-            this.btn_Imprimir.Text = "Imprimir";
-            this.btn_Imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Imprimir.UseVisualStyleBackColor = true;
-            this.btn_Imprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btn_Modificar
-            // 
-            this.btn_Modificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Modificar.FlatAppearance.BorderSize = 0;
-            this.btn_Modificar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Modificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_Modificar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.btn_Modificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_Modificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Modificar.Location = new System.Drawing.Point(150, 427);
-            this.btn_Modificar.Name = "btn_Modificar";
-            this.btn_Modificar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Modificar.Size = new System.Drawing.Size(183, 52);
-            this.btn_Modificar.TabIndex = 15;
-            this.btn_Modificar.Text = "Modificar";
-            this.btn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.pnl_Cuerpo.TabIndex = 1;
             // 
             // pnl_Contenido
             // 
@@ -121,25 +84,72 @@ namespace Visual
             this.pnl_Contenido.Location = new System.Drawing.Point(26, 23);
             this.pnl_Contenido.Name = "pnl_Contenido";
             this.pnl_Contenido.Size = new System.Drawing.Size(638, 378);
-            this.pnl_Contenido.TabIndex = 14;
+            this.pnl_Contenido.TabIndex = 0;
             // 
-            // btn_MostrarTodos
+            // lbl_Dato
             // 
-            this.btn_MostrarTodos.FlatAppearance.BorderSize = 0;
-            this.btn_MostrarTodos.Font = new System.Drawing.Font("Century Gothic", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_MostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_MostrarTodos.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btn_MostrarTodos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
-            this.btn_MostrarTodos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_MostrarTodos.IconSize = 35;
-            this.btn_MostrarTodos.Location = new System.Drawing.Point(332, 82);
-            this.btn_MostrarTodos.Name = "btn_MostrarTodos";
-            this.btn_MostrarTodos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_MostrarTodos.Size = new System.Drawing.Size(171, 37);
-            this.btn_MostrarTodos.TabIndex = 57;
-            this.btn_MostrarTodos.Text = "Mostrar Todos";
-            this.btn_MostrarTodos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_MostrarTodos.UseVisualStyleBackColor = true;
+            this.lbl_Dato.AutoSize = true;
+            this.lbl_Dato.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Dato.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Dato.Location = new System.Drawing.Point(36, 19);
+            this.lbl_Dato.Name = "lbl_Dato";
+            this.lbl_Dato.Size = new System.Drawing.Size(49, 15);
+            this.lbl_Dato.TabIndex = 0;
+            this.lbl_Dato.Text = "Dato: ";
+            // 
+            // txt_CedulaNombre
+            // 
+            this.txt_CedulaNombre.Location = new System.Drawing.Point(88, 17);
+            this.txt_CedulaNombre.Name = "txt_CedulaNombre";
+            this.txt_CedulaNombre.Size = new System.Drawing.Size(152, 20);
+            this.txt_CedulaNombre.TabIndex = 1;
+            // 
+            // rdb_Cedula
+            // 
+            this.rdb_Cedula.AutoSize = true;
+            this.rdb_Cedula.BackColor = System.Drawing.Color.Transparent;
+            this.rdb_Cedula.Checked = true;
+            this.rdb_Cedula.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_Cedula.Location = new System.Drawing.Point(258, 16);
+            this.rdb_Cedula.Name = "rdb_Cedula";
+            this.rdb_Cedula.Size = new System.Drawing.Size(67, 19);
+            this.rdb_Cedula.TabIndex = 2;
+            this.rdb_Cedula.TabStop = true;
+            this.rdb_Cedula.Text = "Cédula";
+            this.rdb_Cedula.UseVisualStyleBackColor = false;
+            // 
+            // rdb_Nombre
+            // 
+            this.rdb_Nombre.AutoSize = true;
+            this.rdb_Nombre.BackColor = System.Drawing.Color.Transparent;
+            this.rdb_Nombre.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_Nombre.Location = new System.Drawing.Point(337, 16);
+            this.rdb_Nombre.Name = "rdb_Nombre";
+            this.rdb_Nombre.Size = new System.Drawing.Size(67, 19);
+            this.rdb_Nombre.TabIndex = 3;
+            this.rdb_Nombre.Text = "Nombre";
+            this.rdb_Nombre.UseVisualStyleBackColor = false;
+            // 
+            // cmb_Disponibilidad
+            // 
+            this.cmb_Disponibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Disponibilidad.FormattingEnabled = true;
+            this.cmb_Disponibilidad.Location = new System.Drawing.Point(88, 48);
+            this.cmb_Disponibilidad.Name = "cmb_Disponibilidad";
+            this.cmb_Disponibilidad.Size = new System.Drawing.Size(152, 21);
+            this.cmb_Disponibilidad.TabIndex = 4;
+            // 
+            // chk_Disponibilidad
+            // 
+            this.chk_Disponibilidad.AutoSize = true;
+            this.chk_Disponibilidad.BackColor = System.Drawing.Color.Transparent;
+            this.chk_Disponibilidad.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Disponibilidad.Location = new System.Drawing.Point(258, 51);
+            this.chk_Disponibilidad.Name = "chk_Disponibilidad";
+            this.chk_Disponibilidad.Size = new System.Drawing.Size(124, 19);
+            this.chk_Disponibilidad.TabIndex = 5;
+            this.chk_Disponibilidad.Text = "Disponibilidad";
+            this.chk_Disponibilidad.UseVisualStyleBackColor = false;
             // 
             // btn_Consultar
             // 
@@ -154,75 +164,30 @@ namespace Visual
             this.btn_Consultar.Name = "btn_Consultar";
             this.btn_Consultar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Consultar.Size = new System.Drawing.Size(171, 37);
-            this.btn_Consultar.TabIndex = 16;
+            this.btn_Consultar.TabIndex = 6;
             this.btn_Consultar.Text = "Consultar";
             this.btn_Consultar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Consultar.UseVisualStyleBackColor = true;
+            this.btn_Consultar.Click += new System.EventHandler(this.btn_Consultar_Click);
             // 
-            // cmb_Disponibilidad
+            // btn_MostrarTodos
             // 
-            this.cmb_Disponibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Disponibilidad.FormattingEnabled = true;
-            this.cmb_Disponibilidad.Location = new System.Drawing.Point(88, 48);
-            this.cmb_Disponibilidad.Name = "cmb_Disponibilidad";
-            this.cmb_Disponibilidad.Size = new System.Drawing.Size(152, 21);
-            this.cmb_Disponibilidad.TabIndex = 56;
-            // 
-            // chk_Disponibilidad
-            // 
-            this.chk_Disponibilidad.AutoSize = true;
-            this.chk_Disponibilidad.BackColor = System.Drawing.Color.Transparent;
-            this.chk_Disponibilidad.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Disponibilidad.Location = new System.Drawing.Point(258, 51);
-            this.chk_Disponibilidad.Name = "chk_Disponibilidad";
-            this.chk_Disponibilidad.Size = new System.Drawing.Size(124, 19);
-            this.chk_Disponibilidad.TabIndex = 55;
-            this.chk_Disponibilidad.Text = "Disponibilidad";
-            this.chk_Disponibilidad.UseVisualStyleBackColor = false;
-            // 
-            // rdb_Nombre
-            // 
-            this.rdb_Nombre.AutoSize = true;
-            this.rdb_Nombre.BackColor = System.Drawing.Color.Transparent;
-            this.rdb_Nombre.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Nombre.Location = new System.Drawing.Point(337, 16);
-            this.rdb_Nombre.Name = "rdb_Nombre";
-            this.rdb_Nombre.Size = new System.Drawing.Size(67, 19);
-            this.rdb_Nombre.TabIndex = 52;
-            this.rdb_Nombre.Text = "Nombre";
-            this.rdb_Nombre.UseVisualStyleBackColor = false;
-            // 
-            // rdb_Cedula
-            // 
-            this.rdb_Cedula.AutoSize = true;
-            this.rdb_Cedula.BackColor = System.Drawing.Color.Transparent;
-            this.rdb_Cedula.Checked = true;
-            this.rdb_Cedula.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Cedula.Location = new System.Drawing.Point(258, 16);
-            this.rdb_Cedula.Name = "rdb_Cedula";
-            this.rdb_Cedula.Size = new System.Drawing.Size(67, 19);
-            this.rdb_Cedula.TabIndex = 51;
-            this.rdb_Cedula.TabStop = true;
-            this.rdb_Cedula.Text = "Cédula";
-            this.rdb_Cedula.UseVisualStyleBackColor = false;
-            // 
-            // txt_CedulaNombre
-            // 
-            this.txt_CedulaNombre.Location = new System.Drawing.Point(88, 17);
-            this.txt_CedulaNombre.Name = "txt_CedulaNombre";
-            this.txt_CedulaNombre.Size = new System.Drawing.Size(152, 20);
-            this.txt_CedulaNombre.TabIndex = 50;
-            // 
-            // lbl_Dato
-            // 
-            this.lbl_Dato.AutoSize = true;
-            this.lbl_Dato.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Dato.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Dato.Location = new System.Drawing.Point(36, 19);
-            this.lbl_Dato.Name = "lbl_Dato";
-            this.lbl_Dato.Size = new System.Drawing.Size(49, 15);
-            this.lbl_Dato.TabIndex = 49;
-            this.lbl_Dato.Text = "Dato: ";
+            this.btn_MostrarTodos.FlatAppearance.BorderSize = 0;
+            this.btn_MostrarTodos.Font = new System.Drawing.Font("Century Gothic", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_MostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_MostrarTodos.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btn_MostrarTodos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_MostrarTodos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_MostrarTodos.IconSize = 35;
+            this.btn_MostrarTodos.Location = new System.Drawing.Point(332, 82);
+            this.btn_MostrarTodos.Name = "btn_MostrarTodos";
+            this.btn_MostrarTodos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_MostrarTodos.Size = new System.Drawing.Size(171, 37);
+            this.btn_MostrarTodos.TabIndex = 7;
+            this.btn_MostrarTodos.Text = "Mostrar Todos";
+            this.btn_MostrarTodos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_MostrarTodos.UseVisualStyleBackColor = true;
+            this.btn_MostrarTodos.Click += new System.EventHandler(this.btn_MostrarTodos_Click);
             // 
             // dgv_Secretaria
             // 
@@ -234,7 +199,45 @@ namespace Visual
             this.dgv_Secretaria.ReadOnly = true;
             this.dgv_Secretaria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Secretaria.Size = new System.Drawing.Size(585, 224);
-            this.dgv_Secretaria.TabIndex = 48;
+            this.dgv_Secretaria.TabIndex = 8;
+            // 
+            // btn_Modificar
+            // 
+            this.btn_Modificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Modificar.FlatAppearance.BorderSize = 0;
+            this.btn_Modificar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Modificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_Modificar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.btn_Modificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_Modificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Modificar.Location = new System.Drawing.Point(150, 427);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Modificar.Size = new System.Drawing.Size(183, 52);
+            this.btn_Modificar.TabIndex = 1;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
+            // 
+            // btn_Imprimir
+            // 
+            this.btn_Imprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Imprimir.FlatAppearance.BorderSize = 0;
+            this.btn_Imprimir.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Imprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_Imprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btn_Imprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btn_Imprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Imprimir.Location = new System.Drawing.Point(358, 427);
+            this.btn_Imprimir.Name = "btn_Imprimir";
+            this.btn_Imprimir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Imprimir.Size = new System.Drawing.Size(183, 52);
+            this.btn_Imprimir.TabIndex = 2;
+            this.btn_Imprimir.Text = "Imprimir";
+            this.btn_Imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Imprimir.UseVisualStyleBackColor = true;
+            this.btn_Imprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // pnl_Titulo
             // 
@@ -244,7 +247,7 @@ namespace Visual
             this.pnl_Titulo.Location = new System.Drawing.Point(0, 0);
             this.pnl_Titulo.Name = "pnl_Titulo";
             this.pnl_Titulo.Size = new System.Drawing.Size(690, 63);
-            this.pnl_Titulo.TabIndex = 3;
+            this.pnl_Titulo.TabIndex = 0;
             // 
             // lbl_titulo
             // 
@@ -257,7 +260,7 @@ namespace Visual
             this.lbl_titulo.Location = new System.Drawing.Point(102, 9);
             this.lbl_titulo.Name = "lbl_titulo";
             this.lbl_titulo.Size = new System.Drawing.Size(442, 44);
-            this.lbl_titulo.TabIndex = 1;
+            this.lbl_titulo.TabIndex = 0;
             this.lbl_titulo.Text = "Consulta de Secretarias";
             // 
             // err_Alerta
@@ -275,6 +278,7 @@ namespace Visual
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Secretaria_Consultar";
             this.Text = "Frm_Secretaria_Consultar";
+            this.Load += new System.EventHandler(this.Frm_Secretaria_Consultar_Load);
             this.pnl_Cuerpo.ResumeLayout(false);
             this.pnl_Contenido.ResumeLayout(false);
             this.pnl_Contenido.PerformLayout();
