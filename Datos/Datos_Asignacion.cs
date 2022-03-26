@@ -284,6 +284,32 @@ namespace Datos {
             return DtResultado;
         }
 
+        public string CumplirAsignacion(int idAs)
+        {
+            SqlConnection conexion = con.abrir_conexion();
+            string msj = "";
+            try
+            {
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "sp_cumplir_asignacion";
+                comando.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param_id = new SqlParameter();
+                param_id.ParameterName = "@idAs";
+                param_id.SqlDbType = SqlDbType.Int;
+                param_id.Value = idAs;
+                comando.Parameters.Add(param_id);
+
+                msj = comando.ExecuteNonQuery() == 1 ? "1" : "No se ingreso el registro";
+            }
+            catch (Exception ex)
+            {
+                msj = "en conductor error" + ex.Message + ex.StackTrace;
+            }
+            return msj;
+        }
+
         public object LlenarComboAmbulancia()
         {
             DataTable DtResultado = new DataTable("TIPO_AMBULANCIA");
