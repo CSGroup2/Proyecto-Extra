@@ -34,6 +34,7 @@ namespace Control {
         List<Asignacion_Cabecera> listaC = null;
         List<Asignacion_Detalle> listaD = null;
 
+
         Adm_Login admL = Adm_Login.GetAdm();
 
         Adm_Peticion admP = Adm_Peticion.GetAdm();
@@ -297,6 +298,20 @@ namespace Control {
                 MessageBox.Show("Se ha cumplido la peticion.");
             else
                 MessageBox.Show("error al cumplir petición.");
+        }
+
+        /*--------------------------Frm_Asignacion_Eliminar-------------------------------*/
+        public void LlenarTablaAsignacionesAntiguas(DataGridView dgvAsignaciones)
+        {
+            dgvAsignaciones.Refresh();
+            dgvAsignaciones.DataSource = datosAsignacion.ListarAsignacionesAntiguas(admL.IdUsuario());
+        }
+
+        public string EliminarAsignacion(int id)
+        {
+            string msj = "";
+            msj = datosAsignacion.EliminarAsignacion(id);
+            return msj;
         }
     }
 }
