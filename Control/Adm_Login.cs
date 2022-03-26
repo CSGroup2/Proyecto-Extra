@@ -56,6 +56,11 @@ namespace Control {
             }
         }
 
+        /*public string cambiar_contrasenia()
+        {
+
+        }*/
+
         public string RecuperarPassword (string userrequesting) {
             return datosLogin.RecuperarPassword (userrequesting);
         }
