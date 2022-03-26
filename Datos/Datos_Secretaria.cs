@@ -45,7 +45,7 @@ namespace Datos {
             }
             return dataTable;
         }
-
+        
         /*------------------------------ Frm_Secretaria_Editar ------------------------------*/
 
         public Secretaria SecretariaBuscarPorIdDatos (int idSecretaria) {
