@@ -218,5 +218,58 @@ namespace Datos
             }
             return client;
         }
+
+        public string actualizarcliente(Cliente cliente)
+        {
+            Conexion conexion = null;
+            SqlConnection sql_conexion = null;
+            SqlCommand sql_comando = null;
+            string mensaje = "";
+            string procedimeinto = "sp_cliente_actualizarDatos";  // Stored Procedure name
+            try
+            {
+                conexion = new Conexion();
+                sql_conexion = conexion.abrir_conexion();              // Opens conexion to sql server
+                sql_comando = new SqlCommand(procedimeinto, sql_conexion);     // Creatin SqlCommand object
+                sql_comando.CommandType = CommandType.StoredProcedure;  // Declaring command type as stored Procedure
+                                                                        // Adding values to paramerters to SqlCommand below
+                sql_comando.Parameters.AddWithValue("@id_cliente", cliente.Id_cliente);
+                sql_comando.Parameters.AddWithValue("@id_estado", cliente.Id_estado);
+                sql_comando.Parameters.AddWithValue("@nombre_1", cliente.Nombre_1);
+                sql_comando.Parameters.AddWithValue("@nombre_2", cliente.Nombre_2);
+                sql_comando.Parameters.AddWithValue("@nombre_usuario", cliente.Usuario.Nombre_usuario);
+                sql_comando.Parameters.AddWithValue("@apellido_1", cliente.Apellido_1);
+                sql_comando.Parameters.AddWithValue("@apellido_2", cliente.Apellido_2);
+                sql_comando.Parameters.AddWithValue("@sexo", cliente.Sexo);
+                sql_comando.Parameters.AddWithValue("@fecha_nac", cliente.Fecha_nac);
+                sql_comando.Parameters.AddWithValue("@telefono", cliente.Telefono);
+                sql_comando.Parameters.AddWithValue("@correo", cliente.Usuario.Correo);
+                sql_comando.Parameters.AddWithValue("@contrasenia", cliente.Usuario.Contrasenia);
+                sql_comando.Parameters.AddWithValue("@idhospital", cliente.Id_hospital);
+
+                int cant = sql_comando.ExecuteNonQuery();
+                if (cant > 0)
+                {
+                    mensaje = "El cliente se ha actualizado con exito";
+                }
+                else
+                {
+                    mensaje = "Error al actualizar, intentalo mas tarde o use otro correo";
+                }
+                conexion.cerrar_conexion(sql_conexion);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "OCURRIO UN ERROR. \n" + ex.Message;
+                conexion.cerrar_conexion(sql_conexion);
+            }
+            finally
+            {
+                conexion.cerrar_conexion(sql_conexion);
+            }
+            return mensaje;
+        }
+
+
     }
 }
