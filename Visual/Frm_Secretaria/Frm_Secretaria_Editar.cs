@@ -18,16 +18,17 @@ namespace Visual {
             InitializeComponent ();
             listarEstados ();
             rdb_Masculino.Checked = false;
+
         }
         public Frm_Secretaria_Editar (int idSecretaria) {
             InitializeComponent ();
             listarEstados ();
             llenarCamposEditar (idSecretaria);
+
         }
 
         private void Frm_Secretaria_Editar_Load (object sender, EventArgs e) {
-            listarEstados ();
-            rdb_Masculino.Checked = false;
+
         }
 
         #region ------------------------------ Frm load at begining
