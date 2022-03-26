@@ -36,7 +36,7 @@ namespace Visual
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GBoxcontrasenia = new System.Windows.Forms.GroupBox();
             this.chxcontra = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtcontractual = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@ namespace Visual
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GBoxcontrasenia.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -128,22 +128,22 @@ namespace Visual
             this.label4.TabIndex = 10;
             this.label4.Text = "Cargo:";
             // 
-            // groupBox1
+            // GBoxcontrasenia
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.chxcontra);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtcontractual);
-            this.groupBox1.Controls.Add(this.txt_Contrasenia2);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txt_Contrasenia1);
-            this.groupBox1.Location = new System.Drawing.Point(17, 290);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 146);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Contraseña";
+            this.GBoxcontrasenia.BackColor = System.Drawing.Color.White;
+            this.GBoxcontrasenia.Controls.Add(this.chxcontra);
+            this.GBoxcontrasenia.Controls.Add(this.label5);
+            this.GBoxcontrasenia.Controls.Add(this.txtcontractual);
+            this.GBoxcontrasenia.Controls.Add(this.txt_Contrasenia2);
+            this.GBoxcontrasenia.Controls.Add(this.label14);
+            this.GBoxcontrasenia.Controls.Add(this.label12);
+            this.GBoxcontrasenia.Controls.Add(this.txt_Contrasenia1);
+            this.GBoxcontrasenia.Location = new System.Drawing.Point(17, 290);
+            this.GBoxcontrasenia.Name = "GBoxcontrasenia";
+            this.GBoxcontrasenia.Size = new System.Drawing.Size(413, 146);
+            this.GBoxcontrasenia.TabIndex = 11;
+            this.GBoxcontrasenia.TabStop = false;
+            this.GBoxcontrasenia.Text = "Contraseña";
             // 
             // chxcontra
             // 
@@ -280,7 +280,7 @@ namespace Visual
             this.Controls.Add(this.lblcargo);
             this.Controls.Add(this.lblapellidos);
             this.Controls.Add(this.lblnombres);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GBoxcontrasenia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -295,8 +295,8 @@ namespace Visual
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GBoxcontrasenia.ResumeLayout(false);
+            this.GBoxcontrasenia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +311,7 @@ namespace Visual
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GBoxcontrasenia;
         private System.Windows.Forms.Label lblnombres;
         private System.Windows.Forms.Label lblapellidos;
         private System.Windows.Forms.Label lblcargo;

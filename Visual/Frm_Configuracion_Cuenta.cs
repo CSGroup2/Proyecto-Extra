@@ -24,6 +24,7 @@ namespace Visual
             lblnombres.Text = admLogin.NombreUsuario();
             lblapellidos.Text = admLogin.ApellidoUsuario();
             lblcargo.Text = admLogin.TipoUsuario();
+            this.GBoxcontrasenia.BackColor = Color.FromArgb(200, 255, 255, 255);
         }
 
         private void MensajeError(string mensaje)
