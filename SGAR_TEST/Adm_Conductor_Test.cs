@@ -28,7 +28,7 @@ namespace SGAR_TEST {
             Assert.AreEqual ("¡CÉDULA YA EXISTE!", mensaje);
         }
         
-        
+        /*
         [TestMethod]
         public void ConductorTestRegistrarNuevo () {
             Adm_Conductor admConductor = Adm_Conductor.GetAdm ();
@@ -47,9 +47,9 @@ namespace SGAR_TEST {
             mensaje = admConductor.ConductorRegistrar (cedula, nombre1, nombre2, apellido1, apellido2, telefono, sexo, fechaNacimiento, fechaContrato);
             Assert.AreEqual ("DATOS GUARDADOS CORRECTAMENTE.", mensaje);
         }
-        
+        */
         #endregion
-
+        
         #region Test Methods: Consultar
         /*
         [TestMethod]

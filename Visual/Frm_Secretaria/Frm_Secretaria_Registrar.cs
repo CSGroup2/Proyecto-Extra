@@ -31,7 +31,7 @@ namespace Visual {
 
         private void btn_Guardar_Click (object sender, EventArgs e) {
             err_Alerta.Clear ();
-            if (Validacion.esCorrecto_DatosSecretaria (txt_Cedula, txt_Nombre1, txt_Nombre2, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, err_Alerta)) {
+            if (Validacion.esCorrecto_DatosSecretaria (txt_Cedula, txt_Nombre1, txt_Apellido1, txt_Apellido2, txt_Correo, txt_Telefono, rdb_Masculino, rdb_Femenino, dtp_FechaNacimiento, dtp_FechaContrato, txt_NombreUsuario, txt_Contrasenia1, txt_Contrasenia2, err_Alerta)) {
                 string
                    cedula = txt_Cedula.Text.Trim (),
                    nombre1 = txt_Nombre1.Text.Trim (),

@@ -173,7 +173,7 @@ namespace Control {
 
         #region Validation: Frm_Secretaria_Registrar - errorprovider emtpy fields & incorrect email
 
-        public bool esCorrecto_DatosSecretaria (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Nombre2, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider err_Alerta) {
+        public bool esCorrecto_DatosSecretaria (TextBox txt_Cedula, TextBox txt_Nombre1, TextBox txt_Apellido1, TextBox txt_Apellido2, TextBox txt_Correo, TextBox txt_Telefono, RadioButton rdb_Masculino, RadioButton rdb_Femenino, DateTimePicker dtp_FechaNacimiento, DateTimePicker dtp_FechaContrato, TextBox txt_NombreUsuario, TextBox txt_Contrasenia1, TextBox txt_Contrasenia2, ErrorProvider err_Alerta) {
             bool esCorrecto = true;
             string mensaje = "Campo obligatorio.";
             string correo = txt_Correo.Text.Trim ();
@@ -183,10 +183,6 @@ namespace Control {
             }
             if (txt_Nombre1.Text.Trim () == "") {
                 err_Alerta.SetError (txt_Nombre1, mensaje);
-                esCorrecto = false;
-            }
-            if (txt_Nombre2.Text.Trim () == "") {
-                err_Alerta.SetError (txt_Nombre2, mensaje);
                 esCorrecto = false;
             }
             if (txt_Apellido1.Text.Trim () == "") {
