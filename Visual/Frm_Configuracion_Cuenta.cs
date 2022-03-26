@@ -48,6 +48,10 @@ namespace Visual
                 {
                     MessageBox.Show("Las contraseñas no coinciden.", "Los Rapidos SGAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                else if(txt_Contrasenia1.Text.Trim() == "" && txt_Contrasenia2.Text.Trim() == "")
+                {
+                    MessageBox.Show("Las contraseñas no pueden estar vacias.", "Los Rapidos SGAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 else
                 {
                     string mensaje = admLogin.cambiar_contrasenia(admLogin.IdUsuario(), admLogin.TipoUsuario(), txtcontractual.Text, txt_Contrasenia2.Text);
