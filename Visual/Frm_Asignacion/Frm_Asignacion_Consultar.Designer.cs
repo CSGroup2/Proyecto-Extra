@@ -43,6 +43,7 @@ namespace Visual
             this.rdbProgreso = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnCumplir = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +81,7 @@ namespace Visual
             this.dgvAsignaciones.Location = new System.Drawing.Point(12, 163);
             this.dgvAsignaciones.Name = "dgvAsignaciones";
             this.dgvAsignaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAsignaciones.Size = new System.Drawing.Size(650, 324);
+            this.dgvAsignaciones.Size = new System.Drawing.Size(650, 285);
             this.dgvAsignaciones.TabIndex = 4;
             // 
             // btnCancelar
@@ -128,7 +129,7 @@ namespace Visual
             this.txt_Cedula.BackColor = System.Drawing.SystemColors.Window;
             this.txt_Cedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Cedula.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cedula.Location = new System.Drawing.Point(153, 108);
+            this.txt_Cedula.Location = new System.Drawing.Point(147, 108);
             this.txt_Cedula.MaxLength = 25;
             this.txt_Cedula.Name = "txt_Cedula";
             this.txt_Cedula.Size = new System.Drawing.Size(158, 26);
@@ -161,7 +162,7 @@ namespace Visual
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label3.Location = new System.Drawing.Point(23, 110);
+            this.label3.Location = new System.Drawing.Point(17, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 18);
             this.label3.TabIndex = 28;
@@ -245,12 +246,33 @@ namespace Visual
             this.label4.TabIndex = 37;
             this.label4.Text = "Estado:";
             // 
+            // btnCumplir
+            // 
+            this.btnCumplir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCumplir.FlatAppearance.BorderSize = 0;
+            this.btnCumplir.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCumplir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btnCumplir.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.btnCumplir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
+            this.btnCumplir.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnCumplir.IconSize = 30;
+            this.btnCumplir.Location = new System.Drawing.Point(473, 454);
+            this.btnCumplir.Name = "btnCumplir";
+            this.btnCumplir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCumplir.Size = new System.Drawing.Size(189, 33);
+            this.btnCumplir.TabIndex = 38;
+            this.btnCumplir.Text = "Cumplir";
+            this.btnCumplir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCumplir.UseVisualStyleBackColor = true;
+            this.btnCumplir.Click += new System.EventHandler(this.btnCumplir_Click);
+            // 
             // Frm_Asignacion_Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Visual.Properties.Resources._9;
             this.ClientSize = new System.Drawing.Size(674, 537);
+            this.Controls.Add(this.btnCumplir);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rdbCumplida);
             this.Controls.Add(this.rdbProgreso);
@@ -290,5 +312,6 @@ namespace Visual
         private System.Windows.Forms.RadioButton rdbProgreso;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private FontAwesome.Sharp.IconButton btnCumplir;
     }
 }

@@ -37,7 +37,7 @@ namespace SGAR_TEST
             msj = admAs.guardarAsignacionBD(ac,ad);
 
 
-            Assert.AreEqual("La Asignación fue ingresada correctamente.", msj);
+            Assert.AreEqual("1", msj);
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@ namespace SGAR_TEST
             msj = admAs.guardarAsignacionBD(ac, ad);
 
 
-            Assert.AreEqual("Error no se pudo ingresar la asignacion", msj);
+            Assert.AreEqual("No se pudo insertar", msj);
         }
     }
 }

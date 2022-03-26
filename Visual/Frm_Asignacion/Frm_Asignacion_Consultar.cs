@@ -86,5 +86,11 @@ namespace Visual
             Frm_Asignacion_Editar frmE = new Frm_Asignacion_Editar(idAs);
             frmE.ShowDialog();
         }
+
+        private void btnCumplir_Click(object sender, EventArgs e)
+        {
+            int idAs = Int32.Parse(GetValorCelda(dgvAsignaciones, 0));
+            adm.CumplirAsignacion(idAs);
+        }
     }
 }

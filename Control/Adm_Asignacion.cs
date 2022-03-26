@@ -205,17 +205,16 @@ namespace Control {
         //guarda asignacion en base de datos
         public string guardarAsignacionBD(List<Asignacion_Cabecera> ac,List<Asignacion_Detalle> ad)
         {
-            string mensaje = "",msj="";
+            string mensaje = "";
             mensaje = datosAsignacion.insetarAsignacion(ac,ad);
             if (mensaje[0] == '1')
             {
                 MessageBox.Show("La Asignación fue ingresada correctamente.");
-                msj = "La Asignación fue ingresada correctamente.";
             }
             else 
             {
-                MessageBox.Show("Error: " + mensaje);
-                msj = "Error no se pudo ingresar la asignacion";
+                mensaje = "No se pudo insertar";
+                MessageBox.Show("Error." + mensaje);
             }
             return mensaje;
         }
@@ -288,6 +287,16 @@ namespace Control {
         {
             dgvAmb_Cond.DataSource = null;
             dgvAmb_Cond.DataSource = datosAsignacion.consultarAsigDetallexIdAs(idAs);
+        }
+
+        public void CumplirAsignacion(int idAs)
+        {
+            string mensaje = datosAsignacion.CumplirAsignacion(idAs);  //editar la asignacion en la base de datos
+
+            if (mensaje[0] == '1')
+                MessageBox.Show("Se ha cumplido la peticion.");
+            else
+                MessageBox.Show("error al cumplir petición.");
         }
     }
 }
