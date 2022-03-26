@@ -56,6 +56,11 @@ namespace Control {
             }
         }
 
+        public string cambiar_contrasenia(int idtipo, string tipo, string contra, string contranueva)
+        {
+            return datosLogin.cambiarcontrasenia(idtipo, tipo, contra, contranueva); 
+        }
+
         public string RecuperarPassword (string userrequesting) {
             return datosLogin.RecuperarPassword (userrequesting);
         }

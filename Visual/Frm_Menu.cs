@@ -337,5 +337,21 @@ namespace Visual {
         {
             abrirhijoform(new Frm_Asignacion.Frm_Asignacion_Eliminar());
         }
+
+        private void lblconfiguracion_Click(object sender, EventArgs e)
+        {
+            this.configuracion();
+        }
+
+        private void configuracion()
+        {
+            Frm_Configuracion_Cuenta frmConfig = new Frm_Configuracion_Cuenta();
+            frmConfig.ShowDialog();
+        }
+
+        private void btnconfig_Click(object sender, EventArgs e)
+        {
+            this.configuracion();
+        }
     }
 }
