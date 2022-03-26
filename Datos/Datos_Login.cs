@@ -79,7 +79,6 @@ namespace Datos {
             } else {
                 return "Lo sentimos, no existe una cuenta asociada a este usuario o correo electronico";
             }
-
         }
     }
 }

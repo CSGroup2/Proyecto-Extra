@@ -39,8 +39,7 @@ namespace Datos {
 
                 smtpClient.Send (mailMassage);
             } catch (Exception ex) {
-                //MessageBox.Show("ocurrio un error "+ ex.Message);
-                //MessageBox.Show ("ocurrio un error " + ex.ToString ()); // no debe tener acceo a windows form
+                String mensaje = "ocurrio un error " + ex.ToString();
             } finally {
                 mailMassage.Dispose ();
                 smtpClient.Dispose ();

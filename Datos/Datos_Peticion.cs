@@ -30,6 +30,7 @@ namespace Datos
             } catch (Exception ex)
             {
                 con.cerrar_conexion(conexion);
+                ced = "ocurrio un erro: " + ex.Message;
             }
             finally
             {
