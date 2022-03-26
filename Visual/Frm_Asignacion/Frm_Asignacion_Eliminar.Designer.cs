@@ -35,8 +35,10 @@ namespace Visual.Frm_Asignacion
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,7 +59,7 @@ namespace Visual.Frm_Asignacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            this.label2.Location = new System.Drawing.Point(107, 9);
+            this.label2.Location = new System.Drawing.Point(117, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(440, 49);
             this.label2.TabIndex = 1;
@@ -69,10 +71,10 @@ namespace Visual.Frm_Asignacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAsignaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsignaciones.Location = new System.Drawing.Point(12, 101);
+            this.dgvAsignaciones.Location = new System.Drawing.Point(15, 25);
             this.dgvAsignaciones.Name = "dgvAsignaciones";
             this.dgvAsignaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAsignaciones.Size = new System.Drawing.Size(650, 285);
+            this.dgvAsignaciones.Size = new System.Drawing.Size(650, 291);
             this.dgvAsignaciones.TabIndex = 5;
             // 
             // btnEliminar
@@ -85,7 +87,7 @@ namespace Visual.Frm_Asignacion
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 35;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(364, 452);
+            this.btnEliminar.Location = new System.Drawing.Point(354, 370);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEliminar.Size = new System.Drawing.Size(183, 54);
@@ -105,7 +107,7 @@ namespace Visual.Frm_Asignacion
             this.btnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 30;
-            this.btnCancelar.Location = new System.Drawing.Point(105, 452);
+            this.btnCancelar.Location = new System.Drawing.Point(116, 370);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCancelar.Size = new System.Drawing.Size(189, 54);
@@ -120,11 +122,22 @@ namespace Visual.Frm_Asignacion
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(12, 398);
+            this.label1.Location = new System.Drawing.Point(12, 331);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(320, 13);
             this.label1.TabIndex = 34;
             this.label1.Text = "*Sólo aparecerán las peticiones con más de 3 años de antiguedad";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnEliminar);
+            this.panel2.Controls.Add(this.dgvAsignaciones);
+            this.panel2.Controls.Add(this.btnCancelar);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(0, 74);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(674, 465);
+            this.panel2.TabIndex = 35;
             // 
             // Frm_Asignacion_Eliminar
             // 
@@ -132,19 +145,17 @@ namespace Visual.Frm_Asignacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(674, 537);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.dgvAsignaciones);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Asignacion_Eliminar";
             this.Text = "Frm_Asignacion_Eliminar";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -156,5 +167,6 @@ namespace Visual.Frm_Asignacion
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
