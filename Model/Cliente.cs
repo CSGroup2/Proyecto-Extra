@@ -20,7 +20,7 @@ namespace Model
         public Cliente() : base()
         {
             this.id_hospital = 0; 
-            this.usuario = null; 
+            this.usuario = new Usuario(); 
         }
 
         //constructor parametrizado

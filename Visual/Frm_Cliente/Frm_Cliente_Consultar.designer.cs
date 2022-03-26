@@ -86,7 +86,7 @@ namespace Visual {
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 35;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(20, 346);
+            this.btnEliminar.Location = new System.Drawing.Point(460, 346);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEliminar.Size = new System.Drawing.Size(183, 52);
@@ -105,7 +105,7 @@ namespace Visual {
             this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnImprimir.Location = new System.Drawing.Point(434, 346);
+            this.btnImprimir.Location = new System.Drawing.Point(240, 346);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnImprimir.Size = new System.Drawing.Size(183, 52);
@@ -126,7 +126,7 @@ namespace Visual {
             this.btnmodificar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
             this.btnmodificar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(42)))), ((int)(((byte)(94)))));
             this.btnmodificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnmodificar.Location = new System.Drawing.Point(225, 346);
+            this.btnmodificar.Location = new System.Drawing.Point(20, 346);
             this.btnmodificar.Name = "btnmodificar";
             this.btnmodificar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnmodificar.Size = new System.Drawing.Size(183, 52);

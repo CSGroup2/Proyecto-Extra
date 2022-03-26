@@ -28,6 +28,7 @@ namespace Visual {
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.pncontenido = new System.Windows.Forms.Panel();
+            this.chxactivarbusqueda = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.lblcodigo = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace Visual {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.errpvdatoscliente = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chxactivarbusqueda = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.pncontenido.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -141,6 +141,19 @@ namespace Visual {
             this.pncontenido.TabIndex = 14;
             this.pncontenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pncontenido_Paint);
             // 
+            // chxactivarbusqueda
+            // 
+            this.chxactivarbusqueda.AutoSize = true;
+            this.chxactivarbusqueda.Checked = true;
+            this.chxactivarbusqueda.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chxactivarbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chxactivarbusqueda.Location = new System.Drawing.Point(292, 62);
+            this.chxactivarbusqueda.Name = "chxactivarbusqueda";
+            this.chxactivarbusqueda.Size = new System.Drawing.Size(15, 14);
+            this.chxactivarbusqueda.TabIndex = 37;
+            this.chxactivarbusqueda.UseVisualStyleBackColor = true;
+            this.chxactivarbusqueda.CheckedChanged += new System.EventHandler(this.chxactivarbusqueda_CheckedChanged);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
@@ -158,6 +171,7 @@ namespace Visual {
             this.btnBuscar.TabIndex = 59;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblcodigo
             // 
@@ -300,6 +314,7 @@ namespace Visual {
             this.txtmcorreo.Name = "txtmcorreo";
             this.txtmcorreo.Size = new System.Drawing.Size(209, 26);
             this.txtmcorreo.TabIndex = 19;
+            this.txtmcorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmcorreo_KeyPress);
             // 
             // label10
             // 
@@ -322,6 +337,7 @@ namespace Visual {
             this.txtmtelf.Name = "txtmtelf";
             this.txtmtelf.Size = new System.Drawing.Size(179, 26);
             this.txtmtelf.TabIndex = 17;
+            this.txtmtelf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmtelf_KeyPress);
             // 
             // label9
             // 
@@ -340,7 +356,7 @@ namespace Visual {
             this.daterfechanac.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.daterfechanac.Location = new System.Drawing.Point(158, 189);
             this.daterfechanac.Name = "daterfechanac";
-            this.daterfechanac.Size = new System.Drawing.Size(311, 26);
+            this.daterfechanac.Size = new System.Drawing.Size(315, 26);
             this.daterfechanac.TabIndex = 16;
             // 
             // label8
@@ -456,10 +472,12 @@ namespace Visual {
             this.txtmcedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtmcedula.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmcedula.Location = new System.Drawing.Point(123, 55);
+            this.txtmcedula.MaxLength = 10;
             this.txtmcedula.Name = "txtmcedula";
             this.txtmcedula.Size = new System.Drawing.Size(106, 26);
             this.txtmcedula.TabIndex = 6;
             this.txtmcedula.Text = "0914201033";
+            this.txtmcedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmcedula_KeyPress);
             // 
             // label5
             // 
@@ -578,16 +596,6 @@ namespace Visual {
             // 
             this.errpvdatoscliente.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errpvdatoscliente.ContainerControl = this;
-            // 
-            // chxactivarbusqueda
-            // 
-            this.chxactivarbusqueda.AutoSize = true;
-            this.chxactivarbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chxactivarbusqueda.Location = new System.Drawing.Point(292, 62);
-            this.chxactivarbusqueda.Name = "chxactivarbusqueda";
-            this.chxactivarbusqueda.Size = new System.Drawing.Size(15, 14);
-            this.chxactivarbusqueda.TabIndex = 37;
-            this.chxactivarbusqueda.UseVisualStyleBackColor = true;
             // 
             // Frm_Cliente_Editar
             // 

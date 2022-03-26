@@ -115,9 +115,11 @@ namespace Control
             return Datos_client.eliminarcliente(idcliente); 
         }
 
-        public void BuscarClienteID(int idclient, Label lblidcliente, TextBox txtcedula, TextBox txtnombre1, TextBox txtnombre2, TextBox txtapellido1, TextBox txtapellido2, TextBox txtcorreo, TextBox txttelefono, TextBox txtusuario, ComboBox cbxestado, ComboBox cbxhospital, RadioButton masculino, RadioButton femenino, DateTimePicker fechanacimiento)
+        public String BuscarClienteID(string dato, int tipo, Label lblidcliente, TextBox txtcedula, TextBox txtnombre1, TextBox txtnombre2, TextBox txtapellido1, TextBox txtapellido2, TextBox txtcorreo, TextBox txttelefono, TextBox txtusuario, ComboBox cbxestado, ComboBox cbxhospital, RadioButton masculino, RadioButton femenino, DateTimePicker fechanacimiento)
         {
-            client = Datos_client.buscarClienteID(idclient);          
+            client = Datos_client.buscarClienteID(dato, tipo);
+            string mensaje = "Datos no ecnontrados"; 
+            if(client != null) { 
             lblidcliente.Text = client.Id_cliente.ToString();
             txtcedula.Text = client.Cedula.ToString();
             txtnombre1.Text = client.Nombre_1.ToString();
@@ -130,7 +132,10 @@ namespace Control
             cbxestado.SelectedValue = client.Id_estado;
             cbxhospital.SelectedValue = client.Id_hospital;
             fechanacimiento.Value = DateTime.Parse(client.Fecha_nac.ToString());
-            _ = client.Sexo.Equals("Feminino") ? femenino.Checked : masculino.Checked; 
+            _ = client.Sexo.Equals("Femenino") ? femenino.Checked = true : masculino.Checked = true;
+            mensaje = "Encontrado";
+            }
+            return mensaje; 
         }
 
 
